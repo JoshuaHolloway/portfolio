@@ -1,0 +1,227 @@
+
+  
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Josh Holloway</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+header#navbar {
+  height: 100px;
+  background: black;
+}
+
+header#navbar > .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* background: yellow; */
+  height: 100%;
+  padding: 0 30px;
+}
+
+nav#navdrawer {
+  --width: 200px;
+  height: 100vh;
+  width: var(--width);
+  background: blue;
+  position: absolute;
+  top: 0;
+  transform: translateX( calc(-1 * var(--width) ) );
+
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+}
+
+nav#navdrawer > .navlinks {
+  background: darkorchid;
+  display: flex;
+  flex-direction: column;
+  /* width: fit-content; */
+}
+nav#navdrawer .navlink:not(:nth-child(1)) {
+  margin-top: 30px;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+  background: red;
+}
+.navlinks {
+  /* background: orange; */
+}
+.navlink {
+  text-decoration: none;
+  color: white;
+
+  transition: color 0.2s ease;
+}
+.navlink:hover {
+  color: orange;
+}
+header#navbar .navlink:not(:nth-child(1)) {
+  margin-left: 30px;
+}
+.hamburger {
+  fill: white;
+
+  --size: 35px;
+  height: var(--size);
+  width: var(--size);
+
+  cursor: pointer;
+}
+.hamburger svg {
+  fill: white;
+}
+
+@media (max-width: 1000px) {
+  header .navlinks { display: none; }
+}
+@media (min-width: 1000px) {
+  header .hamburger { display: none; }
+}
+
+section {
+  height: 100vh;
+}
+section#hero {
+  display: grid;
+}
+section#hero > .left,
+section#hero > .right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+} 
+
+@media (max-width: 1000px) {
+  section#hero { 
+    grid-template-columns: repeat(1, 1fr);
+  }
+  section#hero > .right { display: none; }
+}
+@media (min-width: 1000px) {
+  section#hero { 
+    grid-template-columns: repeat(2, 1fr);
+  }  
+}
+
+  </style>
+  </head>
+
+  <body>
+    
+  <header id="navbar">
+
+    <div class="container">
+      <div class="logo"></div>
+  
+      <div class="navlinks">
+        <a class="navlink" href="#">Home</a>
+        <a class="navlink" href="#">About</a>
+        <a class="navlink" href="#">Porfolio</a>
+        <a class="navlink" href="#">Contact</a>
+      </div>
+
+      <div class="hamburger">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path>
+        </svg>
+      </div>
+
+    </div>
+
+  </header>
+  
+  <nav id="navdrawer">
+    <div class="navlinks">
+      <a class="navlink" href="#">Home</a>
+      <a class="navlink" href="#">About</a>
+      <a class="navlink" href="#">Porfolio</a>
+      <a class="navlink" href="#">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <a href="#" 
+      onclick="this.href='data:text/html;charset=UTF-8,' + encodeURIComponent(document.documentElement.outerHTML)"
+      download="joshua-holloway.com.html"
+    >Download page</a>
+
+    <section id="hero">
+      <div class="left">
+        <div class="container">
+          <h1>Josh Holloway</h1>
+          <h3>Full Stack JavaScript Developer</h3>
+        </div>
+      </div>
+      <div class="right">
+        Image
+      </div>
+    </section>
+
+    <section id="portfolio"></section>
+
+  </main>
+  <footer></footer>
+
+
+
+
+
+    <script>
+      const hamburger = document.querySelector('header .hamburger');
+const navdrawer = document.querySelector('nav#navdrawer');
+
+let is_open = false;
+
+let tl;
+hamburger.addEventListener('click', () => {
+
+  const value = getComputedStyle(navdrawer).getPropertyValue('--width');
+  console.log('value: ', value);
+
+  console.log('is_open: ', is_open);
+  if (is_open) {
+    console.log('closing');
+    hamburger.style.pointerEvents = 'none';
+    tl.reverse();
+  } else {
+    console.log('opening');
+    hamburger.style.pointerEvents = 'none';
+    tl = gsap.timeline();
+    tl.to('nav', {
+      x: 0,
+      onComplete: () => {
+        hamburger.style.pointerEvents = 'auto';    
+      },
+      onReverseComplete: () => {
+        hamburger.style.pointerEvents = 'auto';    
+      },
+    });
+    
+  }
+  is_open = !is_open;
+
+});
+    </script>
+  </body>
+  

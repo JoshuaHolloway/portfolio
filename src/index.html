@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Josh Holloway</title>
+  <link rel="stylesheet" href="./index.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js" defer></script>
+  <script src="./index.js" defer></script>
+</head>
+<body>
+
+
+  <header id="navbar">
+
+    <div class="container">
+      <div class="logo"></div>
+  
+      <div class="navlinks">
+        <span class="navlink">Home</span>
+        <span class="navlink">About</span>
+        <span class="navlink">Porfolio</span>
+        <span class="navlink">Contact</span>
+      </div>
+
+      <div class="hamburger">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+      </div>
+
+    </div>
+
+  </header>
+  
+  <nav id="navdrawer">
+    <div class="navlinks">
+      <p class="navlink">Home</p>
+      <p class="navlink">About</p>
+      <p class="navlink">Porfolio</p>
+      <p class="navlink">Contact</p>
+    </div>
+  </nav>
+
+
+  <div id="home-page" class="page">
+    <main>
+
+      <a href="#" 
+        onclick="this.href='data:text/html;charset=UTF-8,' + encodeURIComponent(document.documentElement.outerHTML)"
+        download="joshua-holloway.com.html"
+      >Download page</a>
+
+      <section id="hero">
+        <div class="left">
+          <div class="container">
+            <h1>Josh Holloway</h1>
+            <h3>Full Stack JavaScript Developer</h3>
+          </div>
+        </div>
+        <div class="right">
+          Image
+        </div>
+      </section>
+
+      <section id="portfolio"></section>
+
+    </main>
+  </div>
+
+  <div id="about-page" class="page">
+    <h1>About Page</h1>
+  </div>
+
+  <div id="portfolio-page" class="page">
+    <h1>Portfolio Page</h1>
+  </div>
+
+  <div id="contact-page" class="page">
+    <h1>Contact Page</h1>
+  </div>
+
+
+
+
+  <footer></footer>
+
+</body>
+</html>

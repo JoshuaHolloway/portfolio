@@ -1,4 +1,4 @@
-1. Build system (custom)
+  1. Build system (custom)
 2. Page transition (SPA-like)
 3. Click on link changes URL route
 4. Active navlink

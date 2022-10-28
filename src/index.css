@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+
+.page {
+  min-height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+}
+.page#home-page {
+  z-index: 1;
+  background: darkorange;
+  opacity: 1;
+}
+.page#about-page { background: lightblue; }
+.page#portfolio-page { background: lightgreen; }
+.page#contact-page { background: red; }
+
+
+header#navbar {
+  height: 100px;
+  width: 100vw;
+  background: black;
+  position: fixed;
+  z-index: 10;
+}
+
+header#navbar > .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* background: yellow; */
+  height: 100%;
+  padding: 0 30px;
+}
+
+nav#navdrawer {
+  --width: 200px;
+  height: 100vh;
+  width: var(--width);
+  background: blue;
+  position: absolute;
+  top: 0;
+  transform: translateX( calc(-1 * var(--width) ) );
+
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+}
+
+nav#navdrawer > .navlinks {
+  background: darkorchid;
+  display: flex;
+  flex-direction: column;
+  /* width: fit-content; */
+}
+nav#navdrawer .navlink:not(:nth-child(1)) {
+  margin-top: 30px;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+  background: red;
+}
+.navlinks {
+  /* background: orange; */
+  cursor: pointer;
+}
+.navlink {
+  text-decoration: none;
+  color: white;
+
+  transition: color 0.2s ease;
+}
+.navlink:hover {
+  color: orange;
+}
+header#navbar .navlink:not(:nth-child(1)) {
+  margin-left: 30px;
+}
+.hamburger {
+  fill: white;
+
+  --size: 35px;
+  height: var(--size);
+  width: var(--size);
+
+  cursor: pointer;
+}
+.hamburger svg {
+  fill: white;
+}
+
+@media (max-width: 1000px) {
+  header .navlinks { display: none; }
+}
+@media (min-width: 1000px) {
+  header .hamburger { display: none; }
+}
+
+section {
+  height: 100vh;
+}
+section#hero {
+  display: grid;
+}
+section#hero > .left,
+section#hero > .right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+} 
+
+@media (max-width: 1000px) {
+  section#hero { 
+    grid-template-columns: repeat(1, 1fr);
+  }
+  section#hero > .right { display: none; }
+}
+@media (min-width: 1000px) {
+  section#hero { 
+    grid-template-columns: repeat(2, 1fr);
+  }  
+}

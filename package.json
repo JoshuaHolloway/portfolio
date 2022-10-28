@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "build": "node main.js"
+  },
+  "devDependencies": {
+    "node-html-parser": "^6.1.1"
+  }
+}
