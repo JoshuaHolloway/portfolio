@@ -4,7 +4,7 @@
     // "**/*.map": true,
     "package-lock.json": true,
     "node_modules": true,
-    ".gitignore": true,
+    ".gitignore": true
     // "README.txt": true
   }
 }
