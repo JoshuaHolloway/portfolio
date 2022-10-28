@@ -68,3 +68,29 @@ navlinks.forEach((navlink, idx) => {
 
 
 // ==============================================
+
+window.addEventListener('load', (event) => {
+
+
+    const path_local_storage = JSON.parse(window.localStorage.getItem('path'));
+    if (path_local_storage) {
+      pages.forEach(page => {
+        page.style.zIndex = 0;
+        page.style.opacity = 0;
+      });
+
+      if (path_local_storage === '/about') {
+        pages[1].style.zIndex = 1;
+        pages[1].style.opacity = 1;
+      }
+
+    }
+
+  
+  
+
+  // // Trigger local storage event:
+  // fireEvent('local-storage-cart-modified');
+
+
+});

@@ -13,8 +13,8 @@ import { fireEvent } from '/functions/custom-events.js';
   const cart_local_storage = JSON.parse(window.localStorage.getItem('cart'));
   console.log('cart (LS): ', cart_local_storage);
 
-  // Trigger local storage event:
-  fireEvent('local-storage-cart-modified');
+  // // Trigger local storage event:
+  // fireEvent('local-storage-cart-modified');
 
 })();
 

@@ -19,6 +19,24 @@
       //  directory and then redirects the
       //  user back to the actual root route.
       window.addEventListener('load', (event) => {
+
+        // // event_name: string
+        // const fireEvent = (event_name) => {
+        //   const event = new Event(event_name);
+        //   document.dispatchEvent(event);
+        // };
+
+        // const listenForEvent = (event_name, fn) => {
+        //   document.addEventListener(event_name, e => fn(e), false);
+        // };
+
+
+        window.localStorage.setItem('path', JSON.stringify('/about'));
+        const path_local_storage = JSON.parse(window.localStorage.getItem('path'));
+
+        // // Trigger local storage event:
+        // fireEvent('local-storage-cart-modified');
+
         window.location.pathname = '/';
       });
     </script>
