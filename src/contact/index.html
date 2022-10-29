@@ -19,6 +19,7 @@
       //  directory and then redirects the
       //  user back to the actual root route.
       window.addEventListener('load', (event) => {
+        window.localStorage.setItem('path', JSON.stringify('/contact'));
         window.location.pathname = '/';
       });
     </script>

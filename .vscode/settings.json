@@ -4,7 +4,10 @@
     // "**/*.map": true,
     "package-lock.json": true,
     "node_modules": true,
-    ".gitignore": true
+    ".gitignore": true,
     // "README.txt": true
+    // "src/about/": true,
+    // "src/contact/": true,
+    // "src/portfolio/": true,
   }
 }

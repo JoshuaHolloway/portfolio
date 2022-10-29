@@ -14,3 +14,23 @@
 
 --a-tag used for link
 ---disable default behavior on a-tag click
+
+==============================================================
+
+Video 3 Prep:
+
+- Page refresh redirects back to /route
+  --Step 1: Start on path /about
+  --Step 2: User refreshes page
+  --Step 3: src/about/index.html is loaded
+  --Step 4: on the load event on the window a callback is run.
+  --Step 5: In the callback we set local stroage key='path' to value='/about'
+  --Step 6: Redirect user to /index.html via window.location.pathname = '/'.
+  --Step 7: In index.js (loaded in index.html) on the window 'load'-event a callback is run.
+  --Step 8: In this callback we grab the 'path' local stroage value via window.localStorage.getItem('path').
+  --Step 9: window.localStorage.getItem('path') returns null if there is no key with the name 'path' in local-storage.
+    ---So we see if the returned value is null. If not, then this value is set.
+    ---So we need to do three things:
+      ----1. Set the active navlink (both in navbar and navdrawer)
+      ----2. Set the zIndex on the active page.
+      ----3. Set the URL path.
