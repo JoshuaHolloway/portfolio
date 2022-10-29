@@ -35,7 +35,7 @@ header#navbar {
   width: 100vw;
   background: black;
   position: fixed;
-  z-index: 10;
+  z-index: 9;
 }
 
 header#navbar > .container {
@@ -59,7 +59,9 @@ nav#navdrawer {
 
   display: flex;
   justify-content: center; 
-  align-items: center;     
+  align-items: center;
+  
+  z-index: 10;
 }
 
 nav#navdrawer > .navlinks {

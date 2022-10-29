@@ -6,8 +6,8 @@
     "node_modules": true,
     ".gitignore": true,
     // "README.txt": true
-    // "src/about/": true,
-    // "src/contact/": true,
-    // "src/portfolio/": true,
+    "src/about/": true,
+    "src/contact/": true,
+    "src/portfolio/": true,
   }
 }
