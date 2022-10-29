@@ -19,7 +19,15 @@
       //  directory and then redirects the
       //  user back to the actual root route.
       window.addEventListener('load', (event) => {
-         window.localStorage.setItem('path', JSON.stringify('/portfolio'));
+
+        window.localStorage.setItem('path', JSON.stringify('/portfolio'));
+
+        // const fireEvent = (event_name) => {
+        //   const event = new Event(event_name);
+        //   document.dispatchEvent(event);
+        // };
+        // fireEvent('local-storage-path-modified');
+
         window.location.pathname = '/';
       });
     </script>
