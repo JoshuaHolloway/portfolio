@@ -128,7 +128,7 @@ window.addEventListener('load', (event) => {
       window.history.replaceState({}, '', '/contact');
     }
 
-    gsap.fromTo(document.querySelector('body'), {opacity: 0}, {opacity: 1, duration: 1})
+    gsap.fromTo(document.querySelector('body'), {opacity: 0}, {opacity: 1, duration: 1, delay: 0.5})
 
 
     const listenForEvent = (event_name, fn) => {
