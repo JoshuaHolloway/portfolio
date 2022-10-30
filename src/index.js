@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger);
+
 const hamburger = document.querySelector('header .hamburger');
 const navdrawer = document.querySelector('nav#navdrawer');
 
@@ -137,3 +139,41 @@ window.addEventListener('load', (event) => {
     listenForEvent('local-storage-path-modified', () => console.log('Event Fired: path changed and local storage "path" set'));
   }
 });
+
+// ==============================================
+
+
+
+// GSAP loading animation:
+const gsapLoadAnim = () => {
+
+  const tl = gsap.timeline();
+
+  tl.from('#hero .left', {
+    y: '-30%',
+    opacity: 0,
+    duration: 2,
+    ease: Power4.easeOut
+  });
+
+  tl.from('.stagger1', {
+      opacity: 0,
+      y: -50,
+      stagger: .3,
+      ease: Power4.easeOut,
+      duration: 2
+  }, "-=1.5");
+
+  tl.from('#hero .right svg', {
+    opacity: 0, y: 50, ease: Power4.easeOut, duration: 1
+  }, "-=2");
+
+  gsap.from('#hero .right svg > rect', { 
+    stagger: 0.2,
+    scale: 0.1,
+    duration: 1,
+    ease: Back.easeOut.config(1.7)
+  });
+
+};
+gsapLoadAnim();

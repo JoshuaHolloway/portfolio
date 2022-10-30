@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
+* {
+  outline: yellow solid 2px;
+  box-sizing: border-box;
+}
+
 html {
   background: black;
 }
@@ -13,7 +18,7 @@ body {
 
 .page {
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -24,6 +29,7 @@ body {
   z-index: 1;
   background: darkorange;
   opacity: 1;
+  height: 100vh;
 }
 .page#about-page { background: lightblue; }
 .page#portfolio-page { background: lightgreen; }
@@ -32,7 +38,7 @@ body {
 
 header#navbar {
   height: 100px;
-  width: 100vw;
+  width: 100%;
   background: black;
   position: fixed;
   z-index: 9;
@@ -47,7 +53,7 @@ header#navbar > .container {
   height: 100%;
 }
 .gutter {
-  padding: 0 5%;
+  /* padding: 0 5%; */
 }
 
 nav#navdrawer {
@@ -96,7 +102,7 @@ nav#navdrawer .navlink:not(:nth-child(1)) {
   color: orange;
 }
 header#navbar .navlink:not(:nth-child(1)) {
-  margin-left: 30px;
+  /* margin-left: 30px; */
 }
 .hamburger {
   fill: white;
