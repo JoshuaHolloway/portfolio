@@ -1,3 +1,5 @@
+import { startSmoothScroll, stopSmoothScroll } from './functions/smooth-scroll.js';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const hamburger = document.querySelector('header .hamburger');
@@ -136,8 +138,25 @@ window.addEventListener('load', (event) => {
     const listenForEvent = (event_name, fn) => {
       document.addEventListener(event_name, e => fn(e), false);
     };
-    listenForEvent('local-storage-path-modified', () => console.log('Event Fired: path changed and local storage "path" set'));
-  }
+    listenForEvent('local-storage-path-modified', () => {
+      console.log('Event Fired: path changed and local storage "path" set');
+
+
+
+      const path_local_storage = JSON.parse(window.localStorage.getItem('path'));
+      if (path_local_storage === null) {
+        startSmoothScroll();
+      }
+      else{
+        if (path_local_storage === '/') {
+          startSmoothScroll();
+        }
+        else {
+          stopSmoothScroll();
+        }
+      }
+    });
+  } // else
 });
 
 // ==============================================

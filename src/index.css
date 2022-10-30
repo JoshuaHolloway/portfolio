@@ -148,3 +148,42 @@ section#hero > .right {
     grid-template-columns: repeat(2, 1fr);
   }  
 }
+
+/* -------------- Scroll-Bar --------------- */
+
+body {
+  /* page content underneath scrollbar: */
+  overflow: overlay;
+}
+
+/* Chrome and Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+
+  border-radius: 2px;
+  margin-block: 0.2em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* Firefox */
+@supports (scrollbar-color: red blue) {
+  * {
+    /* scrollbar-color: <thumb> <track> */
+    scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
+    scrollbar-width: thin;
+  }
+}
+
+/* ^^^^^^^^^^^^^^ Scroll-Bar ^^^^^^^^^^^^^^^ */
