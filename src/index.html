@@ -9,6 +9,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js" defer></script>
+  
   <script src="./index.js" type="module" defer></script>
 </head>
 <body>
@@ -62,6 +63,38 @@
 
 
             <button class="stagger1">Portfolio</button>
+
+
+            <div class="lottie-container">
+                <div class="lottie-svg hide" id="svg"></div>
+
+                <button id="lottie-play-button">Get Started</button>
+            </div>
+
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js'></script>
+            <script>
+              const lottieSVG = document.querySelector('.lottie-svg');
+              const animItem = bodymovin.loadAnimation({
+                wrapper: lottieSVG,
+                animType: 'svg',
+                loop: false,
+                autoplay: false,
+                path: 'https://assets2.lottiefiles.com/packages/lf20_u4yrau.json'
+              });
+              
+              
+              const play = document.querySelector('#lottie-play-button');
+              play.addEventListener('click', () => {
+                lottieSVG.classList.remove('hide');
+                animItem.goToAndPlay(0, true);
+              });
+
+              animItem.addEventListener('complete', () => {
+                lottieSVG.classList.add('hide')
+              })
+            </script>
+
+
           </div>
         </div>
 
@@ -115,5 +148,7 @@
 
   <footer></footer>
 
+
+  
 </body>
 </html>

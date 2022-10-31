@@ -187,3 +187,19 @@ body {
 }
 
 /* ^^^^^^^^^^^^^^ Scroll-Bar ^^^^^^^^^^^^^^^ */
+
+/* Lottie Animation: */
+.lottie-container {
+  position: relative;
+  background: red;
+  width: fit-content;
+}
+
+.lottie-container > .lottie-svg {
+  background: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: -40px;
+  left: -30px;
+  width: 200px;
+}
+.hide { display: none; }
