@@ -92,6 +92,9 @@ navlinks.forEach((navlink, idx) => {
 
 window.addEventListener('load', (event) => {
 
+  // For initial page load on /
+  startSmoothScroll();
+
   const path_local_storage = JSON.parse(window.localStorage.getItem('path'));
   if (path_local_storage === null) {
     // Initial page load => Set 'home' as active navlink
@@ -141,27 +144,19 @@ window.addEventListener('load', (event) => {
     listenForEvent('local-storage-path-modified', () => {
       console.log('Event Fired: path changed and local storage "path" set');
 
-
-
       const path_local_storage = JSON.parse(window.localStorage.getItem('path'));
-      if (path_local_storage === null) {
+      if (path_local_storage === '/') {
         startSmoothScroll();
       }
-      else{
-        if (path_local_storage === '/') {
-          startSmoothScroll();
-        }
-        else {
-          stopSmoothScroll();
-        }
+      else {
+        stopSmoothScroll();
       }
+
     });
   } // else
 });
 
 // ==============================================
-
-
 
 // GSAP loading animation:
 const gsapLoadAnim = () => {
@@ -196,3 +191,37 @@ const gsapLoadAnim = () => {
 
 };
 gsapLoadAnim();
+
+// ==============================================
+
+const parallaxAnim = () => {
+  // Parallax animation:
+  const bigYellowCircle = document.querySelector('#download');
+  // var blueSquare = document.querySelector('#blueSquare');
+  // var greenPentagon = document.querySelector('#greenPentagon');
+  
+  function setTranslate(xPos, yPos, el) {
+    el.style.transform = 'translate3d(' + xPos + ', ' + yPos + 'px, 0)';
+  }
+  
+  window.addEventListener('DOMContentLoaded', scrollLoop, false);
+  
+  let xScrollPosition;
+  let yScrollPosition;
+  
+  function scrollLoop() {
+    xScrollPosition = window.scrollX;
+    yScrollPosition = window.scrollY;
+  
+    setTranslate(0, yScrollPosition * 0.2, bigYellowCircle);
+    // setTranslate(0, yScrollPosition * -1.5, blueSquare);
+    // setTranslate(0, yScrollPosition * -0.2, greenPentagon);
+  
+    requestAnimationFrame(scrollLoop);
+  }
+};
+
+parallaxAnim();
+
+// ==============================================
+

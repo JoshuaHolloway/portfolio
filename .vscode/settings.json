@@ -9,5 +9,6 @@
     "src/about/": true,
     "src/contact/": true,
     "src/portfolio/": true,
-  }
+  },
+  "liveServer.settings.port": 5501
 }

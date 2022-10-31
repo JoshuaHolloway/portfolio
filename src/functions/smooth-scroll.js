@@ -25,10 +25,6 @@ const startSmoothScroll = () => {
       smoothScroll()
   }
 
-
-
-
-
   function smoothScroll(){
       current = lerp(current, target, ease);
       current = parseFloat(current.toFixed(2));
