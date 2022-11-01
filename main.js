@@ -1,6 +1,4 @@
 const build = require('./lib/build');
 
-
+console.magenta('building...');
 build();
-
-console.log('hello from node file');
