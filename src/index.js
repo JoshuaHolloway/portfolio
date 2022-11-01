@@ -86,12 +86,12 @@ const routes = [
   },
 ];
 
-const navlinks = document.querySelectorAll('.navlink');
+// Navbar navlinks (navdrawer navlinks not handled yet)
+const navlinks = document.querySelectorAll('#navbar .navlinks > .navlink');
 let page_idx = { current: 0, prev: null};
 navlinks.forEach((navlink, idx) => {
 
-  // 4 navlinks in navbar, 4 in navdrawer
-  const navlink_num = idx % 4; 
+  const navlink_num = idx; 
 
   navlink.addEventListener('click', () => {
 
