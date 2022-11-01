@@ -240,3 +240,29 @@ parallaxAnim();
 
 // ==============================================
 
+const scrollAnimation = () => {
+  
+  // Execute callback each time the visibility of one of the observed elements changes.
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+
+      console.log('entry: ', entry);
+
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+      else {
+        entry.target.classList.remove('show');
+      }
+
+    });
+  });
+  
+  const hidden_elements = document.querySelectorAll('.hidden');
+
+  hidden_elements.forEach(el => observer.observe(el));
+};
+
+scrollAnimation();
+
+// ==============================================

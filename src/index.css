@@ -139,6 +139,8 @@ header#navbar .navlink:not(:nth-child(1)) {
 } 
 
 .page#home-page > .container > section#skills {
+  color: white;
+  background: rgba(255, 255, 0, 0.1);
 }
 
 @media (max-width: 1000px) {
@@ -157,6 +159,21 @@ header#navbar .navlink:not(:nth-child(1)) {
   display: grid; 
   place-items: center;
 }
+
+/* Scroll Animation */
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 2s ease;
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
 
 /* -------------- Scroll-Bar --------------- */
 
