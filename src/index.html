@@ -18,30 +18,6 @@
 </head>
 <body>
 
-
-
-  <header id="navbar">
-
-    <div class="container gutter">
-      <div class="logo"></div>
-  
-      <div class="navlinks">
-        <span class="navlink">Home</span>
-        <span class="navlink">About</span>
-        <span class="navlink">Porfolio</span>
-        <span class="navlink">Contact</span>
-      </div>
-
-      <div class="hamburger">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-        </svg>
-      </div>
-
-    </div>
-
-  </header>
-  
   <nav id="navdrawer">
     <div class="navlinks">
       <p class="navlink">Home</p>
@@ -51,138 +27,164 @@
     </div>
   </nav>
 
-  <main id="home-page" class="page" >
-    <div class="container gutter">
+  <div class="overlay"></div>
 
-      <section id="hero">
-        
-        <div class="left">
-          <div class="container">
-            <h1 class="stagger1">Josh Holloway</h1>
-            <h3 class="stagger1">Full Stack JavaScript Developer</h3>
+  <div class="blur-container">
+
+    <header id="navbar">
+
+      <div class="container gutter">
+        <div class="logo"></div>
+    
+        <div class="navlinks">
+          <span class="navlink">Home</span>
+          <span class="navlink">About</span>
+          <span class="navlink">Porfolio</span>
+          <span class="navlink">Contact</span>
+        </div>
+
+        <div class="hamburger">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+        </div>
+
+      </div>
+
+    </header>
+
+    <main id="home-page" class="page" >
+      <div class="container gutter">
+
+        <section id="hero">
+          
+          <div class="left">
+            <div class="container">
+              <h1 class="stagger1">Josh Holloway</h1>
+              <h3 class="stagger1">Full Stack JavaScript Developer</h3>
 
 
 
 
-            <button class="stagger1">Portfolio</button>
+              <button class="stagger1">Portfolio</button>
 
 
-            <div class="lottie-container">
-                <div class="lottie-svg hide" id="svg"></div>
+              <div class="lottie-container">
+                  <div class="lottie-svg hide" id="svg"></div>
 
-                <button id="lottie-play-button">Get Started</button>
+                  <button id="lottie-play-button">Download Page</button>
+              </div>
+
+              <script src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js'></script>
+              <script>
+                const lottieSVG = document.querySelector('.lottie-svg');
+                const animItem = bodymovin.loadAnimation({
+                  wrapper: lottieSVG,
+                  animType: 'svg',
+                  loop: false,
+                  autoplay: false,
+                  path: 'https://assets2.lottiefiles.com/packages/lf20_u4yrau.json'
+                });
+                
+                
+                const lottie_play_button = document.querySelector('#lottie-play-button');
+                lottie_play_button.addEventListener('click', () => {
+                  lottieSVG.classList.remove('hide');
+                  animItem.goToAndPlay(0, true);
+                });
+
+                animItem.addEventListener('complete', () => {
+                  lottieSVG.classList.add('hide')
+                })
+              </script>
+
+
             </div>
+          </div>
 
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js'></script>
+          <div class="right">
+
+            <!-- <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect class="square-anim" x="100" y="200" width="100" height="100" rx="50" fill="#D9D9D9"/>
+              <rect class="square-anim" x="200" y="100" width="100" height="100" rx="50" fill="#D9D9D9"/>
+              <rect class="square-anim" x="100" y="300" width="100" height="100" rx="15" fill="#D9D9D9"/>
+              <rect class="square-anim" x="200" width="100" height="100" rx="15" fill="#D9D9D9"/>
+              <rect class="square-anim" x="200" y="200" width="100" height="100" rx="15" fill="#D9D9D9"/>
+              <rect class="square-anim" x="300" y="100" width="100" height="100" rx="15" fill="#D9D9D9"/>
+              <rect class="square-anim" y="200" width="100" height="100" rx="15" fill="#D9D9D9"/>
+              <rect class="square-anim" x="100" y="100" width="100" height="100" rx="15" fill="#D9D9D9"/>
+            </svg> -->
+
+            <lottie-player 
+              src="./Untitled-2.json"  
+              background="transparent"  
+              speed="1"  
+              style="width: 300px; height: 300px;"  
+            >
+            </lottie-player>
             <script>
-              const lottieSVG = document.querySelector('.lottie-svg');
-              const animItem = bodymovin.loadAnimation({
-                wrapper: lottieSVG,
-                animType: 'svg',
-                loop: false,
-                autoplay: false,
-                path: 'https://assets2.lottiefiles.com/packages/lf20_u4yrau.json'
+              const player = document.querySelector("lottie-player");
+              console.log('player: ', player);
+              player.addEventListener("rendered", (e) => {
+                setTimeout(() => {
+                  player.play();
+                }, 1000);
               });
-              
-              
-              const play = document.querySelector('#lottie-play-button');
-              play.addEventListener('click', () => {
-                lottieSVG.classList.remove('hide');
-                animItem.goToAndPlay(0, true);
-              });
-
-              animItem.addEventListener('complete', () => {
-                lottieSVG.classList.add('hide')
-              })
             </script>
 
-
           </div>
-        </div>
 
-        <div class="right">
+        </section>
 
-          <!-- <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect class="square-anim" x="100" y="200" width="100" height="100" rx="50" fill="#D9D9D9"/>
-            <rect class="square-anim" x="200" y="100" width="100" height="100" rx="50" fill="#D9D9D9"/>
-            <rect class="square-anim" x="100" y="300" width="100" height="100" rx="15" fill="#D9D9D9"/>
-            <rect class="square-anim" x="200" width="100" height="100" rx="15" fill="#D9D9D9"/>
-            <rect class="square-anim" x="200" y="200" width="100" height="100" rx="15" fill="#D9D9D9"/>
-            <rect class="square-anim" x="300" y="100" width="100" height="100" rx="15" fill="#D9D9D9"/>
-            <rect class="square-anim" y="200" width="100" height="100" rx="15" fill="#D9D9D9"/>
-            <rect class="square-anim" x="100" y="100" width="100" height="100" rx="15" fill="#D9D9D9"/>
-          </svg> -->
+        <section id="skills" class="center">
 
-          <lottie-player 
-            src="./Untitled-2.json"  
-            background="transparent"  
-            speed="1"  
-            style="width: 300px; height: 300px;"  
-          >
-          </lottie-player>
-          <script>
-            const player = document.querySelector("lottie-player");
-            console.log('player: ', player);
-            player.addEventListener("rendered", (e) => {
-              setTimeout(() => {
-                player.play();
-              }, 1000);
-            });
-          </script>
+          <div class="hidden">
+            <h1>Text Slide</h1>
+            <p>This is text sliding...</p>
+          </div>
 
-        </div>
+          <div class="hidden">
+            <h2>Text sliding with staggering!!</h2>
+          </div>
 
-      </section>
+          <div class="hidden">
+            <h2>Text sliding with staggering!!</h2>
+          </div>
 
-      <section id="skills" class="center">
+        </section>
 
-        <div class="hidden">
-          <h1>Text Slide</h1>
-          <p>This is text sliding...</p>
-        </div>
+        <section id="featured-project"></section>
 
-        <div class="hidden">
-          <h2>Text sliding with staggering!!</h2>
-        </div>
-
-        <div class="hidden">
-          <h2>Text sliding with staggering!!</h2>
-        </div>
-
-      </section>
-
-      <section id="featured-project"></section>
-
-    </div>
+      </div>
 
 
-    <a
-      id="download"
-      class="stagger1"
-      href="#" 
-      onclick="this.href='data:text/html;charset=UTF-8,' + encodeURIComponent(document.documentElement.outerHTML)"
-      download="joshua-holloway.com.html"
-      style="position: absolute; bottom: 0;"
-    >
-      Download page
-    </a>
-    
-  </main>
+      <a
+        id="download"
+        class="stagger1"
+        href="#" 
+        onclick="this.href='data:text/html;charset=UTF-8,' + encodeURIComponent(document.documentElement.outerHTML)"
+        download="joshua-holloway.com.html"
+        style="position: absolute; bottom: 0;"
+      >
+        Download page
+      </a>
+      
+    </main>
 
-  <main id="about-page" class="page center">
-    <h1>About Page</h1>
-  </main>
+    <main id="about-page" class="page center">
+      <h1>About Page</h1>
+    </main>
 
-  <main id="portfolio-page" class="page center ">
-    <h1>Portfolio Page</h1>
-  </main>
+    <main id="portfolio-page" class="page center ">
+      <h1>Portfolio Page</h1>
+    </main>
 
-  <main id="contact-page" class="page center ">
-    <h1>Contact Page</h1>
-  </main>
+    <main id="contact-page" class="page center ">
+      <h1>Contact Page</h1>
+    </main>
 
-  <footer></footer>
-
+    <footer></footer>
+  </div> <!-- .blur-container -->
 
   
 </body>

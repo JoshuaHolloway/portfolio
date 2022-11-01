@@ -61,14 +61,18 @@ const routes = [
 const navlinks = document.querySelectorAll('.navlink');
 let page_idx = { current: 0, prev: null};
 navlinks.forEach((navlink, idx) => {
+
+  // 4 navlinks in navbar, 4 in navdrawer
+  const navlink_num = idx % 4; 
+
   navlink.addEventListener('click', () => {
 
     // update state
-    page_idx = {current: idx, prev: page_idx.current};
+    page_idx = {current: navlink_num, prev: page_idx.current};
 
     // reset z-index and fade out prev-page:
     const prev_page = pages[page_idx.prev];
-    const curr_page = pages[idx];
+    const curr_page = pages[navlink_num];
     gsap.to(prev_page, {
       opacity: 0,
       onComplete: () => {
@@ -84,7 +88,7 @@ navlinks.forEach((navlink, idx) => {
     navlink.classList.add('active');
 
     // Change the SPA 'page' and set the URL's path.
-    const path = routes[idx].path;
+    const path = routes[navlink_num].path;
     window.history.pushState({}, '', path);
     window.localStorage.setItem('path', JSON.stringify(path));
     curr_page.style.zIndex = 1;

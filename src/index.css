@@ -178,6 +178,7 @@ header#navbar .navlink:not(:nth-child(1)) {
 .hidden:nth-child(2) { transition-delay: 300ms; }
 .hidden:nth-child(3) { transition-delay: 500ms; }
 
+
 /* -------------- Scroll-Bar --------------- */
 
 body {
@@ -225,10 +226,11 @@ body {
 }
 
 .lottie-container > .lottie-svg {
-  background: rgba(0, 0, 0, 0.1);
+  /* background: rgba(0, 0, 0, 0.1); */
   position: absolute;
-  top: -40px;
-  left: -30px;
+  top: 0;
+  left: 0;
   width: 200px;
+  transform: translateX(-25%) translateY(-100%);
 }
-/* .hide { display: none; } */
+.hide { display: none; }
