@@ -42,7 +42,18 @@ Close drawer with click outside the drawer (when opened).
   -If user clicks on the hamburger then we first evaluate if drawer is open.
     --If drawer is not open:
       ---stop propagation of the event from moving up beyond the hamburger
-      ---disable the pointer events on the button (avoid double click)
-      ---run the animation on the drawer.
-      ---onComplete(), re-enable pointer events for the hamburger button.
+      ---display: block on overlay
+        ----pointer-events on overlay is initially set to none => user cannot double click.
+      ---run the animation(s):
+        ----1. drawer transition to 0
+        ----2. blur-container
+        ----3. overlay-opacity
+      ---onComplete():
+        ---re-enable pointer events for the overlay to allow user to close drawer.
+      ---onReverseComplete():
+        ---Set the overlay to display none, and the pointer-events to none.
       ---set drawer_open = true;
+  -If user clicks anywhere on the overlay (once it is display: block):
+    --If drawer is open:
+      ---reverse the timeline
+      ---set drawer_open = false;

@@ -4,6 +4,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const hamburger = document.querySelector('header .hamburger');
 const navdrawer = document.querySelector('nav#navdrawer');
+const overlay = document.querySelector('#overlay');
 
 let is_open = false;
 const setIsOpen = (bool) => {
@@ -18,19 +19,24 @@ const openDrawer = (e) => {
   if (!is_open) {
     console.log('opening');
     e.stopPropagation();
-    // hamburger.style.pointerEvents = 'none';
+
+    overlay.style.display = 'block';
+    
+    
     tl = gsap.timeline();
-    tl.to('nav', {
+    tl.to(navdrawer, {
       x: 0,
-      onComplete: () => {
-        // hamburger.style.pointerEvents = 'auto';
-        // window.style.pointerEvents = 'auto';
-      },
-      onReverseComplete: () => {
-        // hamburger.style.pointerEvents = 'auto';
-        // window.style.pointerEvents = 'auto';
-      },
     });
+
+    tl.to(overlay, {
+      opacity: 1,
+      onComplete: () => overlay.style.pointerEvents = 'auto',
+      onReverseComplete: () => {
+        overlay.style.display = 'none';
+        overlay.style.pointerEvents = 'none';
+      }
+    }, '<=')
+
    setIsOpen(true);
   }
 };
@@ -62,7 +68,7 @@ const closeDrawer = (e) => {
 hamburger.addEventListener('click', openDrawer);
 
 // Close with click outside of drawer:
-window.addEventListener('click', closeDrawer);
+overlay.addEventListener('click', closeDrawer);
 
 const pages = document.querySelectorAll('.page');
 

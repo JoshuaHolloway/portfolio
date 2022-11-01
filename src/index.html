@@ -17,19 +17,8 @@
   <script src="./index.js" type="module" defer></script>
 </head>
 <body>
-
-  <div id="debug-line"></div>
   <div id="debug-output">Debug Output: </div>
   <style>
-    #debug-line {
-      height: 100vh;
-      width: 10px;
-      background: red;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 100;
-    }
     #debug-output {
       position: fixed;
       background: yellow;
@@ -48,7 +37,21 @@
     </div>
   </nav>
 
-  <div class="overlay"></div>
+  <div id="overlay"></div>
+  <style>
+    #overlay {
+      background: rgba(0, 255, 0, 0.4);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9;
+      display: none;
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
 
   <div class="blur-container">
 
