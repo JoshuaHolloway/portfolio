@@ -17,16 +17,6 @@
   <script src="./index.js" type="module" defer></script>
 </head>
 <body>
-  <div id="debug-output">Debug Output: </div>
-  <style>
-    #debug-output {
-      position: fixed;
-      background: yellow;
-      z-index: 101;
-      top: 0;
-      left: 0;
-    }
-  </style>
 
   <nav id="navdrawer">
     <div class="navlinks">
@@ -38,20 +28,6 @@
   </nav>
 
   <div id="overlay"></div>
-  <style>
-    #overlay {
-      background: rgba(0, 255, 0, 0.4);
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 9;
-      display: none;
-      opacity: 0;
-      pointer-events: none;
-    }
-  </style>
 
   <div id="blur-container">
 
@@ -209,7 +185,6 @@
 
     <footer></footer>
   </div> <!-- .blur-container -->
-
   
 </body>
 </html>

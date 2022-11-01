@@ -14,6 +14,18 @@ body {
   opacity: 0;
 }
 
+#overlay { // beneath the navdrawer
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9; // navdrawer=10, overlay=9, navbar=8
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+}
 
 .page {
   min-height: 100vh;
@@ -68,7 +80,7 @@ nav#navdrawer {
   justify-content: center; 
   align-items: center;
   
-  z-index: 10;
+  z-index: 10; // navdrawer=10, overlay=9, navbar=8
 }
 
 nav#navdrawer > .navlinks {

@@ -50,20 +50,8 @@ const openDrawer = (e) => {
 
 const closeDrawer = (e) => {
 
-  const click_x_coord = e.clientX;
-  
-  const debug_output = document.querySelector('#debug-output');
-  debug_output.textContent = click_x_coord;
-
-  // Get width with CSS:  [includes units!]
-  const drawer_width_CSS = window.getComputedStyle(navdrawer).getPropertyValue('--width');
-  console.log('drawer_width_CSS: ', drawer_width_CSS);
-
-  // Get width with JS:
-  const { width: drawer_width_JS } = navdrawer.getBoundingClientRect();
-  console.log('drawer_width: JS: ', drawer_width_JS);
-
-  if (is_open && click_x_coord > drawer_width_JS) {
+  // if (is_open && click_x_coord > drawer_width_JS) {
+  if(is_open) {
     console.log('closing');
     tl.reverse();
     setIsOpen(false);

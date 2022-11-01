@@ -58,3 +58,11 @@ Close drawer with click outside the drawer (when opened).
     --If drawer is open:
       ---reverse the timeline
       ---set drawer_open = false;
+
+
+  -Since the navdrawer is a direct sibling of the overlay
+   we don't need to check the clientX click coordinate
+   and we also don't need to disable propagation of
+   event bubling.
+   --We only need to check that the user has clicked
+     the actual overlay, which we are already doing!
