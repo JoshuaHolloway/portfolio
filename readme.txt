@@ -35,3 +35,14 @@ Video 3 Prep:
       ----1. Set the active navlink (both in navbar and navdrawer)
       ----2. Set the zIndex on the active page.
       ----3. Set the URL path.
+
+
+Open drawer with click on hamburger.
+Close drawer with click outside the drawer (when opened).
+  -If user clicks on the hamburger then we first evaluate if drawer is open.
+    --If drawer is not open:
+      ---stop propagation of the event from moving up beyond the hamburger
+      ---disable the pointer events on the button (avoid double click)
+      ---run the animation on the drawer.
+      ---onComplete(), re-enable pointer events for the hamburger button.
+      ---set drawer_open = true;

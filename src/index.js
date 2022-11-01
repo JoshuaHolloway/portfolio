@@ -6,36 +6,63 @@ const hamburger = document.querySelector('header .hamburger');
 const navdrawer = document.querySelector('nav#navdrawer');
 
 let is_open = false;
+const setIsOpen = (bool) => {
+  console.log('changing open state!');
+  is_open = bool;
+};
 
 let tl;
-hamburger.addEventListener('click', () => {
 
-  const value = getComputedStyle(navdrawer).getPropertyValue('--width');
-  console.log('value: ', value);
-
+const openDrawer = (e) => {
   console.log('is_open: ', is_open);
-  if (is_open) {
-    console.log('closing');
-    hamburger.style.pointerEvents = 'none';
-    tl.reverse();
-  } else {
+  if (!is_open) {
     console.log('opening');
-    hamburger.style.pointerEvents = 'none';
+    e.stopPropagation();
+    // hamburger.style.pointerEvents = 'none';
     tl = gsap.timeline();
     tl.to('nav', {
       x: 0,
       onComplete: () => {
-        hamburger.style.pointerEvents = 'auto';    
+        // hamburger.style.pointerEvents = 'auto';
+        // window.style.pointerEvents = 'auto';
       },
       onReverseComplete: () => {
-        hamburger.style.pointerEvents = 'auto';    
+        // hamburger.style.pointerEvents = 'auto';
+        // window.style.pointerEvents = 'auto';
       },
     });
-    
+   setIsOpen(true);
   }
-  is_open = !is_open;
+};
 
-});
+const closeDrawer = (e) => {
+
+  const click_x_coord = e.clientX;
+  
+  const debug_output = document.querySelector('#debug-output');
+  debug_output.textContent = click_x_coord;
+
+  // Get width with CSS:  [includes units!]
+  const drawer_width_CSS = window.getComputedStyle(navdrawer).getPropertyValue('--width');
+  console.log('drawer_width_CSS: ', drawer_width_CSS);
+
+  // Get width with JS:
+  const { width: drawer_width_JS } = navdrawer.getBoundingClientRect();
+  console.log('drawer_width: JS: ', drawer_width_JS);
+
+  if (is_open && click_x_coord > drawer_width_JS) {
+    console.log('closing');
+    tl.reverse();
+    setIsOpen(false);
+  }
+  
+};
+
+// Open drawer with hamburger button click:
+hamburger.addEventListener('click', openDrawer);
+
+// Close with click outside of drawer:
+window.addEventListener('click', closeDrawer);
 
 const pages = document.querySelectorAll('.page');
 
