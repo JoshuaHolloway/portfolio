@@ -123,19 +123,25 @@ header#navbar .navlink:not(:nth-child(1)) {
   header .hamburger { display: none; }
 }
 
-section {
+.page > .container > section {
   height: 100vh;
 }
-section#hero {
+.page#home-page > .container > section#hero {
   display: grid;
 }
-section#hero > .left,
-section#hero > .right {
+.page#home-page > .container > section#hero > .left,
+.page#home-page > .container > section#hero > .right {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 } 
+
+.page#home-page > .container > section#skills {
+
+
+
+}
 
 @media (max-width: 1000px) {
   section#hero { 
@@ -147,6 +153,10 @@ section#hero > .right {
   section#hero { 
     grid-template-columns: repeat(2, 1fr);
   }  
+}
+
+.hidden {
+  display: none;
 }
 
 /* -------------- Scroll-Bar --------------- */
@@ -202,4 +212,4 @@ body {
   left: -30px;
   width: 200px;
 }
-.hide { display: none; }
+/* .hide { display: none; } */

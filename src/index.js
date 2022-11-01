@@ -39,43 +39,54 @@ hamburger.addEventListener('click', () => {
 
 const pages = document.querySelectorAll('.page');
 
+const routes = [
+  {
+    page: 'home',
+    path: '/'
+  },
+  {
+    page: 'about',
+    path: '/about'
+  },
+  {
+    page: 'portfolio',
+    path: '/portfolio'
+  },
+  {
+    page: 'contact',
+    path: '/contact'
+  },
+];
+
 const navlinks = document.querySelectorAll('.navlink');
+let page_idx = { current: 0, prev: null};
 navlinks.forEach((navlink, idx) => {
   navlink.addEventListener('click', () => {
 
-    pages.forEach(page => {
-      page.style.zIndex = 0;
-      gsap.to(page, {opacity: 0});
+    // update state
+    page_idx = {current: idx, prev: page_idx.current};
+
+    // reset z-index and fade out prev-page:
+    const prev_page = pages[page_idx.prev];
+    gsap.to(prev_page, {
+      opacity: 0,
+      onComplete: () => prev_page.style.zIndex = 0
     });
 
-    // Reset navlink's so that none of them are active
-    navlinks.forEach(x => x.classList.remove('active'));
+    // Remove .active from prev. nav-link
+    navlinks[page_idx.prev].classList.remove('active')
 
     // Set currently clicked navlink to active
     navlink.classList.add('active');
 
     // Change the SPA 'page' and set the URL's path.
-    if (idx === 0) {
-      window.history.pushState({}, '', '/');
-      window.localStorage.setItem('path', JSON.stringify('/'));
-      pages[0].style.zIndex = 1;
-      gsap.to(pages[0], {opacity: 1});
-    } else if (idx === 1) {
-      window.history.pushState({}, '', '/about');
-      window.localStorage.setItem('path', JSON.stringify('/about'));
-      pages[1].style.zIndex = 1;
-      gsap.to(pages[1], {opacity: 1});
-    } else if (idx === 2) {
-      window.history.pushState({}, '', '/portfolio');
-      window.localStorage.setItem('path', JSON.stringify('/portfolio'));
-      pages[2].style.zIndex = 1;
-      gsap.to(pages[2], {opacity: 1});
-    } else if (idx === 3) {
-      window.history.pushState({}, '', '/contact');
-      window.localStorage.setItem('path', JSON.stringify('/contact'));
-      pages[3].style.zIndex = 1;
-      gsap.to(pages[3], {opacity: 1});
-    }
+    const path = routes[idx].path;
+    window.history.pushState({}, '', path);
+    window.localStorage.setItem('path', JSON.stringify(path));
+    pages[idx].style.zIndex = 1;
+    gsap.to(pages[idx], { 
+      opacity: 1,
+    });
 
     // Fire event for local-storage 'path' changed
     const fireEvent = (event_name) => {
