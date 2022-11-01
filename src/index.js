@@ -143,6 +143,9 @@ window.addEventListener('load', (event) => {
   startSmoothScroll();
 
   const path_local_storage = JSON.parse(window.localStorage.getItem('path'));
+  
+  // page_idx Hack: Just hard code the previous path. Can store page_idx object in local storage in want to store actual previous path.
+  
   if (path_local_storage === null) {
     // Initial page load => Set 'home' as active navlink
     navlinks[0].classList.add('active');
@@ -162,24 +165,28 @@ window.addEventListener('load', (event) => {
       pages[0].style.zIndex = 1;
       pages[0].style.opacity = 1;
       navlinks[0].classList.add('active');
+      page_idx = { current: 0, prev: 1 };
     }
     else if (path_local_storage === '/about') {
       pages[1].style.zIndex = 1;
       pages[1].style.opacity = 1;
       navlinks[1].classList.add('active');
       window.history.replaceState({}, '', '/about');
+      page_idx = { current: 1, prev: 0 };
     }
     else if (path_local_storage === '/portfolio') {
       pages[2].style.zIndex = 1;
       pages[2].style.opacity = 1;
       navlinks[2].classList.add('active');
       window.history.replaceState({}, '', '/portfolio');
+      page_idx = { current: 2, prev: 0 };
     }
     else if (path_local_storage === '/contact') {
       pages[3].style.zIndex = 1;
       pages[3].style.opacity = 1;
       navlinks[3].classList.add('active');
       window.history.replaceState({}, '', '/contact');
+      page_idx = { current: 3, prev: 0 };
     }
 
     gsap.fromTo(document.querySelector('body'), {opacity: 0}, {opacity: 1, duration: 1, delay: 0.5})
@@ -298,10 +305,3 @@ const scrollAnimation = () => {
 scrollAnimation();
 
 // ==============================================
-
-const svgAnimation = () => {
-
-
-};
-
-svgAnimation();
