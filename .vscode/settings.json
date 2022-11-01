@@ -1,14 +1,11 @@
-// Workspace settings
 {
   "files.exclude": {
-    // "**/*.map": true,
     "package-lock.json": true,
     "node_modules": true,
     ".gitignore": true,
-    // "README.txt": true
     "src/about/": true,
     "src/contact/": true,
-    "src/portfolio/": true,
+    "src/portfolio/": true
   },
   "liveServer.settings.port": 5501
 }
