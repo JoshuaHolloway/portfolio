@@ -126,6 +126,7 @@ header#navbar .navlink:not(:nth-child(1)) {
 .page > .container > section {
   height: 100vh;
 }
+
 .page#home-page > .container > section#hero {
   display: grid;
 }
@@ -138,9 +139,6 @@ header#navbar .navlink:not(:nth-child(1)) {
 } 
 
 .page#home-page > .container > section#skills {
-
-
-
 }
 
 @media (max-width: 1000px) {
@@ -155,8 +153,9 @@ header#navbar .navlink:not(:nth-child(1)) {
   }  
 }
 
-.hidden {
-  display: none;
+.center {
+  display: grid; 
+  place-items: center;
 }
 
 /* -------------- Scroll-Bar --------------- */

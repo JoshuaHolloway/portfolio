@@ -68,13 +68,17 @@ navlinks.forEach((navlink, idx) => {
 
     // reset z-index and fade out prev-page:
     const prev_page = pages[page_idx.prev];
+    const curr_page = pages[idx];
     gsap.to(prev_page, {
       opacity: 0,
-      onComplete: () => prev_page.style.zIndex = 0
+      onComplete: () => {
+        prev_page.style.zIndex = 0;
+      }
     });
 
     // Remove .active from prev. nav-link
-    navlinks[page_idx.prev].classList.remove('active')
+    // navlinks[page_idx.prev].classList.remove('active')
+    navlinks.forEach(x => x.classList.remove('active')); // Reset-all for simple navlink start on page refresh.
 
     // Set currently clicked navlink to active
     navlink.classList.add('active');
@@ -83,8 +87,8 @@ navlinks.forEach((navlink, idx) => {
     const path = routes[idx].path;
     window.history.pushState({}, '', path);
     window.localStorage.setItem('path', JSON.stringify(path));
-    pages[idx].style.zIndex = 1;
-    gsap.to(pages[idx], { 
+    curr_page.style.zIndex = 1;
+    gsap.to(curr_page, { 
       opacity: 1,
     });
 
