@@ -314,37 +314,37 @@ scrollAnimation();
 
 // ==============================================
 
-// const navbarAnimation = () => {
-//   const tl = gsap.timeline({
-//     scrollTrigger: {
-//       trigger: navbar,
-//       start: `bottom 100px`, // when the bottom of the trigger hits 100px from the top of the viewport
-//       // scrub: 1,
-//       markers: true,
-//       toggleActions: "restart none none reverse"
-//     },
-//   });
+const navbarAnimation = () => {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: navbar,
+      start: `bottom 100px`, // when the bottom of the trigger hits 100px from the top of the viewport
+      // scrub: 1,
+      markers: true,
+      toggleActions: "restart none none reverse"
+    },
+  });
 
-//   tl.fromTo(
-//     navbar,
-//     {
-//       backgroundColor: 'rgba(255 255, 255, 0)',
-//       height: '100px',
-//     },
-//     {
-//       backgroundColor: 'rgba(255, 255, 255, 0.2)', 
-//       height: '85px',
-//       color: 'black'
-//     },
-//   );
+  tl.fromTo(
+    navbar,
+    {
+      backgroundColor: 'rgba(255 255, 255, 0)',
+      height: '100px',
+    },
+    {
+      backgroundColor: 'rgba(255, 255, 255, 0.2)', 
+      height: '85px',
+      color: 'black'
+    },
+  );
 
-//   // tl.fromTo(
-//   //   '#navbar .navlink',
-//   //   { color: 'white' },
-//   //   { color: 'black'}, 
-//   //   '<='
-//   // );
+  // tl.fromTo(
+  //   '#navbar .navlink',
+  //   { color: 'white' },
+  //   { color: 'black'}, 
+  //   '<='
+  // );
 
-// };
+};
 
 navbarAnimation();

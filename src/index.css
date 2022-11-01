@@ -52,20 +52,14 @@ header#navbar {
   width: 100vw;
   background: rgba(255, 255, 255, 0.1);
   position: fixed;
-  /* inset: 0 0 auto; */
-  top: 0;
-  bottom: 0;
   z-index: 8; /* navdrawer=10, overlay=9, navbar=8 */
-  -webkit-transform: translateZ(0)
 }
 
 header#navbar > .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  /* background: yellow; */
-  height: 100px;
+  height: 100%;
 }
 
 .gutter {
