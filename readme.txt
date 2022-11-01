@@ -42,6 +42,7 @@ Close drawer with click outside the drawer (when opened).
   -If user clicks on the hamburger then we first evaluate if drawer is open.
     --If drawer is not open:
       ---stop propagation of the event from moving up beyond the hamburger
+        ----Don't really need this now that I switched from window to overlay!
       ---display: block on overlay
         ----pointer-events on overlay is initially set to none => user cannot double click.
       ---run the animation(s):

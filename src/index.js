@@ -2,9 +2,12 @@ import { startSmoothScroll, stopSmoothScroll } from './functions/smooth-scroll.j
 
 gsap.registerPlugin(ScrollTrigger);
 
-const hamburger = document.querySelector('header .hamburger');
-const navdrawer = document.querySelector('nav#navdrawer');
-const overlay = document.querySelector('#overlay');
+const qs = x => document.querySelector(x);
+
+const hamburger = qs('header .hamburger');
+const navdrawer = qs('nav#navdrawer');
+const overlay = qs('#overlay');
+const blur_container = qs('#blur-container');
 
 let is_open = false;
 const setIsOpen = (bool) => {
@@ -18,7 +21,7 @@ const openDrawer = (e) => {
   console.log('is_open: ', is_open);
   if (!is_open) {
     console.log('opening');
-    e.stopPropagation();
+    // e.stopPropagation();
 
     overlay.style.display = 'block';
     
@@ -36,6 +39,10 @@ const openDrawer = (e) => {
         overlay.style.pointerEvents = 'none';
       }
     }, '<=')
+
+    tl.to(blur_container, {
+      filter: 'blur(3px)'
+    }, '<=');
 
    setIsOpen(true);
   }

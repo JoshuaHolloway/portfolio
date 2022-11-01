@@ -60,7 +60,7 @@ nav#navdrawer {
   height: 100vh;
   width: var(--width);
   background: blue;
-  position: absolute;
+  position: fixed;
   top: 0;
   transform: translateX( calc(-1 * var(--width) ) );
 
