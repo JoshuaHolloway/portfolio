@@ -266,3 +266,10 @@ const scrollAnimation = () => {
 scrollAnimation();
 
 // ==============================================
+
+const svgAnimation = () => {
+
+
+};
+
+svgAnimation();
