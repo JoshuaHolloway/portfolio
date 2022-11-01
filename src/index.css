@@ -14,14 +14,14 @@ body {
   opacity: 0;
 }
 
-#overlay { // beneath the navdrawer
+#overlay { /* beneath the navdrawer */
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 9; // navdrawer=10, overlay=9, navbar=8
+  z-index: 9; /* navdrawer=10, overlay=9, navbar=8 */
   display: none;
   opacity: 0;
   pointer-events: none;
@@ -38,7 +38,7 @@ body {
 }
 .page#home-page {
   z-index: 1;
-  background: darkorange;
+  /* background: darkorange; */
   opacity: 1;
   height: 100vh;
 }
@@ -49,10 +49,14 @@ body {
 
 header#navbar {
   height: 100px;
-  width: 100%;
-  background: black;
+  width: 100vw;
+  background: rgba(255, 255, 255, 0.1);
   position: fixed;
-  z-index: 8; // navdrawer=10, overlay=9, navbar=8
+  /* inset: 0 0 auto; */
+  top: 0;
+  bottom: 0;
+  z-index: 8; /* navdrawer=10, overlay=9, navbar=8 */
+  -webkit-transform: translateZ(0)
 }
 
 header#navbar > .container {
@@ -61,8 +65,9 @@ header#navbar > .container {
   justify-content: space-between;
 
   /* background: yellow; */
-  height: 100%;
+  height: 100px;
 }
+
 .gutter {
   padding: 0 5%;
 }
@@ -80,7 +85,7 @@ nav#navdrawer {
   justify-content: center; 
   align-items: center;
   
-  z-index: 10; // navdrawer=10, overlay=9, navbar=8
+  z-index: 10; /* navdrawer=10, overlay=9, navbar=8 */
 }
 
 nav#navdrawer > .navlinks {
@@ -110,7 +115,8 @@ nav#navdrawer .navlink:not(:nth-child(1)) {
 }
 .navlink:hover, 
 .navlink.active {
-  color: orange;
+  --color: darkorange;
+  color: var(--color) !important;
 }
 header#navbar .navlink:not(:nth-child(1)) {
   margin-left: 30px;

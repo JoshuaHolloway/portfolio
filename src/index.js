@@ -8,6 +8,7 @@ const hamburger = qs('header .hamburger');
 const navdrawer = qs('nav#navdrawer');
 const overlay = qs('#overlay');
 const blur_container = qs('#blur-container');
+const navbar = qs('header#navbar');
 
 let is_open = false;
 const setIsOpen = (bool) => {
@@ -43,6 +44,15 @@ const openDrawer = (e) => {
     tl.to(blur_container, {
       filter: 'blur(3px)'
     }, '<=');
+
+    // The navbar disapears if navbar is inside blur-container!
+    // -Instead, header.navbar taken outside of blur-container
+    //  and blur applied to each one seperately.
+    tl.to(navbar, {
+      filter: 'blur(3px)'
+    }, '<=');
+
+
 
    setIsOpen(true);
   }
@@ -260,11 +270,9 @@ const parallaxAnim = () => {
   
   window.addEventListener('DOMContentLoaded', scrollLoop, false);
   
-  let xScrollPosition;
   let yScrollPosition;
   
   function scrollLoop() {
-    xScrollPosition = window.scrollX;
     yScrollPosition = window.scrollY;
   
     setTranslate(0, yScrollPosition * 0.2, bigYellowCircle);
@@ -305,3 +313,38 @@ const scrollAnimation = () => {
 scrollAnimation();
 
 // ==============================================
+
+// const navbarAnimation = () => {
+//   const tl = gsap.timeline({
+//     scrollTrigger: {
+//       trigger: navbar,
+//       start: `bottom 100px`, // when the bottom of the trigger hits 100px from the top of the viewport
+//       // scrub: 1,
+//       markers: true,
+//       toggleActions: "restart none none reverse"
+//     },
+//   });
+
+//   tl.fromTo(
+//     navbar,
+//     {
+//       backgroundColor: 'rgba(255 255, 255, 0)',
+//       height: '100px',
+//     },
+//     {
+//       backgroundColor: 'rgba(255, 255, 255, 0.2)', 
+//       height: '85px',
+//       color: 'black'
+//     },
+//   );
+
+//   // tl.fromTo(
+//   //   '#navbar .navlink',
+//   //   { color: 'white' },
+//   //   { color: 'black'}, 
+//   //   '<='
+//   // );
+
+// };
+
+navbarAnimation();
