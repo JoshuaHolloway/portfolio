@@ -259,10 +259,9 @@ gsapLoadAnim();
 // ==============================================
 
 const parallaxAnim = () => {
-  // Parallax animation:
-  const bigYellowCircle = document.querySelector('#download');
-  // var blueSquare = document.querySelector('#blueSquare');
-  // var greenPentagon = document.querySelector('#greenPentagon');
+
+  const one = document.querySelector('.float.one');
+  const two = document.querySelector('.float.two');
   
   function setTranslate(xPos, yPos, el) {
     el.style.transform = 'translate3d(' + xPos + ', ' + yPos + 'px, 0)';
@@ -275,9 +274,9 @@ const parallaxAnim = () => {
   function scrollLoop() {
     yScrollPosition = window.scrollY;
   
-    setTranslate(0, yScrollPosition * 0.2, bigYellowCircle);
-    // setTranslate(0, yScrollPosition * -1.5, blueSquare);
-    // setTranslate(0, yScrollPosition * -0.2, greenPentagon);
+    // setTranslate(0, yScrollPosition * 0.2, download);
+    setTranslate(0, yScrollPosition * 1.05, one);
+    setTranslate(0, yScrollPosition * -0.2, two);
   
     requestAnimationFrame(scrollLoop);
   }
@@ -320,7 +319,7 @@ const navbarAnimation = () => {
       trigger: navbar,
       start: `bottom 100px`, // when the bottom of the trigger hits 100px from the top of the viewport
       // scrub: 1,
-      markers: true,
+      // markers: true,
       toggleActions: "restart none none reverse"
     },
   });

@@ -38,7 +38,7 @@ body {
 }
 .page#home-page {
   z-index: 1;
-  /* background: darkorange; */
+  background: lightgrey;
   opacity: 1;
   height: 100vh;
 }
@@ -246,3 +246,29 @@ body {
   transform: translateX(-25%) translateY(-100%);
 }
 .hide { display: none; }
+
+/* =========================================== */
+
+.shadow {
+
+  --v-offset: 7px;
+  --h-offset: 0;
+  --blur: 20px;
+  --spread: 0px;
+  --shadow-clr: rgba(0, 0, 0, 0.35);
+  --shadow-clr-hover: rgba(0, 0, 0, 0.175);
+
+  /* @function shadow($blur) {
+    $shadow: $h-offset $v-offset $blur $spread $shadow-clr;
+    @return $shadow;
+  } */
+
+  /* @function shadow-hover($x) {
+    $shadow-hover: $h-offset $v-offset calc(#{$blur} * 2) $spread
+      $shadow-clr-hover;
+    @return $shadow-hover;
+  } */
+
+
+  box-shadow: var(--h-offset) var(--v-offset) var(--blur) var(--spread) var(--shadow-clr);
+}

@@ -33,6 +33,25 @@
 
     <div class="container gutter">
       <div class="logo"></div>
+
+
+      <a
+        id="download"
+        class="stagger1"
+        href="#" 
+        onclick="this.href='data:text/html;charset=UTF-8,' + encodeURIComponent(document.documentElement.outerHTML)"
+        download="joshua-holloway.com.html"
+      >
+        Download page
+      </a>
+      <style>
+        #download {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+        }
+      </style>
   
       <div class="navlinks">
         
@@ -51,8 +70,6 @@
   </header>
 
   <div id="blur-container">
-
-
 
     <main id="home-page" class="page" >
       <div class="container gutter">
@@ -73,7 +90,24 @@
               <div class="lottie-container">
                   <div class="lottie-svg hide" id="svg"></div>
 
-                  <button id="lottie-play-button">Download Page</button>
+                  <a
+                    id="lottie-play-button"
+                    class="stagger1 btn shadow"
+                    href="#" 
+                    onclick="this.href='data:text/html;charset=UTF-8,' + encodeURIComponent(document.documentElement.outerHTML)"
+                    download="joshua-holloway.com.html"
+                  >
+                    Download Page
+                  </a>
+
+                  <style>
+                    .btn {
+                      border-radius: 5px;
+                      padding: 1rem;
+                      color: white;
+                      background: darkorange;
+                    }
+                  </style>
               </div>
 
               <script src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js'></script>
@@ -159,16 +193,32 @@
       </div>
 
 
-      <a
-        id="download"
-        class="stagger1"
-        href="#" 
-        onclick="this.href='data:text/html;charset=UTF-8,' + encodeURIComponent(document.documentElement.outerHTML)"
-        download="joshua-holloway.com.html"
-        style="position: absolute; bottom: 0;"
-      >
-        Download page
-      </a>
+
+
+      <div class="float one"></div>
+      <div class="float two"></div>
+      <div class="float three"></div>
+      <style>
+        .float {
+          height: 100px;
+          width: 100px;
+          background: blue;
+          position: absolute;
+          z-index: 200;
+        }
+        .float.one {
+          bottom: 0; 
+          left: 0;
+        }
+        .float.two {
+          bottom: 0;
+          right: 0;
+        }
+        .float.three {
+          bottom: 0;
+          right: 0;
+        }
+      </style>
       
     </main>
 
