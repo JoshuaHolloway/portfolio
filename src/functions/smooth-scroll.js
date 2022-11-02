@@ -59,6 +59,8 @@ const startSmoothScroll = () => {
 
   let fired = false;
 
+
+  
   function smoothScroll(){
     current = lerp(current, target, ease);
     current = parseFloat(current.toFixed(2));
@@ -67,8 +69,7 @@ const startSmoothScroll = () => {
     setTransform(container, `translateY(${-current}px) skewY(${skewDiff}deg) `);
     parallaxStep(current);
 
-    console.log('target: ', target);
-    if (target > 500 && fired === false) {
+    if (target > document.body.scrollHeight / 2 && fired === false) {
       // Step 1: Fire event.
       console.log('\x1b[32m%s\x1b[0m', 'firing event!');
       fireEvent('scrolled-to-middle-of-page');

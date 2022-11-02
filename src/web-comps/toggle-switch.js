@@ -1,5 +1,5 @@
 import css from './css.js';
-import { listenForEvent, fireEvent } from '../functions/custom-events.js';
+import { listenForEvent } from '../functions/custom-events.js';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -74,13 +74,6 @@ class ToggleSwitch extends HTMLElement {
 
   connectedCallback() {
     const elem = this.shadowRoot.querySelector('#switch');
-
-    // setTimeout(function() {
-    //   console.log(elem.checked);
-    //   elem.click();
-    //   console.log(elem.checked);
-    // }, 2e3);
-
 
     // Flip switch when user scrolls to middle of page:
     // -Step 1: Fire event in smooth-scroll.js
