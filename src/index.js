@@ -258,37 +258,37 @@ gsapLoadAnim();
 
 // ==============================================
 
-// const parallaxAnim = () => {
+const parallaxAnim = () => {
 
-//   const qs = (x) => document.querySelector(x);
+  const qs = (x) => document.querySelector(x);
 
-//   const one = qs('.float.one');
-//   const two = qs('.float.two');
-//   const three = qs('.float.three');
-//   const four = qs('.float.four');
+  const one = qs('.float.one');
+  const two = qs('.float.two');
+  const three = qs('.float.three');
+  const four = qs('.float.four');
   
-//   function setTranslate(xPos, yPos, el) {
-//     // el.style.transform = 'translate3d(' + xPos + 'px, ' + yPos + 'px, 0)';
-//     el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
-//   }
+  function setTranslate(xPos, yPos, el) {
+    // el.style.transform = 'translate3d(' + xPos + 'px, ' + yPos + 'px, 0)';
+    el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+  }
   
-//   window.addEventListener('DOMContentLoaded', scrollLoop, false);
+  window.addEventListener('DOMContentLoaded', scrollLoop, false);
   
-//   let yScrollPosition;
+  let yScrollPosition;
   
-//   function scrollLoop() {
-//     yScrollPosition = window.scrollY;
+  function scrollLoop() {
+    yScrollPosition = window.scrollY;
   
-//     setTranslate(0, yScrollPosition * 1.05, one);
-//     setTranslate(0, yScrollPosition * 1.3, two);
-//     setTranslate(0, yScrollPosition * 1.2, three);
-//     setTranslate(yScrollPosition * -1,  0, four);
+    setTranslate(0, yScrollPosition * 1.05, one);
+    setTranslate(0, yScrollPosition * 1.3, two);
+    setTranslate(0, yScrollPosition * 1.2, three);
+    setTranslate(yScrollPosition * -1,  0, four);
   
-//     requestAnimationFrame(scrollLoop);
-//   }
-// };
+    requestAnimationFrame(scrollLoop);
+  }
+};
 
-parallaxAnim();
+// parallaxAnim();
 
 // ==============================================
 

@@ -15,7 +15,10 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js' defer></script>
 
   <script src="./web-comps/toggle-switch.js" type="module"></script>
-
+  
+  <script type="module" src="./web-comps/build/web-comps-stencil.esm.js" data-stencil></script> 
+  <script nomodule="" src="./web-comps/build/web-comps-stencil.js" data-stencil></script> 
+  
   <script src="./index.js" type="module" defer></script>
 </head>
 <body>
@@ -153,6 +156,8 @@
 
     <main id="about-page" class="page center">
       <h1>About Page</h1>
+
+      <uc-side-drawer title="JOSh"></uc-side-drawer> 
     </main>
 
     <main id="portfolio-page" class="page center ">
