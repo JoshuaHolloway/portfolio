@@ -1,3 +1,5 @@
+import css from './css.js';
+
 const template = document.createElement('template');
 template.innerHTML = `
   <style>
@@ -73,16 +75,8 @@ class ToggleSwitch extends HTMLElement {
     //  in response to event fired from web-comp:
     // const light_elem = document.querySelector('#light-DOM-elem');
 
-    let is_dark_mode = false;
+    let is_dark_mode = true;
     elem.addEventListener('change', () => {
-      
-      const body = document.querySelector('body');
-
-      const get = (variable) => window.getComputedStyle(document.documentElement).getPropertyValue(`--${variable}`);
-
-      const set = (variable, value) => document.documentElement.style.setProperty(`--${variable}`, value);
-
-      const css = {get, set};
 
       if (is_dark_mode) {
         css.set('bg-primary', 'lightgray');
@@ -91,9 +85,6 @@ class ToggleSwitch extends HTMLElement {
         css.set('bg-primary', 'black');
         css.set('clr-primary', 'lightgray');
       }
-
-
-
 
       // -Invert state:
       is_dark_mode = !is_dark_mode;

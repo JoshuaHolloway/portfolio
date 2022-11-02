@@ -183,28 +183,38 @@
 
 
 
-      <div class="float one"></div>
-      <div class="float two"></div>
-      <div class="float three"></div>
+      <div class="float one shadow"></div>
+      <div class="float two shadow"></div>
+      <div class="float three shadow"></div>
+      <div class="float four shadow"></div>
       <style>
         .float {
           height: 100px;
           width: 100px;
-          background: blue;
           position: absolute;
           z-index: 200;
         }
         .float.one {
-          bottom: 0; 
-          left: 0;
+          background: lightblue;
+          bottom: 2%; 
+          left: 1%;
+          
         }
         .float.two {
-          bottom: 0;
-          right: 0;
+          background: darkorange;
+          bottom: 7%;
+          right: 3%;
         }
         .float.three {
-          bottom: 0;
-          right: 0;
+          background: lightgreen;
+          bottom: 10%;
+          left: 5%;
+        }
+        .float.four {
+          background: darkorchid;
+          border-radius: 50%;
+          bottom: -100%;
+          right: 10%;
         }
       </style>
       

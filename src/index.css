@@ -5,8 +5,8 @@
 }
 
 :root {
-  --bg-primary: lightgray;
-  --clr-primary: black;
+  --bg-primary: black;
+  --clr-primary: lightgray;
 }
 
 body {

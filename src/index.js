@@ -260,8 +260,12 @@ gsapLoadAnim();
 
 const parallaxAnim = () => {
 
-  const one = document.querySelector('.float.one');
-  const two = document.querySelector('.float.two');
+  const qs = (x) => document.querySelector(x);
+
+  const one = qs('.float.one');
+  const two = qs('.float.two');
+  const three = qs('.float.three');
+  const four = qs('.float.four');
   
   function setTranslate(xPos, yPos, el) {
     el.style.transform = 'translate3d(' + xPos + ', ' + yPos + 'px, 0)';
@@ -274,9 +278,10 @@ const parallaxAnim = () => {
   function scrollLoop() {
     yScrollPosition = window.scrollY;
   
-    // setTranslate(0, yScrollPosition * 0.2, download);
     setTranslate(0, yScrollPosition * 1.05, one);
-    setTranslate(0, yScrollPosition * -0.2, two);
+    setTranslate(0, yScrollPosition * 1.3, two);
+    setTranslate(0, yScrollPosition * 1.2, three);
+    setTranslate(0, yScrollPosition * -1.4, four);
   
     requestAnimationFrame(scrollLoop);
   }
