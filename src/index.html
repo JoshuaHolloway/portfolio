@@ -157,7 +157,17 @@
     <main id="about-page" class="page center">
       <h1>About Page</h1>
 
-      <uc-side-drawer title="JOSh"></uc-side-drawer> 
+      <uc-side-drawer title="JOSh"></uc-side-drawer>
+
+      <script>
+        const side_drawer = document.querySelector('uc-side-drawer');
+
+        setTimeout(() => {
+          side_drawer.title = 'FUCK';
+          // side_drawer.setAttribute('title', 'fucking attribute');
+        }, 1000);
+      </script>
+
     </main>
 
     <main id="portfolio-page" class="page center ">

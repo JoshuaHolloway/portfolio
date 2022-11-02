@@ -1,4 +1,5 @@
 import { startSmoothScroll, stopSmoothScroll } from './functions/smooth-scroll.js';
+import { listenForEvent, fireEvent } from './functions/custom-events.js';
 
 gsap.registerPlugin(Flip, ScrollTrigger);
 
@@ -135,10 +136,6 @@ navlinks.forEach((navlink, idx) => {
     });
 
     // Fire event for local-storage 'path' changed
-    const fireEvent = (event_name) => {
-      const event = new Event(event_name);
-      document.dispatchEvent(event);
-    };
     fireEvent('local-storage-path-modified');
     
   });
@@ -202,9 +199,6 @@ window.addEventListener('load', (event) => {
     gsap.fromTo(document.querySelector('body'), {opacity: 0}, {opacity: 1, duration: 1, delay: 0.5})
 
 
-    const listenForEvent = (event_name, fn) => {
-      document.addEventListener(event_name, e => fn(e), false);
-    };
     listenForEvent('local-storage-path-modified', () => {
       console.log('Event Fired: path changed and local storage "path" set');
 

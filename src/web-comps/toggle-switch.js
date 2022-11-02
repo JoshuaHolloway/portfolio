@@ -1,4 +1,5 @@
 import css from './css.js';
+import { listenForEvent, fireEvent } from '../functions/custom-events.js';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -66,10 +67,29 @@ class ToggleSwitch extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open'})
     this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+
+
   }
 
   connectedCallback() {
     const elem = this.shadowRoot.querySelector('#switch');
+
+    // setTimeout(function() {
+    //   console.log(elem.checked);
+    //   elem.click();
+    //   console.log(elem.checked);
+    // }, 2e3);
+
+
+    // Flip switch when user scrolls to middle of page:
+    // -Step 1: Fire event in smooth-scroll.js
+    // -Step 2: In the toggle-button web-component listen for the event and respond to it firing.
+    // -Step 3: In the callback select the toggle-switch. 
+    listenForEvent('scrolled-to-middle-of-page', () => {
+      console.log('user scrolled to middle of page!');
+      elem.click();
+    });
     
     // -Element in regular DOM we want to change
     //  in response to event fired from web-comp:

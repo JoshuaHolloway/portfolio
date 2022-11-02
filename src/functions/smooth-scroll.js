@@ -1,5 +1,10 @@
 let smooth_scroll_animation_frame_ref;
 
+const fireEvent = (event_name) => {
+  const event = new Event(event_name);
+  document.dispatchEvent(event);
+};
+
 const startSmoothScroll = () => {
   let current = 0;
   let target = 0;
@@ -52,13 +57,27 @@ const startSmoothScroll = () => {
 
   const parallaxStep = setupParallaxElems();
 
+  let fired = false;
+
   function smoothScroll(){
     current = lerp(current, target, ease);
     current = parseFloat(current.toFixed(2));
-    target = window.scrollY
+    target = window.scrollY;
     skewDiff = (target - current) * .015
     setTransform(container, `translateY(${-current}px) skewY(${skewDiff}deg) `);
     parallaxStep(current);
+
+    console.log('target: ', target);
+    if (target > 500 && fired === false) {
+      // Step 1: Fire event.
+      console.log('\x1b[32m%s\x1b[0m', 'firing event!');
+      fireEvent('scrolled-to-middle-of-page');
+      fired = true;
+
+      // Step 2: In the toggle-button web-component listen for the event and respond to it firing.
+      // Step 3: In the callback select the toggle-switch.
+    }
+
     smooth_scroll_animation_frame_ref = requestAnimationFrame(smoothScroll)
   }
 
