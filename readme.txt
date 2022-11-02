@@ -66,3 +66,10 @@ Close drawer with click outside the drawer (when opened).
    event bubling.
    --We only need to check that the user has clicked
      the actual overlay, which we are already doing!
+
+
+  Web-comp workflow:
+  1. Develop in stencil.
+  2. Build.
+  3. Copy www/build into src/web-comps/build.
+  4. Link via same as done in www/index.html.

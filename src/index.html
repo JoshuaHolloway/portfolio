@@ -157,8 +157,7 @@
     <main id="about-page" class="page center">
       <h1>About Page</h1>
 
-      <uc-side-drawer title="JOSh"></uc-side-drawer>
-
+      <uc-side-drawer title="JOSh" open></uc-side-drawer>
       <script>
         const side_drawer = document.querySelector('uc-side-drawer');
 
@@ -166,6 +165,10 @@
           side_drawer.title = 'FUCK';
           // side_drawer.setAttribute('title', 'fucking attribute');
         }, 1000);
+
+        side_drawer.addEventListener('click', () => {
+          side_drawer.open = false;
+        });
       </script>
 
     </main>
@@ -187,6 +190,98 @@
 
     <main id="contact-page" class="page center ">
       <h1>Contact Page</h1>
+      <div class="content">
+        <h1 class="title">Animating gradients</h1>
+        <button class="fun">Hover me!</button>
+      </div>
+      <style>
+        :root {
+          --gradient: linear-gradient(90deg, #ee6352, purple, #ee6352);
+        }
+
+        main#contact-page {
+          font-family: basic-sans, sans-serif;
+          min-height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1.125em;
+          line-height: 1.6;
+          color: #333;
+          background: #ddd;
+          background-size: 300%;
+          background-image: var(--gradient);
+          -webkit-animation: bg-animation 25s infinite;
+                  animation: bg-animation 25s infinite;
+        }
+
+        @-webkit-keyframes bg-animation {
+          0% {
+            background-position: left;
+          }
+          50% {
+            background-position: right;
+          }
+          100% {
+            background-position: left;
+          }
+        }
+
+        @keyframes bg-animation {
+          0% {
+            background-position: left;
+          }
+          50% {
+            background-position: right;
+          }
+          100% {
+            background-position: left;
+          }
+        }
+        .content {
+          background: white;
+          width: 70vw;
+          padding: 3em;
+          box-shadow: 0 0 3em rgba(0, 0, 0, 0.15);
+        }
+
+        .title {
+          margin: 0 0 0.5em;
+          text-transform: uppercase;
+          font-weight: 900;
+          font-style: italic;
+          font-size: 3rem;
+          color: #ee6352;
+          line-height: 0.8;
+          margin: 0;
+          background-image: var(--gradient);
+          -webkit-background-clip: text;
+                  background-clip: text;
+          color: transparent;
+          background-size: 300%;
+          transition: background-position 1s;
+        }
+
+        .title:hover {
+          background-position: right;
+        }
+
+        .fun {
+          color: white;
+          border: 0;
+          cursor: pointer;
+          padding: 0.5em 1.25em;
+          background: linear-gradient(90deg, #ee6352, purple, #ee6352);
+          background-size: 300%;
+          background-position: left;
+          transition: background-position 350ms;
+        }
+
+        .fun:hover {
+          background-position: right;
+        }
+      </style>
+
     </main>
 
     <footer></footer>
