@@ -59,7 +59,6 @@ template.innerHTML = `
 
 `;
 
-
 class ToggleSwitch extends HTMLElement {
   constructor() {
     super();
@@ -72,20 +71,29 @@ class ToggleSwitch extends HTMLElement {
     
     // -Element in regular DOM we want to change
     //  in response to event fired from web-comp:
-    const light_elem = document.querySelector('#light-DOM-elem');
+    // const light_elem = document.querySelector('#light-DOM-elem');
 
-    let is_dark_mode = true;
+    let is_dark_mode = false;
     elem.addEventListener('change', () => {
       
+      const body = document.querySelector('body');
+
+      const get = (variable) => window.getComputedStyle(document.documentElement).getPropertyValue(`--${variable}`);
+
+      const set = (variable, value) => document.documentElement.style.setProperty(`--${variable}`, value);
+
+      const css = {get, set};
+
       if (is_dark_mode) {
-        light_elem.textContent = 'Light Mode';
-        light_elem.style.backgroundColor = 'white';
-        light_elem.style.color = 'black';
+        css.set('bg-primary', 'lightgray');
+        css.set('clr-primary', 'black');
       } else {
-        light_elem.textContent = 'Dark Mode';
-        light_elem.style.backgroundColor = 'black';
-        light_elem.style.color = 'white';
+        css.set('bg-primary', 'black');
+        css.set('clr-primary', 'lightgray');
       }
+
+
+
 
       // -Invert state:
       is_dark_mode = !is_dark_mode;

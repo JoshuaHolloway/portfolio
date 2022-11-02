@@ -4,14 +4,19 @@
   box-sizing: border-box;
 }
 
-html {
-  background: black;
+:root {
+  --bg-primary: lightgray;
+  --clr-primary: black;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   opacity: 0;
+  background: var(--bg-primary);
+  color: var(--clr-primary);
+
+  transition: background 1s ease, color 1s ease;
 }
 
 #overlay { /* beneath the navdrawer */
@@ -38,7 +43,7 @@ body {
 }
 .page#home-page {
   z-index: 1;
-  background: lightgrey;
+  
   opacity: 1;
   height: 100vh;
 }
