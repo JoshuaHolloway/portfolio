@@ -7,11 +7,12 @@
   <title>Josh Holloway</title>
   <link rel="stylesheet" href="./index.css">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/Flip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
   
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" defer></script>
-
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js' defer></script>
 
   <script src="./web-comps/toggle-switch.js" type="module"></script>
 
@@ -58,8 +59,6 @@
     <main id="home-page" class="page" >
       <div class="container gutter">
 
-        
-
         <section id="hero">
           
           <div class="left">
@@ -85,59 +84,15 @@
                   class="stagger1 btn shadow"
                   href="#" 
                 >
-                  Portfolio
+                  Featured Project
                 </a>
 
-                <style>
-                  .btn {
-                    border-radius: 5px;
-                    padding: 1rem;
-                    color: white;
-                    background: darkorange;
-                  }
-                </style>
               </div>
-
-              <script src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js'></script>
-              <script>
-                const lottieSVG = document.querySelector('.lottie-svg');
-                const animItem = bodymovin.loadAnimation({
-                  wrapper: lottieSVG,
-                  animType: 'svg',
-                  loop: false,
-                  autoplay: false,
-                  path: 'https://assets2.lottiefiles.com/packages/lf20_u4yrau.json'
-                });
-                
-                
-                const lottie_play_button = document.querySelector('#lottie-play-button');
-                lottie_play_button.addEventListener('click', () => {
-                  lottieSVG.classList.remove('hide');
-                  animItem.goToAndPlay(0, true);
-                });
-
-                animItem.addEventListener('complete', () => {
-                  lottieSVG.classList.add('hide')
-                })
-              </script>
-
 
             </div>
           </div>
 
           <div class="right">
-
-            <!-- <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect class="square-anim" x="100" y="200" width="100" height="100" rx="50" fill="#D9D9D9"/>
-              <rect class="square-anim" x="200" y="100" width="100" height="100" rx="50" fill="#D9D9D9"/>
-              <rect class="square-anim" x="100" y="300" width="100" height="100" rx="15" fill="#D9D9D9"/>
-              <rect class="square-anim" x="200" width="100" height="100" rx="15" fill="#D9D9D9"/>
-              <rect class="square-anim" x="200" y="200" width="100" height="100" rx="15" fill="#D9D9D9"/>
-              <rect class="square-anim" x="300" y="100" width="100" height="100" rx="15" fill="#D9D9D9"/>
-              <rect class="square-anim" y="200" width="100" height="100" rx="15" fill="#D9D9D9"/>
-              <rect class="square-anim" x="100" y="100" width="100" height="100" rx="15" fill="#D9D9D9"/>
-            </svg> -->
-
             <lottie-player 
               src="./Untitled-2.json"  
               background="transparent"  
@@ -176,47 +131,23 @@
 
         </section>
 
-        <section id="featured-project"></section>
+        <section id="featured-project">
+
+              <span
+                class="stagger1 btn shadow"
+                href="" 
+              >
+                Portfolio
+              </span>
+
+        </section>
 
       </div>
-
-
-
 
       <div class="float one shadow"></div>
       <div class="float two shadow"></div>
       <div class="float three shadow"></div>
       <div class="float four shadow"></div>
-      <style>
-        .float {
-          height: 100px;
-          width: 100px;
-          position: absolute;
-          z-index: 200;
-        }
-        .float.one {
-          background: lightblue;
-          bottom: 2%; 
-          left: 1%;
-          
-        }
-        .float.two {
-          background: darkorange;
-          bottom: 7%;
-          right: 3%;
-        }
-        .float.three {
-          background: lightgreen;
-          bottom: 10%;
-          left: 5%;
-        }
-        .float.four {
-          background: darkorchid;
-          border-radius: 50%;
-          bottom: -100%;
-          right: 10%;
-        }
-      </style>
       
     </main>
 
@@ -226,6 +157,17 @@
 
     <main id="portfolio-page" class="page center ">
       <h1>Portfolio Page</h1>
+
+      <div class="insert">
+        <div class="container">
+          <img src="https://picsum.photos/200/300" class="move">
+          <img src="https://picsum.photos/200/300" class="move">
+          <img src="https://picsum.photos/200/300" class="move">
+          <img src="https://picsum.photos/200/300" class="move">
+          <img src="https://picsum.photos/200/300" class="move">
+          <img src="https://picsum.photos/200/300" class="move">
+        </div>
+      </div>
     </main>
 
     <main id="contact-page" class="page center ">

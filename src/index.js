@@ -1,6 +1,6 @@
 import { startSmoothScroll, stopSmoothScroll } from './functions/smooth-scroll.js';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(Flip, ScrollTrigger);
 
 const qs = x => document.querySelector(x);
 
@@ -258,34 +258,35 @@ gsapLoadAnim();
 
 // ==============================================
 
-const parallaxAnim = () => {
+// const parallaxAnim = () => {
 
-  const qs = (x) => document.querySelector(x);
+//   const qs = (x) => document.querySelector(x);
 
-  const one = qs('.float.one');
-  const two = qs('.float.two');
-  const three = qs('.float.three');
-  const four = qs('.float.four');
+//   const one = qs('.float.one');
+//   const two = qs('.float.two');
+//   const three = qs('.float.three');
+//   const four = qs('.float.four');
   
-  function setTranslate(xPos, yPos, el) {
-    el.style.transform = 'translate3d(' + xPos + ', ' + yPos + 'px, 0)';
-  }
+//   function setTranslate(xPos, yPos, el) {
+//     // el.style.transform = 'translate3d(' + xPos + 'px, ' + yPos + 'px, 0)';
+//     el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+//   }
   
-  window.addEventListener('DOMContentLoaded', scrollLoop, false);
+//   window.addEventListener('DOMContentLoaded', scrollLoop, false);
   
-  let yScrollPosition;
+//   let yScrollPosition;
   
-  function scrollLoop() {
-    yScrollPosition = window.scrollY;
+//   function scrollLoop() {
+//     yScrollPosition = window.scrollY;
   
-    setTranslate(0, yScrollPosition * 1.05, one);
-    setTranslate(0, yScrollPosition * 1.3, two);
-    setTranslate(0, yScrollPosition * 1.2, three);
-    setTranslate(0, yScrollPosition * -1.4, four);
+//     setTranslate(0, yScrollPosition * 1.05, one);
+//     setTranslate(0, yScrollPosition * 1.3, two);
+//     setTranslate(0, yScrollPosition * 1.2, three);
+//     setTranslate(yScrollPosition * -1,  0, four);
   
-    requestAnimationFrame(scrollLoop);
-  }
-};
+//     requestAnimationFrame(scrollLoop);
+//   }
+// };
 
 parallaxAnim();
 
@@ -296,9 +297,7 @@ const scrollAnimation = () => {
   // Execute callback each time the visibility of one of the observed elements changes.
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-
-      console.log('entry: ', entry);
-
+      // console.log('entry: ', entry);
       if (entry.isIntersecting) {
         entry.target.classList.add('show');
       }
@@ -352,3 +351,44 @@ const navbarAnimation = () => {
 };
 
 navbarAnimation();
+
+// ===============================================
+
+const downloadButtonAnim = () => {
+  const lottieSVG = document.querySelector('.lottie-svg');
+  const animItem = bodymovin.loadAnimation({
+    wrapper: lottieSVG,
+    animType: 'svg',
+    loop: false,
+    autoplay: false,
+    path: 'https://assets2.lottiefiles.com/packages/lf20_u4yrau.json'
+  });
+  
+  
+  const lottie_play_button = document.querySelector('#lottie-play-button');
+  lottie_play_button.addEventListener('click', () => {
+    lottieSVG.classList.remove('hide');
+    animItem.goToAndPlay(0, true);
+  });
+
+  animItem.addEventListener('complete', () => {
+    lottieSVG.classList.add('hide')
+  });
+};
+downloadButtonAnim();
+
+// ==============================================
+
+// const pageLoadHeroAnim = () => {
+//   const player = document.querySelector("lottie-player");
+//   console.clear();
+//   console.log('player: ', player);
+  
+//   player.addEventListener("rendered", (e) => {
+//     console.log('LOADED!');
+//     setTimeout(() => {
+//       player.play();
+//     }, 1000);
+//   });
+// };
+// pageLoadHeroAnim();
