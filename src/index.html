@@ -298,7 +298,7 @@
           background: darkorchid;
         }
 
-        #portfolio-page .relocate-from-container {
+        #portfolio-page .flip-container {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 1em;
@@ -315,10 +315,10 @@
       </style>
 
       <button class="flip-button">Click Me</button>
-      
-      <div class="relocate-to-container"></div>
 
-      <div class="relocate-from-container">
+      <div class="flip-container">
+        <img src="https://picsum.photos/200/200" class="item relocate">
+        <img src="https://picsum.photos/200/200" class="item">
         <img src="https://picsum.photos/200/200" class="item relocate">
         <div class="item text-card">
           <h3>Portfolio projects...</h3>
@@ -335,10 +335,6 @@
 
         const button = qs('#portfolio-page .flip-button');
 
-        const relocate_to_container = qs('#portfolio-page .relocate-to-container');
-        const relocate_from_container = qs('#portfolio-page .relocate-from-container');
-        
-        
         let clicked = false;
         const setClicked = x => clicked = x;
         button.addEventListener('click', () => {
@@ -350,14 +346,8 @@
             const state = Flip.getState(items);
 
             relocate.forEach(rel => {
-              // relocate_to_container.appendChild(rel)
               rel.style.display = 'none';
             });
-
-            // Flip.from(state, {
-            //   duration: 1,
-            //   ease: "power1.inOut"
-            // });
 
             // animate from the previous state
             Flip.from(state, {
@@ -395,8 +385,7 @@
             const state = Flip.getState(items);
 
             relocate.forEach(rel => {
-              // relocate_from_container.appendChild(rel);
-              rel.style.display = 'inline';
+              rel.style.display = 'inline-block';
             });
 
             Flip.from(state, {
@@ -427,9 +416,6 @@
             setClicked(false);
 
           }
-
-          button.textContent = clicked ? 'clicked' : 'not clicked';
-          
 
         });
       </script>
