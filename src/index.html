@@ -234,20 +234,35 @@
 
           const relocate_to_container = qs('.relocate-to-container');
           const relocate = qsAll('.relocate');
-
-          const items = gsap.utils.toArray('.item');
-
-          const state = Flip.getState(items);
-
+          
+          let clicked = false;
+          const setClicked = x => clicked = x;
           button.addEventListener('click', () => {
-            relocate.forEach(rel => {
-              relocate_to_container.appendChild(rel)
-            });
+            
+            
+            if (clicked) {
+              
+              setClicked(false);
+            } else {
+              
+              const items = gsap.utils.toArray('.item');
+    
+              const state = Flip.getState(items);
 
-            Flip.from(state, {
-              duration: 1,
-              ease: "power1.inOut"
-            });
+              relocate.forEach(rel => {
+                relocate_to_container.appendChild(rel)
+              });
+  
+              Flip.from(state, {
+                duration: 1,
+                ease: "power1.inOut"
+              });
+              setClicked(true);
+            }
+
+            button.textContent = clicked ? 'clicked' : 'not clicked';
+            
+
           });
       </script>
 
