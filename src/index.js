@@ -95,6 +95,10 @@ const routes = [
     page: 'contact',
     path: '/contact'
   },
+  {
+    page: 'threeD',
+    path: '/3D'
+  },
 ];
 
 // Navbar navlinks (navdrawer navlinks not handled yet)
@@ -194,6 +198,13 @@ window.addEventListener('load', (event) => {
       navlinks[3].classList.add('active');
       window.history.replaceState({}, '', '/contact');
       page_idx = { current: 3, prev: 0 };
+    }
+    else if (path_local_storage === '/3D') {
+      pages[4].style.zIndex = 1;
+      pages[4].style.opacity = 1;
+      navlinks[4].classList.add('active');
+      window.history.replaceState({}, '', '/3D');
+      page_idx = { current: 4, prev: 0 };
     }
 
     gsap.fromTo(document.querySelector('body'), {opacity: 0}, {opacity: 1, duration: 1, delay: 0.5})

@@ -145,22 +145,22 @@ header#navbar .navlink:not(:nth-child(1)) {
   header .hamburger { display: none; }
 }
 
-.page > .container > section {
+.page > section {
   height: 100vh;
 }
 
-.page#home-page > .container > section#hero {
+.page#home-page > section#hero {
   display: grid;
 }
-.page#home-page > .container > section#hero > .left,
-.page#home-page > .container > section#hero > .right {
+.page#home-page > section#hero > .left,
+.page#home-page > section#hero > .right {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 } 
 
-.page#home-page > .container > section#skills {
+.page#home-page > section#skills {
   color: white;
   background: rgba(255, 255, 0, 0.1);
 }
