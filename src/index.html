@@ -529,9 +529,16 @@
       scene.add(cube);
 
       const planeGeometry = new THREE.PlaneGeometry(5, 5, 10, 10);
-      const material2 = new THREE.MeshBasicMaterial({ color: 0x000fff });
+      const material2 = new THREE.MeshPhongMaterial({ 
+        color: 0x000fff,
+        side: THREE.DoubleSide
+      });
       const plane = new THREE.Mesh(planeGeometry, material2);
       scene.add(plane);
+
+      const light = new THREE.DirectionalLight(0xffffff, 1, );
+      light.position.set(0, 0, 1); // x, y, z
+      scene.add(light);
 
       camera.position.z = 5;
 
