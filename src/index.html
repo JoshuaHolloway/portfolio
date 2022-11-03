@@ -138,127 +138,142 @@
       
     </main>
 
-    <main id="about-page" class="page gutter center">
-      <h1>About Page</h1>
+    <main id="about-page" class="page center">
+      <section class="gutter">
+        <h1>About Page</h1>
 
-      <uc-side-drawer title="JOSh" open></uc-side-drawer>
-      <script>
-        const side_drawer = document.querySelector('uc-side-drawer');
+        <uc-side-drawer title="JOSh" open></uc-side-drawer>
+        <script>
+          const side_drawer = document.querySelector('uc-side-drawer');
 
-        setTimeout(() => {
-          side_drawer.title = 'modified';
-          // side_drawer.setAttribute('title', 'fucking attribute');
-        }, 1000);
+          setTimeout(() => {
+            side_drawer.title = 'modified';
+            // side_drawer.setAttribute('title', 'fucking attribute');
+          }, 1000);
 
-        side_drawer.addEventListener('click', () => {
-          side_drawer.open = false;
-        });
-      </script>
+          side_drawer.addEventListener('click', () => {
+            side_drawer.open = false;
+          });
+        </script>
 
 
 
-      <style>
-        #about-page img {
-          width: 100%;
-          height: 200px;
-          object-fit: cover;
-        }
+        <style>
+          #about-page img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+          }
 
-        #about-page .relocate-to-container {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          grid-gap: 1em;
-          height: 300px;
-          width: 100%;
-          background: darkorchid;
-        }
+          #about-page .relocate-to-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1em;
+            height: 300px;
+            width: 100%;
+            background: darkorchid;
+          }
 
-        #about-page .relocate-from-container {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 1em;
-          width: 100%;
-          height: 300px;
-          background: hotpink;
-        }
+          #about-page .relocate-from-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1em;
+            width: 100%;
+            height: 300px;
+            background: hotpink;
+          }
 
-        #about-page .text-card {
-          background: rgb(236, 236, 236);
-          padding: 1em;
-          color: black;
-        }
-      </style>
+          #about-page .text-card {
+            background: rgb(236, 236, 236);
+            padding: 1em;
+            color: black;
+          }
+        </style>
 
-      <button class="flip-button">Click Me</button>
-      
-      <div class="relocate-to-container"></div>
+        <button class="flip-button">Click Me</button>
+        
+        <div class="relocate-to-container"></div>
 
-      <div class="relocate-from-container">
-        <img src="https://picsum.photos/200/200" class="item relocate">
-        <div class="item text-card">
-          <h3>Portfolio projects...</h3>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente, eius.</p>
+        <div class="relocate-from-container">
+          <img src="https://picsum.photos/200/200" class="item relocate">
+          <div class="item text-card">
+            <h3>Portfolio projects...</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente, eius.</p>
+          </div>
+        </div>
+
+        <script type="module">
+          (() => {
+            gsap.registerPlugin(Flip);
+
+            const qs = x => document.querySelector(x);
+            const qsAll = x => document.querySelectorAll(x);
+
+            const button = qs('#about-page .flip-button');
+
+            const relocate_to_container = qs('#about-page .relocate-to-container');
+            const relocate_from_container = qs('#about-page .relocate-from-container');
+            
+            
+            let clicked = false;
+            const setClicked = x => clicked = x;
+            button.addEventListener('click', () => {
+              
+              
+              if (!clicked) {
+
+                const relocate = qsAll('#about-page .relocate');
+                const items = gsap.utils.toArray('#about-page .item');
+                const state = Flip.getState(items);
+
+                relocate.forEach(rel => {
+                  relocate_to_container.appendChild(rel)
+                });
+    
+                Flip.from(state, {
+                  duration: 1,
+                  ease: "power1.inOut"
+                });
+                
+                setClicked(true);
+              
+              } else {
+              
+                const relocate = qsAll('#about-page .relocate');
+                const items = gsap.utils.toArray('#about-page .item');
+                const state = Flip.getState(items);
+
+                relocate.forEach(rel => {
+                  relocate_from_container.appendChild(rel)
+                });
+    
+                Flip.from(state, {
+                  duration: 1,
+                  ease: "power1.inOut"
+                });
+
+                setClicked(false);
+
+              }
+
+              button.textContent = clicked ? 'clicked' : 'not clicked';
+            });
+          })();
+        </script>
+      </section>
+
+      <div style="position: relative; width: 100%;">
+        <!-- Wavy SVG Divider -->
+        <div class="custom-shape-divider-top-1667484223">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
         </div>
       </div>
 
-      <script type="module">
-        (() => {
-          gsap.registerPlugin(Flip);
-
-          const qs = x => document.querySelector(x);
-          const qsAll = x => document.querySelectorAll(x);
-
-          const button = qs('#about-page .flip-button');
-
-          const relocate_to_container = qs('#about-page .relocate-to-container');
-          const relocate_from_container = qs('#about-page .relocate-from-container');
-          
-          
-          let clicked = false;
-          const setClicked = x => clicked = x;
-          button.addEventListener('click', () => {
-            
-            
-            if (!clicked) {
-
-              const relocate = qsAll('#about-page .relocate');
-              const items = gsap.utils.toArray('#about-page .item');
-              const state = Flip.getState(items);
-
-              relocate.forEach(rel => {
-                relocate_to_container.appendChild(rel)
-              });
-  
-              Flip.from(state, {
-                duration: 1,
-                ease: "power1.inOut"
-              });
-              
-              setClicked(true);
-            
-            } else {
-            
-              const relocate = qsAll('#about-page .relocate');
-              const items = gsap.utils.toArray('#about-page .item');
-              const state = Flip.getState(items);
-
-              relocate.forEach(rel => {
-                relocate_from_container.appendChild(rel)
-              });
-  
-              Flip.from(state, {
-                duration: 1,
-                ease: "power1.inOut"
-              });
-
-              setClicked(false);
-
-            }
-
-            button.textContent = clicked ? 'clicked' : 'not clicked';
-          });
-        })();
-      </script>
+      <section id="fuck" class="gutter">
+        <h2>SECTION 2</h2>
+      </section>
 
     </main>
 
@@ -535,6 +550,10 @@
       });
       const plane = new THREE.Mesh(planeGeometry, material2);
       scene.add(plane);
+
+      console.log('plane mesh vertices: ', 
+        plane.geometry.attributes.position.array
+      );
 
       const light = new THREE.DirectionalLight(0xffffff, 1, );
       light.position.set(0, 0, 1); // x, y, z

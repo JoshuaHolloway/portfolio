@@ -6,6 +6,7 @@
 
 :root {
   --bg-primary: lightgray;
+  --bg-secondary: lightblue;
   --clr-primary: black;
 
   --init-navbar-height: 100px;
@@ -50,7 +51,27 @@ body {
   opacity: 1;
   height: 100vh;
 }
-/* .page#about-page { background: lightblue; } */
+.page#about-page section:nth-child(1) { 
+  background: var(--bg-primary);
+  transition: background-color 1s ease; 
+}
+/* .page#about-page section:nth-child(2)  */
+#fuck
+{ 
+  background: var(--bg-secondary); 
+
+}
+
+.page#about-page .custom-shape-divider-top-1667484223 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    fill: var(--bg-primary);
+    transition: fill 1s ease; 
+}
 /* .page#portfolio-page { background: lightgreen; } */
 /* .page#contact-page { background: red; } */
 
@@ -146,7 +167,9 @@ header#navbar .navlink:not(:nth-child(1)) {
 }
 
 .page > section {
-  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  padding-bottom: 5%;
 }
 
 .page#home-page > section#hero {
