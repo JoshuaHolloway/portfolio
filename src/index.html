@@ -284,7 +284,7 @@
 
       <style>
         #portfolio-page img {
-          width: 100%;
+          width: 200px;
           height: 200px;
           object-fit: cover;
         }
@@ -343,7 +343,6 @@
         const setClicked = x => clicked = x;
         button.addEventListener('click', () => {
           
-          
           if (!clicked) {
 
             const relocate = qsAll('#portfolio-page .relocate');
@@ -351,12 +350,40 @@
             const state = Flip.getState(items);
 
             relocate.forEach(rel => {
-              relocate_to_container.appendChild(rel)
+              // relocate_to_container.appendChild(rel)
+              rel.style.display = 'none';
             });
 
+            // Flip.from(state, {
+            //   duration: 1,
+            //   ease: "power1.inOut"
+            // });
+
+            // animate from the previous state
             Flip.from(state, {
-              duration: 1,
-              ease: "power1.inOut"
+              duration: 0.7,
+              scale: true,
+              ease: "power1.inOut",
+              stagger: 0.08,
+              absolute: true,
+              onEnter: elements => gsap.fromTo(elements, 
+                {
+                  opacity: 0, 
+                  scale: 0
+                }, 
+                {
+                  opacity: 1, 
+                  scale: 1, 
+                  duration: 1
+                }
+              ),
+              onLeave: elements => gsap.to(elements, 
+                {
+                opacity: 0, 
+                scale: 0, 
+                duration: 1
+                }
+              ),
             });
             
             setClicked(true);
@@ -368,14 +395,35 @@
             const state = Flip.getState(items);
 
             relocate.forEach(rel => {
-              relocate_from_container.appendChild(rel)
+              // relocate_from_container.appendChild(rel);
+              rel.style.display = 'inline';
             });
 
             Flip.from(state, {
-              duration: 1,
-              ease: "power1.inOut"
+              duration: 0.7,
+              scale: true,
+              ease: "power1.inOut",
+              stagger: 0.08,
+              absolute: true,
+              onEnter: elements => gsap.fromTo(elements, 
+                {
+                  opacity: 0, 
+                  scale: 0
+                }, 
+                {
+                  opacity: 1, 
+                  scale: 1, 
+                  duration: 1
+                }
+              ),
+              onLeave: elements => gsap.to(elements, 
+                {
+                opacity: 0, 
+                scale: 0, 
+                duration: 1
+                }
+              ),
             });
-
             setClicked(false);
 
           }
