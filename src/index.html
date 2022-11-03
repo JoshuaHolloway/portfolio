@@ -171,20 +171,16 @@
         });
       </script>
 
-    </main>
 
-    <main id="portfolio-page" class="page gutter center ">
-
-      <h1>Portfolio Page</h1>
 
       <style>
-        #portfolio-page img {
+        #about-page img {
           width: 100%;
           height: 200px;
           object-fit: cover;
         }
 
-        #portfolio-page .relocate-to-container {
+        #about-page .relocate-to-container {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           grid-gap: 1em;
@@ -193,7 +189,7 @@
           background: darkorchid;
         }
 
-        #portfolio-page .relocate-from-container {
+        #about-page .relocate-from-container {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 1em;
@@ -202,7 +198,7 @@
           background: hotpink;
         }
 
-        #portfolio-page .text-card {
+        #about-page .text-card {
           background: rgb(236, 236, 236);
           padding: 1em;
           color: black;
@@ -228,7 +224,7 @@
           const qs = x => document.querySelector(x);
           const qsAll = x => document.querySelectorAll(x);
 
-          const button = qs('#portfolio-page .flip-button');
+          const button = qs('#about-page .flip-button');
 
           const relocate_to_container = qs('.relocate-to-container');
           const relocate_from_container = qs('.relocate-from-container');
@@ -280,6 +276,14 @@
 
           });
       </script>
+
+    </main>
+
+    <main id="portfolio-page" class="page gutter center ">
+
+      <h1>Portfolio Page</h1>
+
+
 
     </main>
 
