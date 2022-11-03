@@ -337,85 +337,54 @@
 
         let clicked = false;
         const setClicked = x => clicked = x;
+        
         button.addEventListener('click', () => {
-          
+        
+
+
+          const relocate = qsAll('#portfolio-page .relocate');
+          const items = gsap.utils.toArray('#portfolio-page .item');
+
+          let state = Flip.getState(items);
+
           if (!clicked) {
-
-            const relocate = qsAll('#portfolio-page .relocate');
-            const items = gsap.utils.toArray('#portfolio-page .item');
-            const state = Flip.getState(items);
-
             relocate.forEach(rel => {
               rel.style.display = 'none';
-            });
-
-            // animate from the previous state
-            Flip.from(state, {
-              duration: 0.7,
-              scale: true,
-              ease: "power1.inOut",
-              stagger: 0.08,
-              absolute: true,
-              onEnter: elements => gsap.fromTo(elements, 
-                {
-                  opacity: 0, 
-                  scale: 0
-                }, 
-                {
-                  opacity: 1, 
-                  scale: 1, 
-                  duration: 1
-                }
-              ),
-              onLeave: elements => gsap.to(elements, 
-                {
-                opacity: 0, 
-                scale: 0, 
-                duration: 1
-                }
-              ),
-            });
-            
+            });            
             setClicked(true);
-          
           } else {
-          
-            const relocate = qsAll('#portfolio-page .relocate');
-            const items = gsap.utils.toArray('#portfolio-page .item');
-            const state = Flip.getState(items);
-
             relocate.forEach(rel => {
               rel.style.display = 'inline-block';
             });
-
-            Flip.from(state, {
-              duration: 0.7,
-              scale: true,
-              ease: "power1.inOut",
-              stagger: 0.08,
-              absolute: true,
-              onEnter: elements => gsap.fromTo(elements, 
-                {
-                  opacity: 0, 
-                  scale: 0
-                }, 
-                {
-                  opacity: 1, 
-                  scale: 1, 
-                  duration: 1
-                }
-              ),
-              onLeave: elements => gsap.to(elements, 
-                {
-                opacity: 0, 
-                scale: 0, 
-                duration: 1
-                }
-              ),
-            });
             setClicked(false);
-
           }
+
+          // animate from the previous state
+          Flip.from(state, {
+            duration: 0.7,
+            scale: true,
+            ease: "power1.inOut",
+            stagger: 0.08,
+            absolute: true,
+            onEnter: elements => gsap.fromTo(elements, 
+              {
+                opacity: 0, 
+                scale: 0
+              }, 
+              {
+                opacity: 1, 
+                scale: 1, 
+                duration: 1
+              }
+            ),
+            onLeave: elements => gsap.to(elements, 
+              {
+              opacity: 0, 
+              scale: 0, 
+              duration: 1
+              }
+            ),
+          });
 
         });
       </script>
