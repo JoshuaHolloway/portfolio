@@ -15,14 +15,55 @@
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" defer></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js' defer></script>
 
+
+
   <script src="./web-comps/toggle-switch.js" type="module"></script>
   
+
   <script type="module" src="./web-comps/build/web-comps-stencil.esm.js" data-stencil></script> 
   <script nomodule="" src="./web-comps/build/web-comps-stencil.js" data-stencil></script> 
   
   <script src="./index.js" type="module" defer></script>
 </head>
-<body>
+<body data-barba="wrapper">
+  
+
+  <style>
+
+    .barba-img {
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 50%);
+    }
+
+    ul.transition {
+      display: flex;
+      position: absolute;
+      z-index: 10;
+      height: 100vh;
+      width: 100%;
+      top: 0;
+      left: 0;
+      margin: 0;
+      pointer-events: none;
+      list-style: none;
+    }
+
+    ul.transition li {
+      transform: scaleY(0);
+      background: white;
+      width: 20%;
+    }
+
+  </style>
+
+  <ul class="transition">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+  <img class="barba-img" src="https://picsum.photos/200/300">
 
   <nav id="navdrawer">
     <div class="navlinks">
@@ -59,7 +100,7 @@
     </div>
   </header>
 
-  <div id="blur-container">
+  <div id="blur-container" data-barba="container" data-barba-namespace="home">
 
     <main id="home-page" class="page gutter" >
 
@@ -329,7 +370,7 @@
         </div>
 
         <div class="flip-container">
-          <div class="item one"></div>
+          <a class="item one" href="/portfolio/clip">Clip</a>
           <div class="item three"></div>
           <div class="item four"></div>
           <div class="item one"></div>
@@ -576,5 +617,9 @@
     </footer>
   </div> <!-- .blur-container -->
   
+
+  <script src="https://unpkg.com/@barba/core"></script>
+  <script src="./fuck.js"></script>
+
 </body>
 </html>

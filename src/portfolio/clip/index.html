@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="https://unpkg.com/@barba/core"></script>
+  <script>
+    barba.init({
+        // ...
+    });
+  </script>
+
+  <style>
+    :root {
+      --bs-body-bg-rgb: 255,255,255;
+      --bs-primary-rgb: 13,110,253;
+      --bd-accent-rgb: 255,228,132;
+      --bd-violet-rgb: 112.520718,44.062154,249.437846;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    .bd-masthead {
+        height: 100vh;
+        --bd-pink-rgb: 214,51,132;
+        padding: 3rem 0;
+        background-image: linear-gradient(180deg, rgba(var(--bs-body-bg-rgb), 0.01), rgba(var(--bs-body-bg-rgb), 1) 85%),radial-gradient(ellipse at top left, rgba(var(--bs-primary-rgb), 0.5), transparent 50%),radial-gradient(ellipse at top right, rgba(var(--bd-accent-rgb), 0.5), transparent 50%),radial-gradient(ellipse at center right, rgba(var(--bd-violet-rgb), 0.5), transparent 50%),radial-gradient(ellipse at center left, rgba(var(--bd-pink-rgb), 0.5), transparent 50%);
+    }
+
+    .masthead-followup {
+      height: 100vh;
+      background: white;
+    }
+  </style>
+</head>
+<body data-barba="wrapper">
+
+  <main data-barba="container" data-barba-namespace="home">
+    <div id="content" class="bd-masthead">
+      <div class="container gutter">
+        <h2>
+          Clip Path
+        </h2>
+
+        <a href="/">Home - TODO: Set local storage path to /</a>
+      </div>
+    </div>
+
+    <div class="masthead-followup">
+      <div class="container gutter">
+        <h2>
+          Do epic shit
+        </h2>
+      </div>
+    </div>
+  </main>
+
+  <footer></footer>
+
+  <script src="https://unpkg.com/@barba/core"></script>
+  <script src="../../fuck.js"></script>
+
+</body>
+</html>

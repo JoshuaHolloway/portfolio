@@ -5,7 +5,7 @@
     ".gitignore": true,
     // "src/about/": true,
     "src/contact/": true,
-    "src/portfolio/": true,
+    // "src/portfolio/": true,
     // "src/gsap-shockingly-green": true
   },
   "liveServer.settings.port": 5501
