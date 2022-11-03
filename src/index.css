@@ -5,8 +5,10 @@
 }
 
 :root {
-  --bg-primary: black;
-  --clr-primary: lightgray;
+  --bg-primary: lightgray;
+  --clr-primary: black;
+
+  --init-navbar-height: 100px;
 }
 
 body {
@@ -40,6 +42,7 @@ body {
   left: 0;
   z-index: -1;
   opacity: 0;
+  padding-top: var(--init-navbar-height); // make room for navbar
 }
 .page#home-page {
   z-index: 1;
@@ -47,13 +50,13 @@ body {
   opacity: 1;
   height: 100vh;
 }
-.page#about-page { background: lightblue; }
-.page#portfolio-page { background: lightgreen; }
+/* .page#about-page { background: lightblue; } */
+/* .page#portfolio-page { background: lightgreen; } */
 /* .page#contact-page { background: red; } */
 
 
 header#navbar {
-  height: 100px;
+  height: var(--init-navbar-height); /* Starts here, ends at 80px */
   width: 100vw;
   background: rgba(255, 255, 255, 0.1);
   position: fixed;
@@ -68,7 +71,9 @@ header#navbar > .container {
 }
 
 .gutter {
-  padding: 0 5%;
+  --padding: 5%;
+  padding-left: var(--padding);
+  padding-right: var(--padding);
 }
 
 nav#navdrawer {
@@ -305,7 +310,7 @@ body {
 .float.four {
   background: darkorchid;
   border-radius: 50%;
-  bottom: -100%;
+  bottom: -30%;
   right: 10%;
 }
 

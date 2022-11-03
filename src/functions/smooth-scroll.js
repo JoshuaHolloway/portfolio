@@ -49,7 +49,7 @@ const startSmoothScroll = () => {
       setTranslate(0, y_scroll_with_inertia * 1.05, one);
       setTranslate(0, y_scroll_with_inertia * 1.3, two);
       setTranslate(0, y_scroll_with_inertia * 1.2, three);
-      setTranslate(y_scroll_with_inertia * -1,  0, four);
+      setTranslate(y_scroll_with_inertia * -1,  y_scroll_with_inertia * 1.1, four);
     }
 
     return parallaxStep;
