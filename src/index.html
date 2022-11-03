@@ -283,11 +283,14 @@
       <h1>Portfolio Page</h1>
 
       <style>
-        #portfolio-page img {
+        #portfolio-page .item {
           width: 200px;
           height: 200px;
-          object-fit: cover;
         }
+        #portfolio-page .item.one { background: darkorange; }
+        #portfolio-page .item.two { background: darkorchid; }
+        #portfolio-page .item.three { background: lightgreen; }
+        #portfolio-page .item.four { background: magenta; }
 
         #portfolio-page .relocate-to-container {
           display: grid;
@@ -314,16 +317,20 @@
         }
       </style>
 
-      <button class="flip-button">Click Me</button>
+      <button class="flip-button-1">1</button>
+      <button class="flip-button-2">2</button>
+      <button class="flip-button-3">3</button>
+      <button class="flip-button-4">4</button>
 
       <div class="flip-container">
-        <img src="https://picsum.photos/200/200" class="item relocate">
-        <img src="https://picsum.photos/200/200" class="item">
-        <img src="https://picsum.photos/200/200" class="item relocate">
-        <div class="item text-card">
-          <h3>Portfolio projects...</h3>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente, eius.</p>
-        </div>
+        <div class="item one"></div>
+        <div class="item two"></div>
+        <div class="item three"></div>
+        <div class="item four"></div>
+        <div class="item one"></div>
+        <div class="item two"></div>
+        <div class="item three"></div>
+        <div class="item four"></div>
       </div>
 
       <script type="module">
@@ -333,59 +340,81 @@
         const qs = x => document.querySelector(x);
         const qsAll = x => document.querySelectorAll(x);
 
-        const button = qs('#portfolio-page .flip-button');
-
-        let clicked = false;
-        const setClicked = x => clicked = x;
+        const button_1 = qs('#portfolio-page .flip-button-1');
+        const button_2 = qs('#portfolio-page .flip-button-2');
+        const button_3 = qs('#portfolio-page .flip-button-3');
+        const button_4 = qs('#portfolio-page .flip-button-4');
         
-        button.addEventListener('click', () => {
-        
-
-
-          const relocate = qsAll('#portfolio-page .relocate');
+        button_1.addEventListener('click', () => {
           const items = gsap.utils.toArray('#portfolio-page .item');
-
           let state = Flip.getState(items);
-
-          if (!clicked) {
-            relocate.forEach(rel => {
-              rel.style.display = 'none';
-            });            
-            setClicked(true);
-          } else {
-            relocate.forEach(rel => {
-              rel.style.display = 'inline-block';
-            });
-            setClicked(false);
-          }
-
-          // animate from the previous state
+          qsAll('#portfolio-page .one').forEach(x => x.style.display = 'inline-flex'); 
+          qsAll('#portfolio-page .two').forEach(x => x.style.display = 'none'); 
+          qsAll('#portfolio-page .three').forEach(x => x.style.display = 'none'); 
+          qsAll('#portfolio-page .four').forEach(x => x.style.display = 'none'); 
           Flip.from(state, {
             duration: 0.7,
             scale: true,
             ease: "power1.inOut",
             stagger: 0.08,
             absolute: true,
-            onEnter: elements => gsap.fromTo(elements, 
-              {
-                opacity: 0, 
-                scale: 0
-              }, 
-              {
-                opacity: 1, 
-                scale: 1, 
-                duration: 1
-              }
-            ),
-            onLeave: elements => gsap.to(elements, 
-              {
-              opacity: 0, 
-              scale: 0, 
-              duration: 1
-              }
-            ),
+            onEnter: elements => gsap.fromTo(elements, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 1 } ),
+            onLeave: elements => gsap.to(elements, { opacity: 0, scale: 0, duration: 1 }),
           });
+        });
+      
+        button_2.addEventListener('click', () => {
+          const items = gsap.utils.toArray('#portfolio-page .item');
+          let state = Flip.getState(items);
+          qsAll('#portfolio-page .one').forEach(x => x.style.display = 'none'); 
+          qsAll('#portfolio-page .two').forEach(x => x.style.display = 'inline-flex'); 
+          qsAll('#portfolio-page .three').forEach(x => x.style.display = 'none'); 
+          qsAll('#portfolio-page .four').forEach(x => x.style.display = 'none'); 
+          Flip.from(state, {
+            duration: 0.7,
+            scale: true,
+            ease: "power1.inOut",
+            stagger: 0.08,
+            absolute: true,
+            onEnter: elements => gsap.fromTo(elements, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 1 } ),
+            onLeave: elements => gsap.to(elements, { opacity: 0, scale: 0, duration: 1 }),
+          });
+        });
 
+        button_3.addEventListener('click', () => {
+          const items = gsap.utils.toArray('#portfolio-page .item');
+          let state = Flip.getState(items);
+          qsAll('#portfolio-page .one').forEach(x => x.style.display = 'none'); 
+          qsAll('#portfolio-page .two').forEach(x => x.style.display = 'none'); 
+          qsAll('#portfolio-page .three').forEach(x => x.style.display = 'inline-flex'); 
+          qsAll('#portfolio-page .four').forEach(x => x.style.display = 'none'); 
+          Flip.from(state, {
+            duration: 0.7,
+            scale: true,
+            ease: "power1.inOut",
+            stagger: 0.08,
+            absolute: true,
+            onEnter: elements => gsap.fromTo(elements, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 1 } ),
+            onLeave: elements => gsap.to(elements, { opacity: 0, scale: 0, duration: 1 }),
+          });
+        });
+
+        button_4.addEventListener('click', () => {
+          const items = gsap.utils.toArray('#portfolio-page .item');
+          let state = Flip.getState(items);
+          qsAll('#portfolio-page .one').forEach(x => x.style.display = 'none'); 
+          qsAll('#portfolio-page .two').forEach(x => x.style.display = 'none'); 
+          qsAll('#portfolio-page .three').forEach(x => x.style.display = 'none'); 
+          qsAll('#portfolio-page .four').forEach(x => x.style.display = 'inline-flex'); 
+          Flip.from(state, {
+            duration: 0.7,
+            scale: true,
+            ease: "power1.inOut",
+            stagger: 0.08,
+            absolute: true,
+            onEnter: elements => gsap.fromTo(elements, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 1 } ),
+            onLeave: elements => gsap.to(elements, { opacity: 0, scale: 0, duration: 1 }),
+          });
         });
       </script>
 
