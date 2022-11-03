@@ -198,7 +198,7 @@
           gap: 1em;
         }
 
-        #portfolio-page .item {
+        #portfolio-page .text-card {
           background: rgb(236, 236, 236);
           padding: 1em;
           color: black;
@@ -211,13 +211,8 @@
 
       <div class="relocate-from-container">
         <img src="https://picsum.photos/200/200" class="item">
-        <img src="https://picsum.photos/200/200" class="item">
         <img src="https://picsum.photos/200/200" class="item relocate">
-        <img src="https://picsum.photos/200/200" class="item">
-        <img src="https://picsum.photos/200/200" class="item relocate">
-        <img src="https://picsum.photos/200/200" class="item relocate">
-
-        <div class="item item">
+        <div class="item text-card">
           <h3>Portfolio projects...</h3>
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente, eius.</p>
         </div>
@@ -233,7 +228,8 @@
           const button = qs('#portfolio-page .flip-button');
 
           const relocate_to_container = qs('.relocate-to-container');
-          const relocate = qsAll('.relocate');
+          const relocate_from_container = qs('.relocate-from-container');
+          
           
           let clicked = false;
           const setClicked = x => clicked = x;
@@ -241,12 +237,9 @@
             
             
             if (clicked) {
-              
-              setClicked(false);
-            } else {
-              
+
+              const relocate = qsAll('.relocate');
               const items = gsap.utils.toArray('.item');
-    
               const state = Flip.getState(items);
 
               relocate.forEach(rel => {
@@ -257,7 +250,26 @@
                 duration: 1,
                 ease: "power1.inOut"
               });
+              
+              setClicked(false);
+            
+            } else {
+            
+              const relocate = qsAll('.relocate');
+              const items = gsap.utils.toArray('.item');
+              const state = Flip.getState(items);
+
+              relocate.forEach(rel => {
+                relocate_from_container.appendChild(rel)
+              });
+  
+              Flip.from(state, {
+                duration: 1,
+                ease: "power1.inOut"
+              });
+
               setClicked(true);
+
             }
 
             button.textContent = clicked ? 'clicked' : 'not clicked';
