@@ -184,7 +184,7 @@
           object-fit: cover;
         }
 
-        #portfolio-page .insert {
+        #portfolio-page .relocate-to-container {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           grid-gap: 1em;
@@ -192,7 +192,7 @@
           margin: 1em 0;
         }
 
-        #portfolio-page .container {
+        #portfolio-page .relocate-from-container {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 1em;
@@ -207,17 +207,17 @@
 
       <button class="flip-button">Click Me</button>
       
-      <div class="insert"></div>
+      <div class="relocate-to-container"></div>
 
-      <div class="container">
-        <img src="https://picsum.photos/200/200" class="move">
-        <img src="https://picsum.photos/200/200" class="move">
-        <img src="https://picsum.photos/200/200" class="move relocate">
-        <img src="https://picsum.photos/200/200" class="move">
-        <img src="https://picsum.photos/200/200" class="move relocate">
-        <img src="https://picsum.photos/200/200" class="move relocate">
+      <div class="relocate-from-container">
+        <img src="https://picsum.photos/200/200" class="item">
+        <img src="https://picsum.photos/200/200" class="item">
+        <img src="https://picsum.photos/200/200" class="item relocate">
+        <img src="https://picsum.photos/200/200" class="item">
+        <img src="https://picsum.photos/200/200" class="item relocate">
+        <img src="https://picsum.photos/200/200" class="item relocate">
 
-        <div class="move item">
+        <div class="item item">
           <h3>Portfolio projects...</h3>
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente, eius.</p>
         </div>
@@ -227,20 +227,21 @@
 
           gsap.registerPlugin(Flip);
 
-          const button = document.querySelector('#portfolio-page .flip-button');
+          const qs = x => document.querySelector(x);
+          const qsAll = x => document.querySelectorAll(x);
 
+          const button = qs('#portfolio-page .flip-button');
 
+          const relocate_to_container = qs('.relocate-to-container');
+          const relocate = qsAll('.relocate');
 
-          const insert = document.querySelector('#portfolio-page .insert');
-          const relocate = document.querySelectorAll('#portfolio-page .relocate');
-
-          const items = gsap.utils.toArray('#portfolio-page .move');
+          const items = gsap.utils.toArray('.item');
 
           const state = Flip.getState(items);
 
           button.addEventListener('click', () => {
             relocate.forEach(rel => {
-              insert.appendChild(rel)
+              relocate_to_container.appendChild(rel)
             });
 
             Flip.from(state, {
