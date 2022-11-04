@@ -3,10 +3,11 @@
     "package-lock.json": true,
     "node_modules": true,
     ".gitignore": true,
-    // "src/about/": true,
+    "src/3D/": true,
+    "src/about/": true,
     "src/contact/": true,
     // "src/portfolio/": true,
-    // "src/gsap-shockingly-green": true
+    "src/gsap-shockingly-green": true
   },
-  "liveServer.settings.port": 5501
+  "liveServer.settings.port": 5503
 }
