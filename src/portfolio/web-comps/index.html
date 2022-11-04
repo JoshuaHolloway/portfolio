@@ -1,12 +1,24 @@
 <html>
-<head></head>
+<head>
+
+  <style>
+    div {
+      border: solid 2px darkorange;
+    }
+  </style>
+</head>
 
 <body>
 
   <p>
-    <web-comp>Web Component text-content</web-comp>
+    <web-comp text="outside text from text-attibute">Web Component text-content</web-comp>
+    
     outside
   </p>
+
+  <web-comp>Web Comp 2</web-comp>
+
+  <div>Light</div>
   
 
   <script>
@@ -15,14 +27,58 @@
 
       constructor() {
         super();
+        this.span_container;
+        this.attr_text = 'default text (attr)';
+
+        this.attachShadow({ mode: 'open' });
+        this.shadowRoot.innerHTML = `
+          <style>
+            div {
+              background-color: black;
+              color: white;
+              position: absolute;
+              z-index: 10;
+            }
+          </style>
+          <slot>Some default</slot>
+          <span> (?)</span>
+        `;
+      }
+      
+      connectedCallback() {
+        if (this.hasAttribute('text'))
+          this.attr_text = this.getAttribute('text');
+
         const span = document.createElement('span');
-        span.textContent = '(x)';
-        this.appendChild(span);
-      } 
+        span.textContent = ' (?)';
+        span.addEventListener('mouseenter', this._showSpan.bind(this));
+        span.addEventListener('mouseleave', this._hideSpan.bind(this));
+        this.shadowRoot.appendChild(span);
+      }
+
+      _showSpan() {
+        this.span_container = document.createElement('div');
+        this.span_container.textContent = this.attr_text;
+        this.shadowRoot.appendChild(this.span_container);
+      }
+
+      _hideSpan() {
+        this.shadowRoot.removeChild(this.span_container)
+      }
+
+      fuck() {
+        console.log('fuck!');
+      }
 
     }
 
     customElements.define('web-comp', WebComp);
+
+    // ==========================================
+
+    const web_comp = document.querySelector('web-comp');
+    console.log('web-comp: ', web_comp);
+    web_comp.fuck();
 
   </script>
 
