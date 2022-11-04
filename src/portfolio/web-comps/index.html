@@ -1,0 +1,30 @@
+<html>
+<head></head>
+
+<body>
+
+  <p>
+    <web-comp>Web Component text-content</web-comp>
+    outside
+  </p>
+  
+
+  <script>
+
+    class WebComp extends HTMLElement {
+
+      constructor() {
+        super();
+        const span = document.createElement('span');
+        span.textContent = '(x)';
+        this.appendChild(span);
+      } 
+
+    }
+
+    customElements.define('web-comp', WebComp);
+
+  </script>
+
+</body>
+</html>

@@ -646,6 +646,24 @@
       }
       animate();
 
+      // - - - - - - - - - - - - - - - - - - - - 
+      // Events
+
+      const mouse = {
+        x: undefined,
+        y: undefined,
+        set(x, y) {
+          this.x = +(x / innerWidth)  * 2 - 1;
+          this.y = -(y / innerHeight) * 2 + 1;
+        }
+      };
+
+      window.addEventListener('mousemove', (event) => {
+        mouse.set(event.clientX, event.clientY);
+
+        console.log('mouse: ', mouse);
+      });
+
     </script>
 
     <footer style="position: relative;">
