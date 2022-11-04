@@ -541,8 +541,8 @@
       import { OrbitControls } from 'https://unpkg.com/three@0.126.1/examples/jsm/controls/OrbitControls.js';
       // import * as dat from 'dat.gui';
 
+      const raycaster = new THREE.Raycaster();
       const scene = new THREE.Scene();
-      
       const camera = new THREE.PerspectiveCamera(
         75,                       // field of view [deg.]
         innerWidth / innerHeight, // aspect ratio of scene
@@ -635,18 +635,6 @@
       scene.add(back_light);
 
       // - - - - - - - - - - - - - - - - - - - - 
-
-      camera.position.z = 5;
-
-      function animate() {
-        requestAnimationFrame(animate);
-        renderer.render(scene, camera);
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.01;
-      }
-      animate();
-
-      // - - - - - - - - - - - - - - - - - - - - 
       // Events
 
       const mouse = {
@@ -661,8 +649,29 @@
       window.addEventListener('mousemove', (event) => {
         mouse.set(event.clientX, event.clientY);
 
-        console.log('mouse: ', mouse);
+        raycaster.setFromCamera(mouse, camera);
+        const intersects = raycaster.intersectObject(plane);
+        if (intersects.length > 0) {
+          console.log('intersecting');
+        }
+
+        // console.log('mouse: ', mouse);
+        // console.log('intersects: ', intersects);
       });
+
+      // - - - - - - - - - - - - - - - - - - - - 
+
+      camera.position.z = 5;
+
+      function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+      }
+      animate();
+
+      // - - - - - - - - - - - - - - - - - - - - 
 
     </script>
 
