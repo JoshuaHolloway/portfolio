@@ -538,6 +538,7 @@
     <script type="module">
 
       import * as THREE from 'https://unpkg.com/three@0.126.1/build/three.module.js';
+      import { OrbitControls } from 'https://unpkg.com/three@0.126.1/examples/jsm/controls/OrbitControls.js';
       // import * as dat from 'dat.gui';
 
       const scene = new THREE.Scene();
@@ -555,6 +556,9 @@
       renderer.setPixelRatio(window.devicePixelRation);
 
       document.querySelector('#threeD-page').appendChild(renderer.domElement);
+
+      // Specify what camera to control and where to render in DOM:
+      new OrbitControls(camera, renderer.domElement);
 
       // - - - - - - - - - - - - - - - - - - - - 
 
@@ -621,10 +625,16 @@
       gui.add(world.plane, "height_segments", 1, 10,).onChange(generatePlane);
 
       // - - - - - - - - - - - - - - - - - - - - 
-
+      
       const light = new THREE.DirectionalLight(0xffffff, 1, );
       light.position.set(0, 0, 1); // x, y, z
       scene.add(light);
+
+      const back_light = new THREE.DirectionalLight(0xffffff, 1, );
+      back_light.position.set(0, 0, -1); // x, y, z
+      scene.add(back_light);
+
+      // - - - - - - - - - - - - - - - - - - - - 
 
       camera.position.z = 5;
 
