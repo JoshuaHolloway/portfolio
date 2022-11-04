@@ -5,18 +5,23 @@
     div {
       border: solid 2px darkorange;
     }
+
+    web-comp {
+      background: lightgray;
+    }
   </style>
 </head>
 
 <body>
 
   <p>
-    <web-comp text="outside text from text-attibute">Web Component text-content</web-comp>
+    <web-comp text="outside text from text-attibute">
+      Web Component text-content</web-comp>
     
     outside
   </p>
 
-  <web-comp>Web Comp 2</web-comp>
+  <web-comp class="active">Web Comp 2</web-comp>
 
   <div>Light</div>
   
@@ -38,6 +43,16 @@
               color: white;
               position: absolute;
               z-index: 10;
+            }
+
+            /* default style */
+            :host {
+              background: red;
+            }
+
+            /* target class-names on web-comp */
+            :host(.active) {
+              background-color: yellow;
             }
           </style>
           <slot>Some default</slot>
