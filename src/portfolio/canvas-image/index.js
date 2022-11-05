@@ -2,11 +2,6 @@
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
-const img = new Image(50, 50);
-console.log('img: ', img);
-img.src = './lena.jpg';
-// img.onload
-
 const imgs = [];
 for (let i = 0; i < 42; ++i) {
 
@@ -19,11 +14,10 @@ for (let i = 0; i < 42; ++i) {
   }
   imgs.push(img);
 }
-console.log('imgs: ', imgs);
 
 
-img.addEventListener('load', function() {
-  console.log('this: ', this);
+
+imgs[0].addEventListener('load', function() {
 
   canvas.width = this.naturalWidth;
   canvas.height = this.naturalHeight;
@@ -33,7 +27,12 @@ img.addEventListener('load', function() {
   ctx.drawImage(this, 0 , 0, this.width, this.height);
 });
 
-const setImage = (idx) => ctx.drawImage(imgs[idx], 0 , 0);
+const drawImage = (idx) => {
+  const img = imgs[idx];
+  ctx.drawImage(imgs[idx], 0 , 0);
+
+  img.width
+};
 
 let x_scroll = 0;
 let y_scroll = 0;
@@ -45,7 +44,8 @@ const scrollLoop = (e) => {
 
   const idx = Math.round(scrollY / 8);
   if (idx < 42)
-    setImage(idx);
+    drawImage(idx);
+    
 
   requestAnimationFrame(scrollLoop);
 };
