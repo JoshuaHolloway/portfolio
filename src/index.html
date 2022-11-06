@@ -18,6 +18,7 @@
   
   <script src="./web-comps/toggle-switch.js" type="module"></script>
   <script src="./web-comps/pages/3d.js" type="module"></script>
+  <script src="./web-comps/pages/about.js" type="module"></script>
   
 
   <script type="module" src="./web-comps/build/web-comps-stencil.esm.js" data-stencil></script> 
@@ -73,6 +74,7 @@
             <h2 class="hero__super-title stagger1">Hello, I'm</h2>
             
             <h1 class="hero__title">Josh.Holloway</h1>
+            <web-comp />
             <h3 class="hero__sub-title stagger1">Full Stack JavaScript Developer</h3>
             <p class="hero__description stagger1">I specialize in the creation of bad ass web-apps.</p>
             
@@ -342,13 +344,13 @@
         </div>
 
         <div class="flip-container">
-          <a class="item one" href="/portfolio/clip">
-            Clip Path
+          <a class="item one" href="#">
+            
           </a>
-          <a class="item three" href="/portfolio/morph">
-            Morph
+          <a class="item three" href="#">
+            
           </a>
-          <a class="item four" href="/portfolio/glow">
+          <a class="item four" href="/portfolio/glow" style="color: white; text-decoration: none; font-size: 1.6rem; display: flex; align-items: center; justify-content: center;">
             Glow
           </a>
           <div class="item one"></div>
@@ -532,7 +534,7 @@
 
     </main>
 
-    <page-3d id="threeD-page" class="page" style="padding: 0;" />
+    <page-3d id="threeD-page" class="page" />
 
     
 

@@ -4,24 +4,19 @@ import { OrbitControls } from 'https://unpkg.com/three@0.126.1/examples/jsm/cont
 
 const template = document.createElement('template');
 template.innerHTML = `
-  <style>
-    * {
-      color: red;
-    }
-  </style>
 
-  <main id="threeD-page" class="page" style="padding: 0;">
+  <main id="web-comp" style="padding: 0;">
   </main>
 
   <!-- <script type="text/javascript" src="./lib/dat.gui/build/dat.gui.js"></script> -->
 
-    <style>
-      .dg.ac {
-        background: red;
-        z-index: 100;
-        top: 500px;
-      }
-    </style>
+  <!-- <style>
+    .dg.ac {
+      background: red;
+      z-index: 100;
+      top: 500px;
+    }
+  </style> -->
 `;
 
 class WebComp extends HTMLElement {
@@ -48,7 +43,7 @@ class WebComp extends HTMLElement {
     renderer.setSize(window.innerWidth, window.innerHeight);
     // renderer.setPixelRatio(window.devicePixelRation);
 
-    this.shadowRoot.querySelector('#threeD-page').appendChild(renderer.domElement);
+    this.shadowRoot.querySelector('#web-comp').appendChild(renderer.domElement);
 
     // Specify what camera to control and where to render in DOM:
     new OrbitControls(camera, renderer.domElement);
@@ -71,9 +66,9 @@ class WebComp extends HTMLElement {
     const plane = new THREE.Mesh(planeGeometry, material2);
     scene.add(plane);
 
-    console.log('plane mesh vertices: ', 
-      plane.geometry.attributes.position.array // position contains all the data related to each vertex [x1, y1, z1, x2, y2, z2, ...]
-    );
+    // console.log('plane mesh vertices: ', 
+    //   plane.geometry.attributes.position.array // position contains all the data related to each vertex [x1, y1, z1, x2, y2, z2, ...]
+    // );
 
     const { array } = plane.geometry.attributes.position;
     for (let i = 0; i < array.length; i += 3) {
