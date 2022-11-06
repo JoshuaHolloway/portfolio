@@ -5,76 +5,90 @@ gsap.registerPlugin(Flip, ScrollTrigger);
 
 const qs = x => document.querySelector(x);
 
+
+
 const hamburger = qs('header .hamburger');
 const navdrawer = qs('nav#navdrawer');
 const overlay = qs('#overlay');
 const blur_container = qs('#blur-container');
 const navbar = qs('header#navbar');
 
-let is_open = false;
-const setIsOpen = (bool) => {
-  console.log('changing open state!');
-  is_open = bool;
+const setupPageTransition = () => {
+
 };
 
-let tl;
+const setupSideDrawer = () => {
+  let is_open = false;
+  const setIsOpen = (bool) => {
+    console.log('changing open state!');
+    is_open = bool;
+  };
 
-const openDrawer = (e) => {
-  console.log('is_open: ', is_open);
-  if (!is_open) {
-    console.log('opening');
-    // e.stopPropagation();
+  let tl;
 
-    overlay.style.display = 'block';
+  const openDrawer = (e) => {
+    console.log('is_open: ', is_open);
+    if (!is_open) {
+      console.log('opening');
+      // e.stopPropagation();
+
+      overlay.style.display = 'block';
+      
+      
+      tl = gsap.timeline();
+      tl.to(navdrawer, {
+        x: 0,
+      });
+
+      tl.to(overlay, {
+        opacity: 1,
+        onComplete: () => overlay.style.pointerEvents = 'auto',
+        onReverseComplete: () => {
+          overlay.style.display = 'none';
+          overlay.style.pointerEvents = 'none';
+        }
+      }, '<=')
+
+      tl.to(blur_container, {
+        filter: 'blur(3px)'
+      }, '<=');
+
+      // The navbar disapears if navbar is inside blur-container!
+      // -Instead, header.navbar taken outside of blur-container
+      //  and blur applied to each one seperately.
+      tl.to(navbar, {
+        filter: 'blur(3px)'
+      }, '<=');
+
+
+
+    setIsOpen(true);
+    }
+  };
+
+  const closeDrawer = (e) => {
+
+    // if (is_open && click_x_coord > drawer_width_JS) {
+    if(is_open) {
+      console.log('closing');
+      tl.reverse();
+      setIsOpen(false);
+    }
     
-    
-    tl = gsap.timeline();
-    tl.to(navdrawer, {
-      x: 0,
-    });
-
-    tl.to(overlay, {
-      opacity: 1,
-      onComplete: () => overlay.style.pointerEvents = 'auto',
-      onReverseComplete: () => {
-        overlay.style.display = 'none';
-        overlay.style.pointerEvents = 'none';
-      }
-    }, '<=')
-
-    tl.to(blur_container, {
-      filter: 'blur(3px)'
-    }, '<=');
-
-    // The navbar disapears if navbar is inside blur-container!
-    // -Instead, header.navbar taken outside of blur-container
-    //  and blur applied to each one seperately.
-    tl.to(navbar, {
-      filter: 'blur(3px)'
-    }, '<=');
-
-
-
-   setIsOpen(true);
-  }
-};
-
-const closeDrawer = (e) => {
-
-  // if (is_open && click_x_coord > drawer_width_JS) {
-  if(is_open) {
-    console.log('closing');
-    tl.reverse();
-    setIsOpen(false);
-  }
+  };
   
+  // Open drawer with hamburger button click:
+  hamburger.addEventListener('click', openDrawer);
+  
+  // Close with click outside of drawer:
+  overlay.addEventListener('click', closeDrawer);
 };
+setupSideDrawer();
 
-// Open drawer with hamburger button click:
-hamburger.addEventListener('click', openDrawer);
+// ==============================================
 
-// Close with click outside of drawer:
-overlay.addEventListener('click', closeDrawer);
+
+
 
 const pages = document.querySelectorAll('.page');
 
@@ -144,7 +158,6 @@ navlinks.forEach((navlink, idx) => {
     
   });
 });
-
 
 // ==============================================
 
@@ -227,7 +240,6 @@ window.addEventListener('load', (event) => {
 
 // ==============================================
 
-// GSAP loading animation:
 const gsapLoadAnim = () => {
 
   const tl = gsap.timeline();
@@ -263,40 +275,6 @@ gsapLoadAnim();
 
 // ==============================================
 
-const parallaxAnim = () => {
-
-  const qs = (x) => document.querySelector(x);
-
-  const one = qs('.float.one');
-  const two = qs('.float.two');
-  const three = qs('.float.three');
-  const four = qs('.float.four');
-  
-  function setTranslate(xPos, yPos, el) {
-    // el.style.transform = 'translate3d(' + xPos + 'px, ' + yPos + 'px, 0)';
-    el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
-  }
-  
-  window.addEventListener('DOMContentLoaded', scrollLoop, false);
-  
-  let yScrollPosition;
-  
-  function scrollLoop() {
-    yScrollPosition = window.scrollY;
-  
-    setTranslate(0, yScrollPosition * 1.05, one);
-    setTranslate(0, yScrollPosition * 1.3, two);
-    setTranslate(0, yScrollPosition * 1.2, three);
-    setTranslate(yScrollPosition * -1,  0, four);
-  
-    requestAnimationFrame(scrollLoop);
-  }
-};
-
-// parallaxAnim();
-
-// ==============================================
-
 const scrollAnimation = () => {
   
   // Execute callback each time the visibility of one of the observed elements changes.
@@ -317,7 +295,6 @@ const scrollAnimation = () => {
 
   hidden_elements.forEach(el => observer.observe(el));
 };
-
 scrollAnimation();
 
 // ==============================================
@@ -354,7 +331,6 @@ const navbarAnimation = () => {
   // );
 
 };
-
 navbarAnimation();
 
 // ===============================================
