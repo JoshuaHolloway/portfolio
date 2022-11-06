@@ -1,0 +1,28 @@
+@import 'breakpoints';
+
+$primary-bg: #111928;
+$primary-text: white;
+
+$orange: hsla(13, 93%, 55%, 1); //#f75023;
+$orange-translucent: hsla(13, 93%, 55%, 0.8); 
+
+$primary: #72C389;
+$secondary: $orange;
+
+$green: #1cbe59;
+
+$page-padding-horizontal-gutter: 0 5%;
+$section-vertical-padding-gutter: 5%;
+
+
+:root {
+  @media (max-width: #{$tablet}) {
+    --grid-gap: 20px;
+  }
+  @media (min-width: #{$tablet}) {
+    --grid-gap: 30px;
+  }
+  @media (min-width: #{$desktop}) {
+    --grid-gap: 5%;
+  }
+}

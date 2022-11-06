@@ -85,7 +85,7 @@ class ToggleSwitch extends HTMLElement {
     //  in response to event fired from web-comp:
     // const light_elem = document.querySelector('#light-DOM-elem');
 
-    let is_dark_mode = false;
+    let is_dark_mode = true;
     elem.addEventListener('change', () => {
 
       if (is_dark_mode) {

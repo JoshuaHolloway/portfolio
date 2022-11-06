@@ -69,15 +69,15 @@ const startSmoothScroll = () => {
     setTransform(container, `translateY(${-current}px) skewY(${skewDiff}deg) `);
     parallaxStep(current);
 
-    if (target > document.body.scrollHeight / 2 && fired === false) {
-      // Step 1: Fire event.
-      console.log('\x1b[32m%s\x1b[0m', 'firing event!');
-      fireEvent('scrolled-to-middle-of-page');
-      fired = true;
+    // if (target > document.body.scrollHeight / 2 && fired === false) {
+    //   // Step 1: Fire event.
+    //   console.log('\x1b[32m%s\x1b[0m', 'firing event!');
+    //   fireEvent('scrolled-to-middle-of-page');
+    //   fired = true;
 
-      // Step 2: In the toggle-button web-component listen for the event and respond to it firing.
-      // Step 3: In the callback select the toggle-switch.
-    }
+    //   // Step 2: In the toggle-button web-component listen for the event and respond to it firing.
+    //   // Step 3: In the callback select the toggle-switch.
+    // }
 
     smooth_scroll_animation_frame_ref = requestAnimationFrame(smoothScroll)
   }
