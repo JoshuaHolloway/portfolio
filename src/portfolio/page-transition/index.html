@@ -10,15 +10,40 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/Flip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
   <script src="./index.js" type="module"></script>
+
+  <style>
+    @media (max-width: 1000px) {
+      #navbar nav { display: none; }
+    }
+    @media (min-width: 1000px) {
+      #navdrawer { display: none; }
+    }
+  </style>
 </head>
 <body>
+
+  <div id="navdrawer">
+    <nav>
+      <span class="navlink">page 0</span>
+      <span class="navlink">page 1</span>
+      <span class="navlink">page 2</span>
+      <span class="navlink">page 3</span>
+      <span class="navlink">page 4</span>
+    </nav>
+  </div>
+
   <header id="navbar">
-    <span class="navlink">page 0</span>
-    <span class="navlink">page 1</span>
-    <span class="navlink">page 2</span>
-    <span class="navlink">page 3</span>
-    <span class="navlink">page 4</span>
+    <nav>
+      <span class="navlink">page 0</span>
+      <span class="navlink">page 1</span>
+      <span class="navlink">page 2</span>
+      <span class="navlink">page 3</span>
+      <span class="navlink">page 4</span>
+    </nav>
   </header>
+
+
+
   <main id="page-0" class="page center">
     Page-0
     <web-comp />

@@ -7,8 +7,23 @@ body {
   height: 70px;
   background: black;
 
-  z-index: 8;
+  z-index: 8; /* navdrawer=10, overlay=9, navbar=8 */
+  position: fixed; 
+}
+#navdrawer {
+  --width: 200px;
+  height: 100vh;
+  width: var(--width);
+  background: blue;
   position: fixed;
+  top: 0;
+  /* transform: translateX( calc(-1 * var(--width) ) ); */
+
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  
+  z-index: 10; /* navdrawer=10, overlay=9, navbar=8 */
 }
 
 .navlink {
