@@ -1,0 +1,12 @@
+{
+  "files.exclude": {
+    // "package-lock.json": true,
+    // "node_modules": true,
+    // ".gitignore": true,
+    "3D/": true,
+    "about/": true,
+    "contact/": true,
+    "portfolio/": true,
+    // "js/gsap-shockingly-green": true
+  },
+}

@@ -5,5 +5,41 @@ body {
 #navbar {
   width: 100vw;
   height: 70px;
-  background: lightblue;
+  background: black;
+
+  z-index: 8;
+  position: fixed;
 }
+
+.navlink {
+  cursor: pointer;
+  color: white;
+  transition: color 0.2s ease;
+}
+.navlink:hover {
+  color: darkorange;
+}
+
+.page {
+  min-height: 100vh;
+  width: 100%;
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  padding-top: var(--init-navbar-height); // make room for navbar
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main#page-0 { background: lightblue; }
+main#page-1 { background: hotpink; }
+main#page-2 { background: lightgreen; }
+main#page-3 { background: darkorchid; }
+main#page-4 { background: darkorange; }
