@@ -25,6 +25,11 @@ body {
   
   z-index: 10; /* navdrawer=10, overlay=9, navbar=8 */
 }
+#navdrawer nav {
+  background: darkorchid;
+  display: flex;
+  flex-direction: column;
+}
 
 .navlink {
   cursor: pointer;
