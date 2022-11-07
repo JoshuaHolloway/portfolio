@@ -7,6 +7,6 @@
     "about/": true,
     "contact/": true,
     "portfolio/": true,
-    // "js/gsap-shockingly-green": true
+    "js/gsap-shockingly-green": true
   },
 }
