@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background: black;
 }
 
 @media (max-width: 1000px) {
@@ -69,8 +70,8 @@ body {
   align-items: center;
 }
 
-main#page-0 { background: lightblue; }
-main#page-1 { background: hotpink; }
-main#page-2 { background: lightgreen; }
-main#page-3 { background: darkorchid; }
-main#page-4 { background: darkorange; }
+page-0 { background: lightblue; }
+page-1 { background: hotpink; }
+page-2 { background: lightgreen; }
+page-3 { background: darkorchid; }
+page-4 { background: darkorange; }

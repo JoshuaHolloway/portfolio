@@ -7,7 +7,7 @@ template.innerHTML = `
   </style>
 
   <main>
-    <h1>Web Comp - Page 0</h1>
+    <h1>Web Comp - Page 2</h1>
   </main>
 `;
 
@@ -19,12 +19,12 @@ class WebComp extends HTMLElement {
   }
 
   connectedCallback() {
-    const elem = this.shadowRoot.querySelector('page');
+    const elem = this.shadowRoot.querySelector('main');
   }
 
   disconnectedCallback() {
-    const elem = this.shadowRoot.querySelector('page')
+    const elem = this.shadowRoot.querySelector('main')
   }
 }
 
-window.customElements.define('page-0', WebComp);
+window.customElements.define('page-2', WebComp);
