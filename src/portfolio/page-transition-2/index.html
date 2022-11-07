@@ -13,6 +13,10 @@
 </head>
 <body>
 
+  <!-- Step 1: Port in the blur animation with overlay. -->
+  <!-- Step 2: Place the contents of the navigation, overlay, and bluring into a web compoent where the slot {children} is the <page-n /> web-component. -->
+  <!-- NOTE: In order to apply the class the active page I think I need to not place the navigation component into the shadow DOM. -->
+
   <div id="navdrawer">
     <nav>
       <span class="navlink">page 0</span>
@@ -22,6 +26,8 @@
       <span class="navlink">page 4</span>
     </nav>
   </div>
+
+  <div id="overlay"></div>
 
   <header id="navbar">
     <nav>
@@ -33,11 +39,13 @@
     </nav>
   </header>
 
-  <page-0 class="page center"></page-0>
-  <page-1 class="page center"></page-1>
-  <page-2 class="page center"></page-2>
-  <page-3 class="page center"></page-3>
-  <page-4 class="page center"></page-4>
-  
+  <div class="blur-container">
+    <page-0 class="page center"></page-0>
+    <page-1 class="page center"></page-1>
+    <page-2 class="page center"></page-2>
+    <page-3 class="page center"></page-3>
+    <page-4 class="page center"></page-4>
+  </div>
+
 </body>
 </html>
