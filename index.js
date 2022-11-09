@@ -13,13 +13,13 @@ const qsAll = (x) => document.querySelectorAll(x);
 
 // ==============================================
 
-const hamburger = qs('header .hamburger');
-const navdrawer = qs('nav#navdrawer');
+const hamburger = qs('#hamburger');
+const navdrawer = qs('#navdrawer');
 const overlay = qs('#overlay');
 const blur_container = qs('#blur-container');
-const navbar = qs('header#navbar');
+const navbar = qs('#navbar');
 
-console.log('hamburger: ', hamburger);
+console.log('navdrawer: ', navdrawer);
 
 // ==============================================
 
