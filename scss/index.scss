@@ -18,6 +18,14 @@ body {
 
   z-index: 8; /* navdrawer=10, overlay=9, navbar=8 */
   position: fixed; 
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  nav {
+    background: green;
+  }
 }
 
 #navdrawer {

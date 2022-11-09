@@ -13,6 +13,16 @@ const qsAll = (x) => document.querySelectorAll(x);
 
 // ==============================================
 
+const hamburger = qs('header .hamburger');
+const navdrawer = qs('nav#navdrawer');
+const overlay = qs('#overlay');
+const blur_container = qs('#blur-container');
+const navbar = qs('header#navbar');
+
+console.log('hamburger: ', hamburger);
+
+// ==============================================
+
 const setupNavlinks = () => {
 
   let page_idx = { current: 0, prev: null };
@@ -168,5 +178,75 @@ const setupNavlinks = () => {
 
 };
 setupNavlinks();
+
+// ==============================================
+
+const setupSideDrawer = () => {
+  let is_open = false;
+  const setIsOpen = (bool) => {
+    console.log('changing open state!');
+    is_open = bool;
+  };
+
+  let tl;
+
+  const openDrawer = (e) => {
+    console.log('is_open: ', is_open);
+    if (!is_open) {
+      console.log('opening');
+      // e.stopPropagation();
+
+      overlay.style.display = 'block';
+      
+      
+      tl = gsap.timeline();
+      tl.to(navdrawer, {
+        x: 0,
+      });
+
+      tl.to(overlay, {
+        opacity: 1,
+        onComplete: () => overlay.style.pointerEvents = 'auto',
+        onReverseComplete: () => {
+          overlay.style.display = 'none';
+          overlay.style.pointerEvents = 'none';
+        }
+      }, '<=')
+
+      tl.to(blur_container, {
+        filter: 'blur(3px)'
+      }, '<=');
+
+      // The navbar disapears if navbar is inside blur-container!
+      // -Instead, header.navbar taken outside of blur-container
+      //  and blur applied to each one seperately.
+      tl.to(navbar, {
+        filter: 'blur(3px)'
+      }, '<=');
+
+
+
+    setIsOpen(true);
+    }
+  };
+
+  const closeDrawer = (e) => {
+
+    // if (is_open && click_x_coord > drawer_width_JS) {
+    if(is_open) {
+      console.log('closing');
+      tl.reverse();
+      setIsOpen(false);
+    }
+    
+  };
+  
+  // Open drawer with hamburger button click:
+  hamburger.addEventListener('click', openDrawer);
+  
+  // Close with click outside of drawer:
+  overlay.addEventListener('click', closeDrawer);
+};
+setupSideDrawer();
 
 // ==============================================
