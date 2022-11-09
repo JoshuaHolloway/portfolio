@@ -2,13 +2,14 @@
   "files.exclude": {
     "package-lock.json": true,
     "node_modules": true,
-    ".gitignore": true,
-    "src/3D/": true,
-    "src/about/": true,
-    "src/contact/": true,
+    // ".gitignore": true,
+    "3D/": true,
+    "about/": true,
+    "contact/": true,
     // "src/portfolio/": true,
-    "src/gsap-shockingly-green": true,
-    "backup": true
+    "gsap-shockingly-green": true,
+    "backup": true,
+    "favicon.ico": true
   },
   "liveServer.settings.port": 5503
 }
