@@ -17,9 +17,9 @@ body {
 }
 
 @media (max-width: 1000px) {
-  // #navbar .navlinks { display: none; }
+  #navbar .navlinks { display: none; }
   #navdrawer { display: flex; }
-  // #hamburger { display: inline-block; }
+  #hamburger { display: block; }
 }
 @media (min-width: 1000px) {
   #navdrawer { display: none; }
@@ -38,8 +38,16 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  nav {
+  .logo {
+    height: 50px;
+    width: 50px;
+    background: white;
+  }
+  nav.navlinks {
     background: green;
+  }
+  #hamburger {
+    
   }
 }
 

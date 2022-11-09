@@ -17,8 +17,14 @@ body {
 }
 
 @media (max-width: 1000px) {
+  #navbar .navlinks {
+    display: none;
+  }
   #navdrawer {
     display: flex;
+  }
+  #hamburger {
+    display: block;
   }
 }
 @media (min-width: 1000px) {
@@ -36,10 +42,14 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-#navbar nav {
+#navbar .logo {
+  height: 50px;
+  width: 50px;
+  background: white;
+}
+#navbar nav.navlinks {
   background: green;
 }
-
 #navdrawer {
   --width: 200px;
   height: 100vh;
