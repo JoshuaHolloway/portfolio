@@ -7,7 +7,8 @@
     "src/about/": true,
     "src/contact/": true,
     // "src/portfolio/": true,
-    "src/gsap-shockingly-green": true
+    "src/gsap-shockingly-green": true,
+    "backup": true
   },
   "liveServer.settings.port": 5503
 }

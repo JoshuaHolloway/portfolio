@@ -1,9 +1,6 @@
 {
   "scripts": {
     "build": "node main.js",
-    "dev": "npx serve src"
-  },
-  "devDependencies": {
-    "node-html-parser": "^6.1.1"
+    "dev": "npx serve"
   }
 }
