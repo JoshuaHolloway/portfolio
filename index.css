@@ -1,40 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,700&display=swap");
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 0;
   background: black;
-  font-family: "Lato", sans-serif;
-}
-
-#overlay { /* beneath the navdrawer */
-  background: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9; /* navdrawer=10, overlay=9, navbar=8 */
-  display: none;
-  opacity: 0;
-  pointer-events: none;
 }
 
 @media (max-width: 1000px) {
-  #navbar .navlinks {
+  #navbar nav {
     display: none;
   }
   #navdrawer {
     display: flex;
-  }
-  #hamburger {
-    display: block;
   }
 }
 @media (min-width: 1000px) {
@@ -48,18 +22,8 @@ body {
   background: black;
   z-index: 8; /* navdrawer=10, overlay=9, navbar=8 */
   position: fixed;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
-#navbar .logo {
-  height: 50px;
-  width: 50px;
-  background: white;
-}
-#navbar nav.navlinks {
-  background: green;
-}
+
 #navdrawer {
   --width: 200px;
   height: 100vh;
@@ -123,4 +87,320 @@ page-3 {
 
 page-4 {
   background: darkorange;
+}/*# sourceMappingURL=index.css.map */e;
+}
+
+/* .page#about-page section:nth-child(2)  */
+#fuck {
+  background: var(--bg-secondary);
+}
+
+.page#about-page .custom-shape-divider-top-1667484223 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  fill: var(--bg-primary);
+  transition: fill 1s ease;
+}
+
+/* .page#portfolio-page { background: lightgreen; } */
+/* .page#contact-page { background: red; } */
+header#navbar {
+  height: var(--init-navbar-height); /* Starts here, ends at 80px */
+  width: 100vw;
+  background: rgba(255, 255, 255, 0.1);
+  position: fixed;
+  z-index: 8; /* navdrawer=10, overlay=9, navbar=8 */
+}
+
+header#navbar > .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.gutter {
+  --padding: 5%;
+  padding-left: var(--padding);
+  padding-right: var(--padding);
+}
+
+nav#navdrawer {
+  --width: 200px;
+  height: 100vh;
+  width: var(--width);
+  background: blue;
+  position: fixed;
+  top: 0;
+  transform: translateX(calc(-1 * var(--width)));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10; /* navdrawer=10, overlay=9, navbar=8 */
+}
+
+nav#navdrawer > .navlinks {
+  background: darkorchid;
+  display: flex;
+  flex-direction: column;
+  /* width: fit-content; */
+}
+
+nav#navdrawer .navlink:not(:nth-child(1)) {
+  margin-top: 30px;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+  background: white;
+}
+
+.navlinks {
+  /* background: orange; */
+  cursor: pointer;
+}
+
+.navlink {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s ease;
+}
+
+.navlink:hover,
+.navlink.active {
+  --color: darkorange;
+  color: var(--color) !important;
+}
+
+header#navbar .navlink:not(:nth-child(1)) {
+  margin-left: 30px;
+}
+
+.hamburger {
+  fill: white;
+  --size: 35px;
+  height: var(--size);
+  width: var(--size);
+  cursor: pointer;
+}
+
+.hamburger svg {
+  fill: white;
+}
+
+@media (max-width: 1000px) {
+  header .navlinks {
+    display: none;
+  }
+}
+@media (min-width: 1000px) {
+  header .hamburger {
+    display: none;
+  }
+}
+.page > section {
+  min-height: 100vh;
+  width: 100%;
+  padding-bottom: 5%;
+}
+
+.page#home-page > section#hero {
+  display: grid;
+}
+
+.page#home-page > section#hero > .left,
+.page#home-page > section#hero > .right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page#home-page > section#hero > .left .container * {
+  margin: 0;
+}
+.page#home-page > section#hero > .left .container .hero__super-title {
+  color: hsl(13deg, 93%, 55%);
+  margin-bottom: 0.35rem;
+  font-weight: 400;
+}
+.page#home-page > section#hero > .left .container .hero__title {
+  margin-bottom: 0.8rem;
+}
+.page#home-page > section#hero > .left .container .hero__sub-title {
+  color: #1cbe59;
+  margin-bottom: 0.8rem;
+}
+.page#home-page > section#hero > .left .container .hero__description {
+  margin-bottom: 1.75rem;
+}
+
+.page#home-page > section#skills {
+  color: white;
+  background: rgba(255, 255, 0, 0.1);
+}
+
+@media (max-width: 1000px) {
+  section#hero {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  section#hero > .right {
+    display: none;
+  }
+}
+@media (min-width: 1000px) {
+  section#hero {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.center {
+  display: grid;
+  place-items: center;
+}
+
+/* Scroll Animation */
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 2s ease;
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+.hidden:nth-child(1) {
+  transition-delay: 200ms;
+}
+
+.hidden:nth-child(2) {
+  transition-delay: 300ms;
+}
+
+.hidden:nth-child(3) {
+  transition-delay: 500ms;
+}
+
+/* -------------- Scroll-Bar --------------- */
+body {
+  /* page content underneath scrollbar: */
+  overflow: overlay;
+}
+
+/* Chrome and Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 2px;
+  margin-block: 0.2em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* Firefox */
+@supports (scrollbar-color: red blue) {
+  * {
+    /* scrollbar-color: <thumb> <track> */
+    scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
+    scrollbar-width: thin;
+  }
+}
+/* ^^^^^^^^^^^^^^ Scroll-Bar ^^^^^^^^^^^^^^^ */
+/* Lottie Animation: */
+.lottie-container {
+  position: relative;
+  background: red;
+  width: fit-content;
+}
+
+.lottie-container > .lottie-svg {
+  /* background: rgba(0, 0, 0, 0.1); */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  transform: translateX(-25%) translateY(-100%);
+}
+
+.hide {
+  display: none;
+}
+
+/* =========================================== */
+.shadow {
+  --v-offset: 7px;
+  --h-offset: 0;
+  --blur: 20px;
+  --spread: 0px;
+  --shadow-clr: rgba(0, 0, 0, 0.15);
+  --shadow-clr-hover: rgba(0, 0, 0, 0.175);
+  box-shadow: var(--h-offset) var(--v-offset) var(--blur) var(--spread) var(--shadow-clr);
+}
+
+/* ======================================= */
+/* Parallax Elements: */
+.float {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  z-index: 200;
+}
+
+.float.one {
+  background: lightblue;
+  bottom: 2%;
+  left: 1%;
+}
+
+.float.two {
+  background: darkorange;
+  bottom: 7%;
+  right: 3%;
+}
+
+.float.three {
+  background: lightgreen;
+  bottom: 10%;
+  left: 5%;
+}
+
+.float.four {
+  background: darkorchid;
+  border-radius: 50%;
+  bottom: -30%;
+  right: 10%;
+}
+
+.float.four {
+  /* https://codersblock.com/blog/creating-glow-effects-with-css/ */
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 50px #fff, inset 20px 0 80px #f0f, inset -20px 0 80px #0ff, inset 20px 0 300px #f0f, inset -20px 0 300px #0ff, 0 0 50px #fff, -10px 0 80px #f0f, 10px 0 80px #0ff; /* outer right cyan */
+}
+
+/* =========================== */
+.btn {
+  border-radius: 5px;
+  padding: 1rem;
+  color: white;
+  background: darkorange;
+  cursor: pointer;
 }/*# sourceMappingURL=index.css.map */
