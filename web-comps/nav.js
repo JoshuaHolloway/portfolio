@@ -73,7 +73,8 @@ template.innerHTML = `
       color: white;
       transition: color 0.2s ease;
     }
-    .navlink:hover {
+    .navlink:hover,
+    .navlink.active {
       color: darkorange;
     }
   </style>
@@ -247,12 +248,14 @@ class WebComp extends HTMLElement {
             pages[0].style.zIndex = 1;
             pages[0].style.opacity = 1;
             navlinks[0].classList.add('active');
+            navlinks[5].classList.add('active');
             page_idx = { current: 0, prev: 1 };
           }
           else if (path_local_storage === '/about') {
             pages[1].style.zIndex = 1;
             pages[1].style.opacity = 1;
             navlinks[1].classList.add('active');
+            navlinks[6].classList.add('active');
             window.history.replaceState({}, '', '/about');
             page_idx = { current: 1, prev: 0 };
           }
@@ -260,6 +263,7 @@ class WebComp extends HTMLElement {
             pages[2].style.zIndex = 1;
             pages[2].style.opacity = 1;
             navlinks[2].classList.add('active');
+            navlinks[7].classList.add('active');
             window.history.replaceState({}, '', '/portfolio');
             page_idx = { current: 2, prev: 0 };
           }
@@ -267,6 +271,7 @@ class WebComp extends HTMLElement {
             pages[3].style.zIndex = 1;
             pages[3].style.opacity = 1;
             navlinks[3].classList.add('active');
+            navlinks[8].classList.add('active');
             window.history.replaceState({}, '', '/contact');
             page_idx = { current: 3, prev: 0 };
           }
@@ -274,6 +279,7 @@ class WebComp extends HTMLElement {
             pages[4].style.zIndex = 1;
             pages[4].style.opacity = 1;
             navlinks[4].classList.add('active');
+            navlinks[9].classList.add('active');
             window.history.replaceState({}, '', '/3D');
             page_idx = { current: 4, prev: 0 };
           }
