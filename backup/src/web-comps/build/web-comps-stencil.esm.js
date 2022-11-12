@@ -1,1 +1,0 @@
-import{p as e,b as t}from"./p-33712fd5.js";(()=>{const t=import.meta.url,r={};return""!==t&&(r.resourcesUrl=new URL(".",t).href),e(r)})().then((e=>t([["p-975e6fe3",[[1,"my-component",{first:[1],middle:[1],last:[1]}],[1,"uc-side-drawer",{title:[1],open:[4]}]]]],e)));

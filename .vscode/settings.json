@@ -8,7 +8,6 @@
     "contact/": true,
     "portfolio/": true,
     "gsap-shockingly-green": true,
-    "backup": true,
     "favicon.ico": true,
     "index.css.map": true
   },

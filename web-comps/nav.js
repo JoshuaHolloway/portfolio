@@ -3,6 +3,19 @@ import { listenForEvent, fireEvent } from '../js/custom-events.js';
 const template = document.createElement('template');
 template.innerHTML = `
   <style>
+    #web-comp {
+      --pad: 80px;
+    }
+
+    @media (max-width: 900px) {
+      #navbar .navlinks { display: none; }
+      #navdrawer { display: flex; }
+      /* #hamburger { display: block; } */
+    }
+    @media (min-width: 900px) {
+      #navdrawer { display: none; }
+    }
+
     #overlay { /* beneath the navdrawer */
       background: rgba(0, 0, 0, 0.5);
       position: fixed;
@@ -16,36 +29,25 @@ template.innerHTML = `
       pointer-events: none;
     }
 
-    @media (max-width: 1000px) {
-      #navbar .navlinks { display: none; }
-      #navdrawer { display: flex; }
-      #hamburger { display: block; }
-    }
-    @media (min-width: 1000px) {
-      #navdrawer { display: none; }
-    }
-
     #navbar {
+      height: var(--init-navbar-height); /* Starts here, ends at 80px */
       width: 100vw;
-      height: 70px;
-      background: black;
-
+      background: rgba(255, 255, 255, 0.1);
+      position: fixed;
       z-index: 8; /* navdrawer=10, overlay=9, navbar=8 */
-      position: fixed; 
+    }
 
+    #navbar > .container {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      height: 100%;
     }
-    #navbar .logo {
-      height: 50px;
-      width: 50px;
-      background: white;
-    }
-    #navbar nav.navlinks {
-      background: green;
-    }
-    #navbar #hamburger {
+
+    .gutter {
+      --padding: 5%;
+      padding-left: var(--padding);
+      padding-right: var(--padding);
     }
 
     #navdrawer {
@@ -55,27 +57,59 @@ template.innerHTML = `
       background: blue;
       position: fixed;
       top: 0;
-      /* transform: translateX( calc(-1 * var(--width) ) ); */
+      transform: translateX( calc(-1 * var(--width) ) );
 
+      display: flex;
       justify-content: center; 
       align-items: center;
       
       z-index: 10; /* navdrawer=10, overlay=9, navbar=8 */
     }
-    #navdrawer nav {
+
+    #navdrawer > .navlinks {
       background: darkorchid;
       display: flex;
       flex-direction: column;
+      /* width: fit-content; */
+    }
+    #navdrawer .navlink:not(:nth-child(1)) {
+      margin-top: 30px;
     }
 
-    .navlink {
+    .logo {
+      height: 50px;
+      width: 50px;
+      background: white;
+    }
+    .navlinks {
+      /* background: orange; */
       cursor: pointer;
+    }
+    .navlink {
+      text-decoration: none;
       color: white;
+
       transition: color 0.2s ease;
     }
-    .navlink:hover,
+    .navlink:hover, 
     .navlink.active {
-      color: darkorange;
+      --color: darkorange;
+      color: var(--color) !important;
+    }
+    #navbar .navlink:not(:nth-child(1)) {
+      margin-left: 30px;
+    }
+    #hamburger {
+      fill: white;
+
+      --size: 35px;
+      height: var(--size);
+      width: var(--size);
+
+      cursor: pointer;
+    }
+    #hamburger svg {
+      fill: white;
     }
   </style>
 
@@ -94,17 +128,26 @@ template.innerHTML = `
     <div id="overlay"></div>
 
     <header id="navbar">
-      <div class="logo"></div>
+      <div class="container gutter">
+        <div class="logo"></div>
+        
+        <!-- <toggle-switch></toggle-switch> -->
 
-      <nav class="navlinks">
-        <span class="navlink">page 0</span>
-        <span class="navlink">page 1</span>
-        <span class="navlink">page 2</span>
-        <span class="navlink">page 3</span>
-        <span class="navlink">page 4</span>
-      </nav>
+        <div class="navlinks">
+          
+          <span class="navlink">Home</span>
+          <span class="navlink">About</span>
+          <span class="navlink">Porfolio</span>
+          <span class="navlink">Contact</span>
+          <span class="navlink">3D</span>
+        </div>
 
-      <button id="hamburger">Hamburger</button>
+        <div id="hamburger">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+        </div>
+      </div>
     </header>
 
     <div id="blur-container">
