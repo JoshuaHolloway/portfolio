@@ -32,6 +32,7 @@ template.innerHTML = `
     #navbar {
       height: var(--init-navbar-height); /* Starts here, ends at 80px */
       width: 100vw;
+      height: 80px;
       background: rgba(255, 255, 255, 0.1);
       position: fixed;
       z-index: 8; /* navdrawer=10, overlay=9, navbar=8 */
@@ -79,7 +80,11 @@ template.innerHTML = `
     .logo {
       height: 50px;
       width: 50px;
-      background: white;
+      /* background: white; */
+      background-image: url("/img/favicon.svg"); /* The image used */
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+      background-size: cover; /* Resize the background image to cover the entire container */
     }
     .navlinks {
       /* background: orange; */
@@ -129,7 +134,8 @@ template.innerHTML = `
 
     <header id="navbar">
       <div class="container gutter">
-        <div class="logo"></div>
+        <div class="logo">
+        </div>
         
         <!-- <toggle-switch></toggle-switch> -->
 
@@ -370,6 +376,7 @@ class WebComp extends HTMLElement {
           tl = gsap.timeline();
           tl.to(navdrawer, {
             x: 0,
+            duration: 0.3,
           });
     
           tl.to(overlay, {
