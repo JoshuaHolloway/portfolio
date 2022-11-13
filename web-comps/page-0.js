@@ -19,10 +19,13 @@ template.innerHTML = `
       align-items: center;
       justify-content: center;
       background: transparent;
+      top: 0;
+      left: 0;
     }
     .loader-wrap svg {
       position: absolute;
       top: 0;
+      left: 0;
       width: 100vw;
       height: 110vh;
     }
