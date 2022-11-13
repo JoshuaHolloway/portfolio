@@ -5,10 +5,6 @@ template.innerHTML = `
       margin: 0;
       padding: 0;
     }
-    body {
-      background-color: #e0e0e0;
-      overflow: hidden;
-    }
     span {
       overflow: hidden;
       display: block;
