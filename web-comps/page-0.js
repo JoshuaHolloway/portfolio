@@ -13,7 +13,7 @@ template.innerHTML = `
       position: absolute;
       z-index: 10;
       height: 100vh;
-      width: 100%;
+      width: 100vw;
       display: flex;
       overflow: hidden;
       align-items: center;
@@ -45,6 +45,7 @@ template.innerHTML = `
       <style>
         section#about {
           height: 100vh;
+          width: 100vw;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -89,7 +90,7 @@ template.innerHTML = `
 
         <h3 class="animate-text">Website coming soon to a browser near you...</h3>
 
-      </section>
+      
       </section>
 
     </div>

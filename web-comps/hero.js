@@ -17,7 +17,7 @@ template.innerHTML = `
         display: none;
       }
       .container {
-        grid-template-columns: 1fr;
+        /* grid-template-columns: 1fr; */
       }
       .super-title { font-size: 18px; }
       .title { font-size: 60px; }
