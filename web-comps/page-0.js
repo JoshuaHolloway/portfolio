@@ -71,7 +71,7 @@ template.innerHTML = `
           </svg>
         </div>
 
-        <h3 class="animate-text">Website coming soon to a browser near you...</h3>
+        <h3 class="animate-text">Coming soon to a browser near you...</h3>
 
       
       </section>
