@@ -71,14 +71,6 @@ template.innerHTML = `
           </svg>
         </div>
 
-        <div>
-          0. Curve
-          2. React into Jade
-          3. FAQ into Jade
-          4. FAQ into demos in portfolio
-          5. FLIP
-        </div>
-
         <h3 class="animate-text">Website coming soon to a browser near you...</h3>
 
       
