@@ -74,9 +74,9 @@ template.innerHTML = `
       </div> -->
     </div>
     <div class="container">
-      <span>
-        <h1>Josh Holloway</h1>
-      </span>
+      
+      <wc-hero></wc-hero>
+
     </div>
   </main>
 `;
