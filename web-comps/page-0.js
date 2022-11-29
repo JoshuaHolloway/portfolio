@@ -30,17 +30,6 @@ template.innerHTML = `
       height: 110vh;
     }
 
-
-    @media (max-width: 767px) {
-      .loader-wrap svg {
-        width: 200vw;
-        margin-left: -50vw;
-      }
-      .loader-wrap .loader-wrap-heading,
-      .container h1 {
-        font-size: 60px;
-      }
-    }
   </style>
 
   <main>
@@ -89,6 +78,14 @@ template.innerHTML = `
             ></path>
           </g>
         </svg>
+
+        <div>
+          0. Curve
+          2. React into Jade
+          3. FAQ into Jade
+          4. FAQ into demos in portfolio
+          5. FLIP
+        </div>
 
         <h3 class="animate-text">Website coming soon to a browser near you...</h3>
 
