@@ -42,8 +42,6 @@ template.innerHTML = `
       
       <wc-hero></wc-hero>
 
-
-
       <style>
         section#about {
           height: 100vh;
@@ -167,7 +165,7 @@ class WebComp extends HTMLElement {
         { repeat: 999, duration: 3000, yoyo: true }
         ).start();
       };
-      // blobAnim();
+      blobAnim();
       
       // - - - - - - - - - - - - - - - - - - - - - 
 
