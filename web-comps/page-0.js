@@ -45,41 +45,51 @@ template.innerHTML = `
       <style>
         section#about {
           height: 100vh;
-          width: 100vw;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
           overflow: hidden;
         }
+        #blob-container {
+          /* background: red; */
+          width: 200px;
+          height: 200px;
+        }
       </style>
       <section id="about">
       
-        <svg
-          class="blob-motion"
-          id="visual"
-          viewBox="0 0 960 540"
-          width="300"
-          height="300"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          version="1.1"
-        >
-          <g transform="translate(450.7256843113689 283.4942824330989)">
-            <path
-              id="blob1"
-              d="M148.7 -134.9C193.7 -103.7 231.9 -51.9 232.4 0.6C233 53 196.1 106.1 151.1 128.6C106.1 151.1 53 143 -4.4 147.4C-61.8 151.8 -123.5 168.5 -151.2 146C-178.8 123.5 -172.4 61.8 -172.8 -0.4C-173.1 -62.5 -180.3 -124.9 -152.6 -156.1C-124.9 -187.3 -62.5 -187.1 -5.3 -181.8C51.9 -176.5 103.7 -166 148.7 -134.9"
-              fill="lightgreen"
-            ></path>
-          </g>
-          <g transform="translate(509.54377535978017 281.49390864595887)" style="visibility: hidden">
-            <path
-              id="blob2"
-              d="M115.4 -137.9C137.9 -92.9 136.4 -46.4 133.6 -2.8C130.8 40.8 126.6 81.6 104.1 118.4C81.6 155.2 40.8 188.1 -8.4 196.5C-57.5 204.8 -115 188.7 -151 151.9C-187 115 -201.5 57.5 -190.8 10.7C-180.1 -36.1 -144.1 -72.1 -108.1 -117.1C-72.1 -162.1 -36.1 -216.1 5.2 -221.2C46.4 -226.4 92.9 -182.9 115.4 -137.9"
-              fill="lightgreen"
-            ></path>
-          </g>
-        </svg>
+        <div id="blob-container">
+          <svg
+            class="blob-motion"
+            id="visual"
+            viewBox="0 0 200 200"
+            width="200"
+            height="200"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            version="1.1"
+          >
+            <g transform="translate(110.57557560413369 110.73880689340612)">
+              <path 
+                id="blob1" 
+                d="M55.5 -62.3C63.8 -47.1 56.9 -23.6 56.1 -0.8C55.3 21.9 60.5 43.8 52.2 53.5C43.8 63.2 21.9 60.6 2.4 58.2C-17.2 55.9 -34.4 53.7 -50.2 44.1C-66.1 34.4 -80.5 17.2 -80.7 -0.1C-80.8 -17.4 -66.6 -34.9 -50.7 -50.1C-34.9 -65.2 -17.4 -78.1 3.1 -81.2C23.6 -84.2 47.1 -77.5 55.5 -62.3"
+                fill="#90EE90">        
+              </path>
+            </g>
+
+            <g transform="translate(109.17206950016399 106.5107481595448)" style="visibility: hidden"><path id="blob2" d="M53 -62C64 -53.9 65 -32.8 61.7 -16.1C58.4 0.6 50.9 12.8 42.9 23C34.9 33.3 26.5 41.5 15.8 47.1C5 52.6 -8.1 55.4 -23.4 54.2C-38.7 53 -56.1 47.8 -67.2 35.5C-78.3 23.2 -83 3.9 -81.4 -16C-79.9 -35.8 -72.1 -56.2 -57.5 -63.6C-42.9 -71.1 -21.4 -65.5 -0.2 -65.3C21 -65 42 -70 53 -62" fill="#90EE90"></path></g>
+
+          </svg>
+
+
+
+
+
+
+
+
+        </div>
 
         <div>
           0. Curve
