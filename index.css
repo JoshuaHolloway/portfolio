@@ -33,7 +33,10 @@ body {
 }
 
 page-0 {
-  background: lightblue;
+  background: black;
+  color: white;
+  --color: white;
+  --background: black;
 }
 
 page-1 {
