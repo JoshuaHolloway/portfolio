@@ -33,7 +33,7 @@ template.innerHTML = `
     .overlay { position: absolute; z-index: 0;
       height: 100vh;
       width: 100vw;
-      background: rgba(0, 0, 0, 0.7);
+      /* background: rgba(0, 0, 0, 0.7); */
     }
 
     .left, 
@@ -157,9 +157,13 @@ class WebComp extends HTMLElement {
   }
 
   connectedCallback() {
-    const elem = this.shadowRoot.querySelector('#web-comp');
 
-    const construction = this.shadowRoot.querySelector('#construction');
+    const qs = x => this.shadowRoot.querySelector(x);
+    const qsAll = x => this.shadowRoot.querySelectorAll(x);
+
+    const elem = qs('#web-comp');
+
+    const construction = qs('#construction');
     construction.animate([
         { transform: 'scale(1)'},
         { transform: 'scale(1.033)' }
@@ -176,26 +180,32 @@ class WebComp extends HTMLElement {
       // - - - - - - Loading Animation - - - - - - - - - 
 
       gsap.registerPlugin(ScrollTrigger);
-      var tl = gsap.timeline();
+      const tl = gsap.timeline();
 
-      tl.from(this.shadowRoot.querySelectorAll('.stagger1'), {
+      tl.to(qs('.overlay'), { 
+        background: 'rgba(0, 0, 0, 0.7)', 
+        delay: 1.5,
+        duration: 1.5
+      });
+
+      tl.from(qsAll('.stagger1'), {
           opacity: 0,
           y: -50,
           stagger: .3,
           ease: Power4.easeOut,
           duration: 2,
-          delay: 1.5
-      })
-      tl.from(this.shadowRoot.querySelector('.hero-design'), {
-          opacity: 0, y: 50, ease: Power4.easeOut, duration: 1
-      }, '-=1.5')
+      }, '<=');
 
-      tl.from(this.shadowRoot.querySelector(".square-anim"), {
+      tl.from(qs('.hero-design'), {
+          opacity: 0, y: 50, ease: Power4.easeOut, duration: 1
+      }, '-=1.5');
+
+      tl.from(qs(".square-anim"), {
           stagger: .2,
           scale: 0.1,
           duration: 1,
           ease: Back.easeOut.config(1.7)
-      }, "<=")
+      }, "<=");
 
 
   }
