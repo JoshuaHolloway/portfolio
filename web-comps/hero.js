@@ -78,7 +78,7 @@ template.innerHTML = `
       margin-bottom: 1rem;
     }
     .title {
-      font-weight: 500;
+      font-weight: 700;
       line-height: 1;
       margin: 0;
       margin-bottom: 0.9rem;
