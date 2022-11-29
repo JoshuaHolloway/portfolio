@@ -42,6 +42,8 @@ template.innerHTML = `
       
       <wc-hero></wc-hero>
 
+
+
       <style>
         section#about {
           height: 100vh;
@@ -51,44 +53,24 @@ template.innerHTML = `
           align-items: center;
           overflow: hidden;
         }
-        #blob-container {
-          /* background: red; */
-          width: 200px;
-          height: 200px;
-        }
       </style>
       <section id="about">
       
-        <div id="blob-container">
+        <div id="blog-container">
           <svg
             class="blob-motion"
-            id="visual"
-            viewBox="0 0 200 200"
-            width="200"
-            height="200"
+            viewBox="0 0 300 300"
+            width="300"
+            height="300"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             version="1.1"
           >
-            <g transform="translate(110.57557560413369 110.73880689340612)">
-              <path 
-                id="blob1" 
-                d="M55.5 -62.3C63.8 -47.1 56.9 -23.6 56.1 -0.8C55.3 21.9 60.5 43.8 52.2 53.5C43.8 63.2 21.9 60.6 2.4 58.2C-17.2 55.9 -34.4 53.7 -50.2 44.1C-66.1 34.4 -80.5 17.2 -80.7 -0.1C-80.8 -17.4 -66.6 -34.9 -50.7 -50.1C-34.9 -65.2 -17.4 -78.1 3.1 -81.2C23.6 -84.2 47.1 -77.5 55.5 -62.3"
-                fill="#90EE90">        
-              </path>
-            </g>
+          <g transform="translate(148.00954411357816 143.3754709399765)"><path id="blob1" d="M84.5 -92.7C104.7 -83.7 112.9 -52.5 112.3 -24.5C111.6 3.6 102.2 28.5 89.5 52.8C76.8 77 61 100.5 40 107C18.9 113.4 -7.3 102.7 -30.1 90.9C-52.9 79.1 -72.4 66 -87.1 47.1C-101.9 28.2 -112 3.3 -107.1 -17.9C-102.2 -39.1 -82.3 -56.7 -61.9 -65.6C-41.6 -74.5 -20.8 -74.8 5.7 -81.5C32.1 -88.3 64.3 -101.6 84.5 -92.7" fill="#90EE90"></path></g>
 
-            <g transform="translate(109.17206950016399 106.5107481595448)" style="visibility: hidden"><path id="blob2" d="M53 -62C64 -53.9 65 -32.8 61.7 -16.1C58.4 0.6 50.9 12.8 42.9 23C34.9 33.3 26.5 41.5 15.8 47.1C5 52.6 -8.1 55.4 -23.4 54.2C-38.7 53 -56.1 47.8 -67.2 35.5C-78.3 23.2 -83 3.9 -81.4 -16C-79.9 -35.8 -72.1 -56.2 -57.5 -63.6C-42.9 -71.1 -21.4 -65.5 -0.2 -65.3C21 -65 42 -70 53 -62" fill="#90EE90"></path></g>
+          <g transform="translate(158.38919272288618 129.16969115480245)" style="visibility: hidden;"><path id="blob2"d="M48.1 -57.3C64 -43.9 79.8 -30.4 84.3 -13.6C88.8 3.3 82.1 23.4 73.3 45.9C64.6 68.5 53.8 93.4 32.7 109.7C11.6 125.9 -19.8 133.4 -41.3 122C-62.8 110.5 -74.3 80 -85.1 53.1C-95.9 26.2 -106.1 2.8 -101.3 -16.8C-96.5 -36.4 -76.9 -52.3 -57.5 -65C-38.1 -77.8 -19.1 -87.4 -1.5 -85.6C16.1 -83.8 32.1 -70.6 48.1 -57.3" fill="#90EE90"></path></g>
 
           </svg>
-
-
-
-
-
-
-
-
         </div>
 
         <div>
@@ -103,6 +85,8 @@ template.innerHTML = `
 
       
       </section>
+
+      
 
     </div>
   </main>
@@ -183,7 +167,7 @@ class WebComp extends HTMLElement {
         { repeat: 999, duration: 3000, yoyo: true }
         ).start();
       };
-      blobAnim();
+      // blobAnim();
       
       // - - - - - - - - - - - - - - - - - - - - - 
 
