@@ -72,8 +72,7 @@ template.innerHTML = `
         </div>
 
         <h3 class="animate-text">Coming soon to a browser near you...</h3>
-
-      
+        
       </section>
 
       

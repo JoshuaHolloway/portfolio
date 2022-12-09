@@ -194,6 +194,8 @@ class WebComp extends HTMLElement {
     
     const setupNavlinks = () => {
     
+      // console.log('%c' + 'setupNavlinks()', 'color: orange');
+
       let page_idx = { current: 0, prev: null };
     
       const pages    = document.querySelectorAll('.page');
@@ -270,6 +272,8 @@ class WebComp extends HTMLElement {
       // --------------------------------------------
     
       window.addEventListener('load', (event) => {
+
+        console.log('%c' + 'load event handler', 'color: yellow');
     
         // For initial page load on /
         // startSmoothScroll();
@@ -278,76 +282,88 @@ class WebComp extends HTMLElement {
         
         // page_idx Hack: Just hard code the previous path. Can store page_idx object in local storage in want to store actual previous path.
         
-        if (path_local_storage === null) {
-          // Initial page load => Set 'home' as active navlink
-          navlinks[0].classList.add('active');
-    
-          // Set local storage 'path' to '/'
-          window.localStorage.setItem('path', JSON.stringify('/'));
-        
-          gsap.fromTo(document.querySelector('body'), {opacity: 0}, {opacity: 1, duration: 0})
-        }
-        else{
+
+
+        const resetPages = () => {
           pages.forEach(page => {
             page.style.zIndex = 0;
             page.style.opacity = 0;
-          });
-    
-          if (path_local_storage === '/') {
-            pages[0].style.zIndex = 1;
-            pages[0].style.opacity = 1;
-            navlinks[0].classList.add('active');
-            navlinks[5].classList.add('active');
-            page_idx = { current: 0, prev: 1 };
-          }
-          else if (path_local_storage === '/about') {
-            pages[1].style.zIndex = 1;
-            pages[1].style.opacity = 1;
-            navlinks[1].classList.add('active');
-            navlinks[6].classList.add('active');
-            window.history.replaceState({}, '', '/about');
-            page_idx = { current: 1, prev: 0 };
-          }
-          else if (path_local_storage === '/portfolio') {
-            pages[2].style.zIndex = 1;
-            pages[2].style.opacity = 1;
-            navlinks[2].classList.add('active');
-            navlinks[7].classList.add('active');
-            window.history.replaceState({}, '', '/portfolio');
-            page_idx = { current: 2, prev: 0 };
-          }
-          else if (path_local_storage === '/contact') {
-            pages[3].style.zIndex = 1;
-            pages[3].style.opacity = 1;
-            navlinks[3].classList.add('active');
-            navlinks[8].classList.add('active');
-            window.history.replaceState({}, '', '/contact');
-            page_idx = { current: 3, prev: 0 };
-          }
-          else if (path_local_storage === '/3D') {
-            pages[4].style.zIndex = 1;
-            pages[4].style.opacity = 1;
-            navlinks[4].classList.add('active');
-            navlinks[9].classList.add('active');
-            window.history.replaceState({}, '', '/3D');
-            page_idx = { current: 4, prev: 0 };
-          }
-    
-          gsap.fromTo(document.querySelector('body'), {opacity: 0}, {opacity: 1, duration: 1, delay: 0.5})
-    
-          listenForEvent('local-storage-path-modified', () => {
-            console.log('Event Fired: path changed and local storage "path" set');
-    
-            // const path_local_storage = JSON.parse(window.localStorage.getItem('path'));
-            // if (path_local_storage === '/') {
-            //   startSmoothScroll();
-            // }
-            // else {
-            //   stopSmoothScroll();
-            // }
-    
-          });
-        } // else
+          });  
+        };
+        resetPages();
+
+        const initializePage = () => {
+          console.log('%c' + "initializePage()", 'color: green');
+          console.log('pages: ', pages);
+          pages[0].style.zIndex = 1;
+          pages[0].style.opacity = 1;
+          navlinks[0].classList.add('active');
+          navlinks[5].classList.add('active');
+          page_idx = { current: 0, prev: 1 };
+        };
+
+        if (path_local_storage === null) {
+          console.log('%c' + 'path_local_storage === null', 'color: red');
+          window.localStorage.setItem('path', JSON.stringify('/'));
+          initializePage();
+        }
+        
+
+
+
+
+        if (path_local_storage === '/') {
+          
+          initializePage();
+        }
+        else if (path_local_storage === '/about') {
+          pages[1].style.zIndex = 1;
+          pages[1].style.opacity = 1;
+          navlinks[1].classList.add('active');
+          navlinks[6].classList.add('active');
+          window.history.replaceState({}, '', '/about');
+          page_idx = { current: 1, prev: 0 };
+        }
+        else if (path_local_storage === '/portfolio') {
+          pages[2].style.zIndex = 1;
+          pages[2].style.opacity = 1;
+          navlinks[2].classList.add('active');
+          navlinks[7].classList.add('active');
+          window.history.replaceState({}, '', '/portfolio');
+          page_idx = { current: 2, prev: 0 };
+        }
+        else if (path_local_storage === '/contact') {
+          pages[3].style.zIndex = 1;
+          pages[3].style.opacity = 1;
+          navlinks[3].classList.add('active');
+          navlinks[8].classList.add('active');
+          window.history.replaceState({}, '', '/contact');
+          page_idx = { current: 3, prev: 0 };
+        }
+        else if (path_local_storage === '/3D') {
+          pages[4].style.zIndex = 1;
+          pages[4].style.opacity = 1;
+          navlinks[4].classList.add('active');
+          navlinks[9].classList.add('active');
+          window.history.replaceState({}, '', '/3D');
+          page_idx = { current: 4, prev: 0 };
+        }
+  
+        gsap.fromTo(document.querySelector('body'), {opacity: 0}, {opacity: 1, duration: 1, delay: 0.5})
+  
+        listenForEvent('local-storage-path-modified', () => {
+          console.log('Event Fired: path changed and local storage "path" set');
+  
+          // const path_local_storage = JSON.parse(window.localStorage.getItem('path'));
+          // if (path_local_storage === '/') {
+          //   startSmoothScroll();
+          // }
+          // else {
+          //   stopSmoothScroll();
+          // }
+  
+        });
+      
       });
     
     };
