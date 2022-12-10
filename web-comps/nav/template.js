@@ -5,11 +5,11 @@ template.innerHTML = `
 
     <div id="navdrawer">
       <nav class="navlinks">
-        <span class="navlink">page 0</span>
-        <span class="navlink">page 1</span>
-        <span class="navlink">page 2</span>
-        <span class="navlink">page 3</span>
-        <span class="navlink">page 4</span>
+        <span class="navlink">Home</span>
+        <span class="navlink">About</span>
+        <span class="navlink">Portfolio</span>
+        <span class="navlink">Contact</span>
+        <span class="navlink">3D</span>
       </nav>
     </div>
 
