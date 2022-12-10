@@ -77,7 +77,7 @@ template.innerHTML = `
         <h3 class="animate-text">Coming soon to a browser near you...</h3>
 
 
-        <wc-seperate l="150" c="blue"></wc-seperate>
+        <!-- <wc-seperate l="150" c="blue"></wc-seperate> -->
 
         
       </section>

@@ -4,7 +4,7 @@ template.innerHTML = `
   <div id="web-comp">
 
     <div id="navdrawer">
-      <nav>
+      <nav class="navlinks">
         <span class="navlink">page 0</span>
         <span class="navlink">page 1</span>
         <span class="navlink">page 2</span>
@@ -40,7 +40,7 @@ template.innerHTML = `
     </header>
 
     <div id="blur-container">
-      <slot />
+      <slot></slot>
     </div>
 
   </div>
