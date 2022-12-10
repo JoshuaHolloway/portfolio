@@ -55,7 +55,7 @@ template.innerHTML = `
       --width: 200px;
       height: 100vh;
       width: var(--width);
-      background: blue;
+      background: dimgray;
       position: fixed;
       top: 0;
       transform: translateX( calc(-1 * var(--width) ) );
