@@ -1,0 +1,113 @@
+#web-comp {
+  --pad: 80px;
+}
+
+@media (max-width: 900px) {
+  #navbar .navlinks { display: none; }
+  #navdrawer { display: flex; }
+  /* #hamburger { display: block; } */
+}
+@media (min-width: 900px) {
+  #navdrawer { display: none; }
+}
+
+#overlay { /* beneath the navdrawer */
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9; /* navdrawer=10, overlay=9, navbar=8 */
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#navbar {
+  height: var(--init-navbar-height); /* Starts here, ends at 80px */
+  width: 100vw;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  position: fixed;
+  z-index: 8; /* navdrawer=10, overlay=9, navbar=8 */
+}
+
+#navbar > .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.gutter {
+  --padding: 5%;
+  padding-left: var(--padding);
+  padding-right: var(--padding);
+}
+
+#navdrawer {
+  --width: 200px;
+  height: 100vh;
+  width: var(--width);
+  background: hsla(0, 0%, 41%, 0.7);
+  position: fixed;
+  top: 0;
+  transform: translateX( calc(-1 * var(--width) ) );
+
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  
+  z-index: 10; /* navdrawer=10, overlay=9, navbar=8 */
+}
+
+#navdrawer > .navlinks {
+  background: darkorchid;
+  display: flex;
+  flex-direction: column;
+  /* width: fit-content; */
+}
+#navdrawer .navlink:not(:nth-child(1)) {
+  margin-top: 30px;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+  /* background: white; */
+  background-image: url("/img/favicon.svg"); /* The image used */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+.navlinks {
+  /* background: orange; */
+  cursor: pointer;
+}
+.navlink {
+  text-decoration: none;
+  color: white;
+
+  transition: color 0.2s ease;
+}
+.navlink:hover, 
+.navlink.active {
+  --color: darkorange;
+  color: var(--color) !important;
+}
+#navbar .navlink:not(:nth-child(1)) {
+  margin-left: 30px;
+}
+#hamburger {
+  fill: white;
+
+  --size: 35px;
+  height: var(--size);
+  width: var(--size);
+
+  cursor: pointer;
+}
+#hamburger svg {
+  fill: white;
+}

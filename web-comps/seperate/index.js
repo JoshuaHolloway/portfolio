@@ -1,4 +1,7 @@
 import template from "./template.js";
+import importCSS from "../util/import-css.js";
+import setupHTML from "../util/setup-html.js";
+const css = '/web-comps/seperate/index.css';
 
 class WebComp extends HTMLElement {
 
@@ -7,21 +10,9 @@ class WebComp extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open'})
-
-    const setupHTML = () => {
-      this.shadowRoot.appendChild(template.content.cloneNode(true));
-    };   
-
-    const importCSS = (path) => {
-      // Apply external styles to the shadow DOM
-      const linkElem = document.createElement("link");
-      linkElem.setAttribute("rel", "stylesheet");
-      linkElem.setAttribute("href", path);
-      this.shadowRoot.appendChild(linkElem);
-    };
-
-    importCSS("/web-comps/seperate/index.css");
-    setupHTML();
+    const shadowRoot = this.shadowRoot;
+    importCSS(shadowRoot, css);
+    setupHTML(shadowRoot, template);
   }
 
   connectedCallback() {
