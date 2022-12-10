@@ -1,15 +1,26 @@
 {
   "files.exclude": {
+    // "**/*.css": true,
+    "**/*.css.map": true,
     "package-lock.json": true,
     "node_modules": true,
     ".gitignore": true,
     "3D/": true,
-    "about/": true,
+    // "about/":  true,
     "contact/": true,
     "portfolio/": true,
     "gsap-shockingly-green": true,
     "favicon.ico": true,
     "index.css.map": true
   },
+  "liveSassCompile.settings.formats": [ // override global settings.json
+    {
+      "format": "compressed",
+      "extensionName": ".css",
+      // "savePath": "/css",
+      "savePath": "~/",
+      "savePathReplacementPairs": null
+    }
+  ],
   "liveServer.settings.port": 5503
 }

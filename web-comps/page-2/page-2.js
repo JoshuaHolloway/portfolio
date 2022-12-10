@@ -2,12 +2,12 @@ const template = document.createElement('template');
 template.innerHTML = `
   <style>
     * {
-      color: red;
+      color: lightgreen;
     }
   </style>
 
   <main>
-    <h1>Web Comp - Page 1</h1>
+    <h1>Page 2</h1>
   </main>
 `;
 
@@ -27,4 +27,4 @@ class WebComp extends HTMLElement {
   }
 }
 
-window.customElements.define('page-1', WebComp);
+window.customElements.define('page-2', WebComp);

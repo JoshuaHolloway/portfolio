@@ -1,3 +1,6 @@
+import '../nav/nav.js';
+import '../hero/hero.js';
+
 const template = document.createElement('template');
 template.innerHTML = `
   <style>
@@ -72,6 +75,10 @@ template.innerHTML = `
         </div>
 
         <h3 class="animate-text">Coming soon to a browser near you...</h3>
+
+
+        <wc-seperate l="150" c="blue"></wc-seperate>
+
         
       </section>
 

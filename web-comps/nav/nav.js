@@ -1,4 +1,4 @@
-import { listenForEvent, fireEvent } from '../js/custom-events.js';
+import { listenForEvent, fireEvent } from '/js/custom-events.js';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -278,7 +278,7 @@ class WebComp extends HTMLElement {
         // For initial page load on /
         // startSmoothScroll();
     
-        const path_local_storage = JSON.parse(window.localStorage.getItem('path'));
+        
         
         // page_idx Hack: Just hard code the previous path. Can store page_idx object in local storage in want to store actual previous path.
         
@@ -302,57 +302,56 @@ class WebComp extends HTMLElement {
           page_idx = { current: 0, prev: 1 };
         };
 
+        const path_local_storage = JSON.parse(window.localStorage.getItem('path'));
         if (path_local_storage === null) {
           console.log('%c' + 'path_local_storage === null', 'color: red');
           window.localStorage.setItem('path', JSON.stringify('/'));
           initializePage();
         }
-        
+        else {
+          if (path_local_storage === '/') {
+            initializePage();
+          }
+          else if (path_local_storage === '/about') {
+            pages[1].style.zIndex = 1;
+            pages[1].style.opacity = 1;
+            navlinks[1].classList.add('active');
+            navlinks[6].classList.add('active');
+            window.history.replaceState({}, '', '/about');
+            page_idx = { current: 1, prev: 0 };
+          }
+          else if (path_local_storage === '/portfolio') {
+            pages[2].style.zIndex = 1;
+            pages[2].style.opacity = 1;
+            navlinks[2].classList.add('active');
+            navlinks[7].classList.add('active');
+            window.history.replaceState({}, '', '/portfolio');
+            page_idx = { current: 2, prev: 0 };
+          }
+          else if (path_local_storage === '/contact') {
+            pages[3].style.zIndex = 1;
+            pages[3].style.opacity = 1;
+            navlinks[3].classList.add('active');
+            navlinks[8].classList.add('active');
+            window.history.replaceState({}, '', '/contact');
+            page_idx = { current: 3, prev: 0 };
+          }
+          else if (path_local_storage === '/3D') {
+            pages[4].style.zIndex = 1;
+            pages[4].style.opacity = 1;
+            navlinks[4].classList.add('active');
+            navlinks[9].classList.add('active');
+            window.history.replaceState({}, '', '/3D');
+            page_idx = { current: 4, prev: 0 };
+          }
+
+        } // else (path_local_storage === null)
 
 
-
-
-        if (path_local_storage === '/') {
-          
-          initializePage();
-        }
-        else if (path_local_storage === '/about') {
-          pages[1].style.zIndex = 1;
-          pages[1].style.opacity = 1;
-          navlinks[1].classList.add('active');
-          navlinks[6].classList.add('active');
-          window.history.replaceState({}, '', '/about');
-          page_idx = { current: 1, prev: 0 };
-        }
-        else if (path_local_storage === '/portfolio') {
-          pages[2].style.zIndex = 1;
-          pages[2].style.opacity = 1;
-          navlinks[2].classList.add('active');
-          navlinks[7].classList.add('active');
-          window.history.replaceState({}, '', '/portfolio');
-          page_idx = { current: 2, prev: 0 };
-        }
-        else if (path_local_storage === '/contact') {
-          pages[3].style.zIndex = 1;
-          pages[3].style.opacity = 1;
-          navlinks[3].classList.add('active');
-          navlinks[8].classList.add('active');
-          window.history.replaceState({}, '', '/contact');
-          page_idx = { current: 3, prev: 0 };
-        }
-        else if (path_local_storage === '/3D') {
-          pages[4].style.zIndex = 1;
-          pages[4].style.opacity = 1;
-          navlinks[4].classList.add('active');
-          navlinks[9].classList.add('active');
-          window.history.replaceState({}, '', '/3D');
-          page_idx = { current: 4, prev: 0 };
-        }
-  
         gsap.fromTo(document.querySelector('body'), {opacity: 0}, {opacity: 1, duration: 1, delay: 0.5})
   
         listenForEvent('local-storage-path-modified', () => {
-          console.log('Event Fired: path changed and local storage "path" set');
+          console.log('%c' + 'Event Fired: path changed and local storage "path" set', 'color: blue');
   
           // const path_local_storage = JSON.parse(window.localStorage.getItem('path'));
           // if (path_local_storage === '/') {
